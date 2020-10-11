@@ -13,5 +13,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-source $HOME/.zsh/functions
+fpath=($HOME/.zsh/functions $fpath)
+autoload git_current_branch
+
 source $HOME/.zsh/alias
