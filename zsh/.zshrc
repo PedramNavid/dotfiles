@@ -12,3 +12,6 @@ zstyle :compinstall filename '/Users/pedram.navid/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+source $HOME/.zsh/functions
+source $HOME/.zsh/alias
