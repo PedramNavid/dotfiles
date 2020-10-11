@@ -1,4 +1,13 @@
+#
+# Common Directories
+#
+
+alias cdp='cd $HOME/projects'
+
+
+#
 # Git
+#
 alias gst='git status'
 alias gc='git commit -v'
 alias gd='git diff'
