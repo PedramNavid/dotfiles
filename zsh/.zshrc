@@ -2,7 +2,6 @@ HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
 
-
 setopt autocd autolist beep notify
 unsetopt nomatch
 
@@ -26,7 +25,7 @@ precmd() {
 setopt prompt_subst
 
 PROMPT='%m %~> '
-RPROMPT='${vcs_info_msg_0_} %{$fg[cyan]%}[%t]%{$reset_color%}'
+RPROMPT='${vcs_info_msg_0_}%{$fg[cyan]%}[%t]%{$reset_color%}'
 
 # Directories
 # cd acts as pushd, without printing the dir stack
@@ -40,3 +39,5 @@ autoload git_current_branch
 # Sourced Files
 source $HOME/.zsh/alias
 source $HOME/.zsh/exports
+
+eval "$(pyenv init -)
