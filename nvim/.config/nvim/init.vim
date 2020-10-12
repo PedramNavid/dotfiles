@@ -22,9 +22,25 @@ function! PackInit() abort
     call minpac#add('k-takata/minpac', {'type': 'opt'})
 
     call minpac#add('danilo-augusto/vim-afterglow')
+    call minpac#add('Shougo/deoplete.nvim')
+    call minpac#add('autozimu/LanguageClient-neovim', {'branch': 'next', 'do': '!bash install.sh'})
 endfunction
 
 " Commands for updating packages
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 command! PackStatus packadd minpac | call minpac#status()
+
+" Deoplete Options
+" Deoplete provides async completion
+let g:deoplete#enable_at_startup = 1
+
+" LanguageClient Options
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'vim': ['/usr/local/lib/node_modules/vim-language-server/bin/index.js', '--stdio'],
+    \ }
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
