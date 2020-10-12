@@ -1,9 +1,17 @@
 #
-# Common Directories
+# Files/Directories
 #
-
 alias cdp='cd $HOME/projects'
+alias dh='dirs -v' 		# print dirstack
+alias l='ls -AF'
 
+
+#
+# File Edits
+#
+alias vzrc='vim ~/.zshrc'
+alias vali='vim ~/.zsh/alias'
+alias vexp='vim ~/.zsh/exports'
 
 #
 # Git
