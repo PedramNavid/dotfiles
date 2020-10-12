@@ -11,7 +11,12 @@ unsetopt nomatch
 zstyle :compinstall filename '/Users/pedram.navid/.zshrc'
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
+
+
+# Directories
+# cd acts as pushd, without printing the dir stack
+DIRSTACKSIZE=8
+setopt autopushd pushdminus pushdsilent pushdtohome
 
 # Functions
 fpath=($HOME/.zsh/functions $fpath)
