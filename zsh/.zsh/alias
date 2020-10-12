@@ -15,6 +15,7 @@ alias vim='nvim'
 alias vzrc='vim ~/.zshrc'
 alias vali='vim ~/.zsh/alias'
 alias vexp='vim ~/.zsh/exports'
+alias vrc='vim ~/.config/nvim/init.vim'
 
 #
 # Git
