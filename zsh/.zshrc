@@ -27,7 +27,6 @@ setopt prompt_subst
 
 PROMPT='%m %~> '
 RPROMPT='${vcs_info_msg_0_} %{$fg[cyan]%}[%t]%{$reset_color%}'
-kitty @ set-colors -a ~/.config/kitty/kitty-themes/themes/Afterglow.conf
 
 # Directories
 # cd acts as pushd, without printing the dir stack
