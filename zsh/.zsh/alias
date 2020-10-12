@@ -25,5 +25,3 @@ alias gc='git commit -v'
 alias gd='git diff'
 alias gp='git push'
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
-
-
