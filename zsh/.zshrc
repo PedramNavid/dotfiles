@@ -2,7 +2,7 @@ HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
 
-PROMPT='%m %~>'
+PROMPT='%m %~> '
 RPROMPT='%t'
 
 setopt autocd autolist beep notify

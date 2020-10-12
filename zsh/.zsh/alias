@@ -3,13 +3,15 @@
 #
 alias cdp='cd $HOME/projects'
 alias dh='dirs -v' 		# print dirstack
-alias ls='ls --color=auto'
 alias l='ls -AF'
+alias ll='l -l'
+alias la='ls -AF'
 
 
 #
 # File Edits
 #
+alias vim='nvim'
 alias vzrc='vim ~/.zshrc'
 alias vali='vim ~/.zsh/alias'
 alias vexp='vim ~/.zsh/exports'
@@ -22,4 +24,5 @@ alias gc='git commit -v'
 alias gd='git diff'
 alias gp='git push'
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
+
 
