@@ -1,3 +1,9 @@
 [submodule "nvim/.config/nvim/pack/minpac/opt/minpac"]
 	path = nvim/.config/nvim/pack/minpac/opt/minpac
 	url = git@github.com:k-takata/minpac.git
+[submodule "nvim/.config/nvim/pack/minpac/start/LanguageClient-neovim"]
+	path = nvim/.config/nvim/pack/minpac/start/LanguageClient-neovim
+	url = https://github.com/autozimu/LanguageClient-neovim.git
+[submodule "nvim/.config/nvim/pack/minpac/start/deoplete.nvim"]
+	path = nvim/.config/nvim/pack/minpac/start/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim.git
