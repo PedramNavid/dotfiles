@@ -3,6 +3,7 @@
 #
 alias cdp='cd $HOME/projects'
 alias dh='dirs -v' 		# print dirstack
+alias ls='ls --color=auto'
 alias l='ls -AF'
 
 
