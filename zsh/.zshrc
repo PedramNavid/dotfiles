@@ -4,6 +4,7 @@ SAVEHIST=5000
 
 setopt autocd autolist beep notify
 unsetopt nomatch
+path=(/Applications/SnowSQL.app/Contents/MacOS $path)
 
 zstyle :compinstall filename '/Users/pedram.navid/.zshrc'
 autoload -Uz compinit
@@ -40,4 +41,4 @@ autoload git_current_branch
 source $HOME/.zsh/alias
 source $HOME/.zsh/exports
 
-eval "$(pyenv init -)
+eval "$(pyenv init -)"
