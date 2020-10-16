@@ -6,6 +6,11 @@ set noswapfile
 set termguicolors   " enables 24-bit color support
 
 colorscheme afterglow
+" Shortcuts
+
+" vim-unimpaired like movements
+nnoremap [b :bprevious<CR>
+nnoremap ]b :bnext<CR>
 
 " Packages
 function! PackInit() abort
@@ -17,7 +22,8 @@ function! PackInit() abort
 
   call minpac#add('danilo-augusto/vim-afterglow')
   call minpac#add('Shougo/deoplete.nvim')
-  call minpac#add('autozimu/LanguageClient-neovim', {'branch': 'next', 'do': '!bash install.sh'})
+  call minpac#add('autozimu/LanguageClient-neovim',
+  \  {'branch': 'next', 'do': '!bash install.sh'})
   call minpac#add('junegunn/fzf')
 endfunction
 
@@ -28,6 +34,7 @@ command! PackStatus packadd minpac | call minpac#status()
 
 " Python Globals
 let g:python3_host_prog = '/Users/pedram.navid/.pyenv/versions/py3nvim/bin/python'
+
 " Deoplete Options
 " Deoplete provides async completion
 let g:deoplete#enable_at_startup = 1
