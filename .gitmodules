@@ -10,3 +10,6 @@
 [submodule "nvim/.config/nvim/pack/minpac/start/fzf"]
 	path = nvim/.config/nvim/pack/minpac/start/fzf
 	url = https://github.com/junegunn/fzf.gi
+[submodule "nvim/.config/nvim/pack/minpac/start/fzf.vim"]
+	path = nvim/.config/nvim/pack/minpac/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
