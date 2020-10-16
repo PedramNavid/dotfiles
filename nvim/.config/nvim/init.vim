@@ -1,18 +1,35 @@
 " Global Configurations
-
 set hidden
 set noswapfile
-
 set termguicolors   " enables 24-bit color support
 
 colorscheme afterglow
+
+"
 " Shortcuts
+"
+let mapleader = ','
 
 " vim-unimpaired like movements
 nnoremap [b :bprevious<CR>
 nnoremap ]b :bnext<CR>
 
+" fzf-shortcuts
+nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>l :BLines<CR>
+nnoremap <Leader>/ :Rg<CR>
+
+" Window Movements
+map <M-j> <c-w>j
+map <M-k> <c-w>k
+map <M-l> <c-w>l
+map <M-h> <c-w>h
+
+
+"
 " Packages
+"
 function! PackInit() abort
 
   packadd minpac
@@ -25,6 +42,7 @@ function! PackInit() abort
   call minpac#add('autozimu/LanguageClient-neovim',
   \  {'branch': 'next', 'do': '!bash install.sh'})
   call minpac#add('junegunn/fzf')
+  call minpac#add('junegunn/fzf.vim')
 endfunction
 
 " Commands for updating packages
