@@ -2,6 +2,8 @@
 # Files/Directories
 #
 alias cdp='cd $HOME/projects'
+alias cdd='cd $HOME/dotfiles'
+alias cddbt='cd $HOME/projects/vouch-dwh/vouch-dbt'
 alias dh='dirs -v' 		# print dirstack
 alias l='ls -AF'
 alias ll='l -l'
