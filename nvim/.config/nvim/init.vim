@@ -3,7 +3,13 @@
 " ----------
 set hidden
 set noswapfile
-set termguicolors   " enables 24-bit color support
+set termguicolors         " enables 24-bit color support
+set clipboard=unnamedplus " use system clipboard
+set number
+set relativenumber
+set shiftround            " round indent when using > and <
+set mouse=nv
+set icm=split       " show live preview of substitute command
 
 colorscheme afterglow
 
