@@ -1,4 +1,6 @@
-" Global Configurations
+" ----------
+" Global Configurations {{{1
+" ----------
 set hidden
 set noswapfile
 set termguicolors   " enables 24-bit color support
