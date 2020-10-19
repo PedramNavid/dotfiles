@@ -1,0 +1,14 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Pedram Navid
+	email = pedram.navid@vouch.us
+	signingkey = BD3B863D63CE3247
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[core]
+	editor = nvim
+	excludesfile = /Users/pedram.navid/.gitignore
+	attributesFile = /Users/pedram.navid/.gitattributes
