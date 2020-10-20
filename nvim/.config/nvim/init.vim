@@ -1,67 +1,74 @@
+" Basic Settings {{{1
 " ----------
-" Global Configurations {{{1
-" ----------
+
+set clipboard=unnamedplus   " use system clipboard
+set foldlevelstart=0        " 0 is fold everything, -1 is fold nothing
 set hidden
+set icm=split               " show live preview of substitute command
+set mouse=nv
 set noswapfile
-set termguicolors         " enables 24-bit color support
-set clipboard=unnamedplus " use system clipboard
 set number
 set relativenumber
-set shiftround            " round indent when using > and <
-set mouse=nv
-set icm=split       " show live preview of substitute command
-
-colorscheme afterglow
-
+set shiftround              " round indent when using > and <
 set splitbelow
 set splitright
+set termguicolors           " enables 24-bit color support
 
-"  Autogroups {{{1
+colorscheme afterglow
+set statusline=%02n\ %<%f\ %H%M%R%W%q%=%-14.(%y\ %l\\%L,%c%V%)\ %P
+
+"  Filetype Mappings {{{1
 "  ---------
 augroup init_vim
   autocmd!
-  autocmd! bufwritepost init.vim source %
+  autocmd! BufWritePost init.vim source %
+augroup end
+
+augroup filetype_python
+  autocmd!
+  autocmd FileType python   :iabbrev <buffer> iff if:<left>
 augroup end
 
 
-" Shortcuts {{{1
+" Mappings {{{1
 " ----------
 let mapleader = ','
 let maplocalleader = '\\'
 
-" normal mode mappings {{{2
+" Normal mode mappings {{{2
 nnoremap <leader>, ,
 nnoremap <leader>u ddkp
 nnoremap <leader>ev :vsplit $myvimrc<cr>
 nnoremap <leader>d ddp
 nnoremap <leader>s :write<cr>
 
-" insert mode mappings {{{2
-inoremap <c-u> <esc>viwu<esc>ea
-inoremap jj <esc>
-
-" vim-unimpaired like shortcuts  {{{2
+" vim-unimpaired like shortcuts
 nnoremap <silent> [b :bprevious<cr>
 nnoremap <silent> ]b :bnext<cr>
 nnoremap yoh :set hls!<cr>
 
-" vim-surround like shortcuts {{{2
+" vim-surround like shortcuts
 " surrounds word with quotes. example gave lel as the last command but E
 " seems to work fine?
 nnoremap <Leader>" viw<esc>a"<esc>bi"<esc>E
 nnoremap <Leader>' viw<esc>a'<esc>bi'<esc>E
 
-" fzf-shortcuts {{{2
-nnoremap <Leader>f :GFiles<cr>
-nnoremap <Leader>b :Buffers<cr>
-nnoremap <Leader>l :BLines<cr>
-nnoremap <Leader>/ :Rg<cr>
-
-" Window Movements {{{2
+" Window Movements
 noremap <M-j> <c-w>j
 noremap <M-k> <c-w>k
 noremap <M-l> <c-w>l
 noremap <M-h> <c-w>h
+
+" Insert mode mappings {{{2
+inoremap <c-u> <esc>viwu<esc>ea
+inoremap jj <esc>
+
+" Plugin Mappings {{{2
+" fzf
+nnoremap <Leader>f :GFiles<cr>
+nnoremap <Leader>b :Buffers<cr>
+nnoremap <Leader>l :BLines<cr>
+nnoremap <Leader>/ :Rg<cr>
 
 " Terminal Mode {{{2
 tnoremap <Esc> <C-\><C-n>
@@ -72,9 +79,8 @@ iabbrev @@ Pedram Navid
 iabbrev adn and
 iabbrev teh the
 iabbrev tehn then
-iabbrev txns transactions
 
-" Packages {{{1
+" Plugins {{{1
 " --------
 function! PackInit() abort
 
@@ -99,6 +105,7 @@ command! PackStatus packadd minpac | call minpac#status()
 " Plugin Settings {{{2
 "
 " Python Globals {{{3
+" Need to make sure this venv exists!
 let g:python3_host_prog = '/Users/pedram.navid/.pyenv/versions/py3nvim/bin/python'
 
 " Deoplete Options {{{3
