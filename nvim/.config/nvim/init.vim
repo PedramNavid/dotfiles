@@ -45,7 +45,7 @@ nnoremap <leader>s :write<cr>
 " vim-unimpaired like shortcuts
 nnoremap <silent> [b :bprevious<cr>
 nnoremap <silent> ]b :bnext<cr>
-nnoremap yoh :set hls!<cr>
+nnoremap :yoh set hlsearch!<cr>
 
 " vim-surround like shortcuts
 " surrounds word with quotes. example gave lel as the last command but E
