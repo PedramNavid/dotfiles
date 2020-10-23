@@ -26,9 +26,13 @@ augroup end
 
 augroup filetype_python
   autocmd!
-  autocmd FileType python   :iabbrev <buffer> iff if:<left>
+  autocmd FileType python :iabbrev <buffer> iff if:<left>
 augroup end
 
+augroup file_read
+  autocmd!
+  autocmd VimEnter * :match Error /\v +$/
+augroup end
 
 " Mappings {{{1
 " ----------
@@ -45,13 +49,19 @@ nnoremap <leader>s :write<cr>
 " vim-unimpaired like shortcuts
 nnoremap <silent> [b :bprevious<cr>
 nnoremap <silent> ]b :bnext<cr>
-nnoremap :yoh set hlsearch!<cr>
+nnoremap yoh :set hlsearch!<cr>
 
 " vim-surround like shortcuts
 " surrounds word with quotes. example gave lel as the last command but E
 " seems to work fine?
 nnoremap <Leader>" viw<esc>a"<esc>bi"<esc>E
 nnoremap <Leader>' viw<esc>a'<esc>bi'<esc>E
+
+" Highlight trailing spaces as errors
+nnoremap <silent> <leader>w :match Error /\v +$/<CR>
+nnoremap <silent> <leader>W :match none<CR>
+
+nnoremap / /\v
 
 " Window Movements
 noremap <M-j> <c-w>j
