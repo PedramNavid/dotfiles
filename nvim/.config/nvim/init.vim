@@ -69,6 +69,32 @@ noremap <M-k> <c-w>k
 noremap <M-l> <c-w>l
 noremap <M-h> <c-w>h
 
+" Enable Fold Column Toggles
+nnoremap <Leader>fc :call FoldColumnToggle()<CR>
+function! FoldColumnToggle()
+  if &foldcolumn
+    setlocal foldcolumn=0
+  else
+    setlocal foldcolumn=4
+  endif
+endfunction
+
+" Quickfix Toggles
+nnoremap <Leader>q :call QuickfixToggle()<CR>
+
+let g:quickfix_is_open = 0
+function! QuickfixToggle()
+  if g:quickfix_is_open
+    cclose
+    let g:quickfix_is_open = 0
+    execute g:quickfix_return_to_window . "wincmd w"
+  else
+    let g;quickfix_return_to_window = winnr()
+    copen
+    let g:quickfix_is_open = 1
+  endif
+endfunction
+
 " Insert mode mappings {{{2
 inoremap <c-u> <esc>viwu<esc>ea
 inoremap jj <esc>
