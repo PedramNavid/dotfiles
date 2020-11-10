@@ -42,3 +42,4 @@ source $HOME/.zsh/alias
 source $HOME/.zsh/exports
 
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
