@@ -1,9 +1,6 @@
-.netrwhist
-.python-version
-npm-debug.log
-.DS_Store
-Thumbs.db
-.idea/
-log/
-*.log
-.vscode
+**/.DS_Store
+.mypy_cache/
+*.local
+.config/nvim/pack/
+backup/
+.vim/coc-settings.json
