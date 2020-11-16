@@ -194,7 +194,7 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format)
 nmap <leader>e  :CocCommand explorer<CR>
 
 " Text Objects in/all function in/all class
