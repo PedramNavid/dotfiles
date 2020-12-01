@@ -4,3 +4,4 @@
 .config/nvim/pack/
 backup/
 .vim/coc-settings.json
+.httr-oauth-salesforcer
