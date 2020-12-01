@@ -34,8 +34,10 @@ DIRSTACKSIZE=8
 setopt autopushd pushdminus pushdsilent pushdtohome
 
 # Functions
-fpath=($HOME/.zsh/functions $fpath)
+fpath=($HOME/.zsh/completion $HOME/.zsh/functions $fpath)
 autoload git_current_branch
+autoload -Uz compinit && compinit -i
+
 
 # Sourced Files
 source $HOME/.zsh/alias
@@ -43,3 +45,5 @@ source $HOME/.zsh/exports
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+alias k=kubectl
+source <(kubectl completion zsh)
