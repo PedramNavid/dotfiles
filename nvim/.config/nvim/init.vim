@@ -47,7 +47,7 @@ augroup end
 " Mappings {{{1
 " ----------
 let mapleader = ','
-let maplocalleader = '\\'
+let maplocalleader = '\'
 
 " Normal mode mappings {{{2
 nnoremap <leader>, ,
@@ -55,17 +55,6 @@ nnoremap <leader>ev :vsplit $myvimrc<cr>
 nnoremap <leader>u ddkp
 nnoremap <leader>d ddp
 nnoremap <leader>s :write<cr>
-
-" vim-unimpaired like shortcuts
-nnoremap <silent> [b :bprevious<cr>
-nnoremap <silent> ]b :bnext<cr>
-nnoremap yoh :set hlsearch!<cr>
-
-" vim-surround like shortcuts
-" surrounds word with quotes. example gave lel as the last command but E
-" seems to work fine?
-nnoremap <Leader>" viw<esc>a"<esc>bi"<esc>E
-nnoremap <Leader>' viw<esc>a'<esc>bi'<esc>E
 
 " Highlight trailing spaces as errors
 nnoremap <silent> <leader>w :match Error /\v +$/<CR>
@@ -99,7 +88,7 @@ function! QuickfixToggle()
     let g:quickfix_is_open = 0
     execute g:quickfix_return_to_window . "wincmd w"
   else
-    let g;quickfix_return_to_window = winnr()
+    let g:quickfix_return_to_window = winnr()
     copen
     let g:quickfix_is_open = 1
   endif
@@ -111,7 +100,8 @@ inoremap jj <esc>
 
 " Plugin Mappings {{{2
 " fzf
-nnoremap <Leader>g :GFiles<cr>
+nnoremap <Leader>ff :Files<cr>
+nnoremap <Leader>gf :GFiles<cr>
 nnoremap <Leader>b :Buffers<cr>
 nnoremap <Leader>l :BLines<cr>
 nnoremap <Leader>/ :Rg<cr>
@@ -121,7 +111,6 @@ tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
 
 " Abbreviations {{{2
-iabbrev @@ Pedram Navid
 iabbrev adn and
 iabbrev teh the
 iabbrev tehn then
@@ -135,10 +124,15 @@ function! PackInit()
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
+  call minpac#add('PedramNavid/vim-dbt')
+  call minpac#add('tartansandal/pytest-vim-compiler')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
+  call minpac#add('tpope/vim-surround')
+  call minpac#add('tpope/vim-unimpaired')
   call minpac#add('tpope/vim-dispatch')
   call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+  call minpac#add('vim-test/vim-test')
 endfunction
 
 
@@ -149,6 +143,14 @@ command! PackStatus packadd minpac | call minpac#status()
 
 " Plugin Settings {{{2
 "
+" vim-test {{{3
+let test#strategy = 'dispatch'
+let test#python#runner = 'pytest'
+nmap <silent> <LocalLeader>tn :TestNearest<CR>
+nmap <silent> <LocalLeader>tf :TestFile<CR>
+nmap <silent> <LocalLeader>ts :TestSuite<CR>
+nmap <silent> <LocalLeader>tl :TestLast<CR>
+nmap <silent> <LocalLeader>tv :TestVisit<CR>
 " Python Globals {{{3
 " Create a py3nvim virtual env and install nvim from pip
 let g:python3_host_prog = '$HOME/.pyenv/versions/py3nvim/bin/python'
@@ -178,6 +180,7 @@ let g:coc_global_extensions = [
 
 " Trigger completion and select from popup
 inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <Nul> coc#refresh()
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Diagnostics

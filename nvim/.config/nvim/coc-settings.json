@@ -1,0 +1,10 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "python"],
+  "python.sortImports.path": "/Users/pedram.navid/.pyenv/versions/py3nvim/bin/isort",
+  "python.formatting.blackPath": "/Users/pedram.navid/.pyenv/versions/py3nvim/bin/black",
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.jediEnabled": true,
+  "python.jediPath": "/Users/pedram.navid/.pyenv/versions/py3nvim/lib/python3.9/site-packages"
+}
