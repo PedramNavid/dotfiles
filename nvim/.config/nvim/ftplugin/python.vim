@@ -5,7 +5,6 @@ set expandtab       " pressing tab uses spaces instead of tabs
 set smartindent     " auto-indent on new lines
 
 set colorcolumn=80
-set foldmethod=indent
 
 setlocal formatprg=black\ --quiet\ -
 
