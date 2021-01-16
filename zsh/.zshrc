@@ -2,7 +2,7 @@ HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
 
-setopt autocd autolist beep notify
+setopt autocd autolist beep notify SHARE_HISTORY
 unsetopt nomatch
 path=(/Applications/SnowSQL.app/Contents/MacOS $path)
 
