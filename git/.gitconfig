@@ -2,10 +2,9 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Pedram Navid
-	email = pedram.navid@vouch.us
-	signingkey = BD3B863D63CE3247
+	email = pedram.navid@gmail.com
 [commit]
-	gpgsign = true
+	gpgsign = false
 [gpg]
 	program = gpg
 [core]
