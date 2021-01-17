@@ -46,4 +46,5 @@ source $HOME/.zsh/exports
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 alias k=kubectl
+
 source <(kubectl completion zsh)

@@ -192,3 +192,14 @@ alias kgcj='kubectl get cronjob'
 alias kecj='kubectl edit cronjob'
 alias kdcj='kubectl describe cronjob'
 alias kdelcj='kubectl delete cronjob'
+
+
+# Pacman Aliases
+alias pacman="sudo pacman"
+alias paci="pacman -Syu"
+alias pacu="pacman -Syu"
+alias pacs="pacman -Ss"
+alias pacinfo="pacman -Si"
+alias  pacorp="pacman -Qdt"
+alias pacls="pacman -Ql"
+
