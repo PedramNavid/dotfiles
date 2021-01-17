@@ -125,7 +125,6 @@ function! PackInit()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   call minpac#add('PedramNavid/vim-dbt')
-  call minpac#add('tartansandal/pytest-vim-compiler')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('tpope/vim-surround')
