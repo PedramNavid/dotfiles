@@ -8,6 +8,7 @@ alias cdnv='cd $HOME/.config/nvim'
 alias cdair='cd $HOME/projects/vouch-airflow'
 
 alias dh='dirs -v' 		# print dirstack
+alias ls='ls --color'
 alias l='ls -AF'
 alias ll='l -l'
 alias la='ls -AF'

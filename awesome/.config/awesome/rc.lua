@@ -84,9 +84,10 @@ local themes = {
     "rainbow",         -- 8
     "steamburn",       -- 9
     "vertex",          -- 10
+    "pedram",          -- 11
 }
 
-local chosen_theme = themes[5]
+local chosen_theme = themes[11]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "alacritty"
@@ -94,25 +95,25 @@ local vi_focus     = true -- vi-like client focus - https://github.com/lcpz/awes
 local cycle_prev   = true -- cycle trough all previous client or just the first -- https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
 local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
-local browser      = os.getenv("BROWSER") or "firefox"
+local browser      = os.getenv("BROWSER") or ""
 local scrlocker    = "slock"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
-    --awful.layout.suit.floating,
+    -- awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+    --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier,
-    --awful.layout.suit.corner.nw,
+    awful.layout.suit.corner.nw,
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
     --awful.layout.suit.corner.se,
@@ -120,8 +121,8 @@ awful.layout.layouts = {
     --lain.layout.cascade.tile,
     --lain.layout.centerwork,
     --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
-    --lain.layout.termfair.center,
+    lain.layout.termfair,
+    lain.layout.termfair.center,
 }
 
 awful.util.taglist_buttons = my_table.join(
@@ -187,7 +188,7 @@ lain.layout.cascade.tile.extra_padding = dpi(5)
 lain.layout.cascade.tile.nmaster       = 5
 lain.layout.cascade.tile.ncol          = 2
 
-beautiful.init(string.format("%s/.config/awesome/theme-personal.lua", os.getenv("HOME")))
+beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 -- }}}
 
 -- {{{ Menu
@@ -256,7 +257,7 @@ root.buttons(my_table.join(
 globalkeys = my_table.join(
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end,
+    awful.key({ altkey }, "p", function() os.execute("scrot") end,
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
@@ -336,8 +337,7 @@ globalkeys = my_table.join(
     awful.key({ modkey,           }, "Tab",
         function ()
             if cycle_prev then
-                awful.client.focus.history.previous()
-            else
+                awful.client.focus.history.previous() else
                 awful.client.focus.byidx(-1)
             end
             if client.focus then
@@ -378,7 +378,7 @@ globalkeys = my_table.join(
               {description = "add new tag", group = "tag"}),
     awful.key({ modkey, "Shift" }, "r", function () lain.util.rename_tag() end,
               {description = "rename tag", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "Left", function () lain.util.move_tag(-1) end,
+              awful.key({ modkey, "Shift" }, "Left", function () lain.util.move_tag(-1) end,
               {description = "move tag to the left", group = "tag"}),
     awful.key({ modkey, "Shift" }, "Right", function () lain.util.move_tag(1) end,
               {description = "move tag to the right", group = "tag"}),
@@ -765,9 +765,9 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = vi_focus})
-end)
+--client.connect_signal("mouse::enter", function(c)
+--   c:emit_signal("request::activate", "mouse_enter", {raise = vi_focus})
+--end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)

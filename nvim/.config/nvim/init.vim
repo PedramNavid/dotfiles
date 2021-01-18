@@ -1,7 +1,7 @@
 " Basic Settings {{{1
 " ----------
 
-set clipboard=unnamedplus   " use system clipboard
+set clipboard+=unnamedplus   " use system clipboard
 set foldlevelstart=0        " 0 is fold everything, -1 is fold nothing
 set hidden
 set icm=split               " show live preview of substitute command
@@ -19,8 +19,10 @@ set nowritebackup
 set updatetime=300
 set shortmess+=c            " don't pass messages on ins completion menu
 set signcolumn=yes
-
-
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 
 set cmdheight=3
 set statusline=%02n\ %<%f\ %H%M%R%W%q%=%-14.(%y\ %l\\%L,%c%V%)\ %P
