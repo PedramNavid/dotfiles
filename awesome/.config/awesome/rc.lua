@@ -95,25 +95,25 @@ local vi_focus     = true -- vi-like client focus - https://github.com/lcpz/awes
 local cycle_prev   = true -- cycle trough all previous client or just the first -- https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
 local gui_editor   = os.getenv("GUI_EDITOR") or "gvim"
-local browser      = os.getenv("BROWSER") or ""
+local browser      = os.getenv("BROWSER") or "chromium"
 local scrlocker    = "slock"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
     -- awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
+    awful.layout.suit.tile,           -- 1
+    awful.layout.suit.tile.left,      -- 2
+    awful.layout.suit.tile.bottom,    -- 3
+    awful.layout.suit.tile.top,       -- 4
+    awful.layout.suit.fair,           -- 5
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
+    awful.layout.suit.corner.nw,      -- 6
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
     --awful.layout.suit.corner.se,
@@ -121,8 +121,8 @@ awful.layout.layouts = {
     --lain.layout.cascade.tile,
     --lain.layout.centerwork,
     --lain.layout.centerwork.horizontal,
-    lain.layout.termfair,
-    lain.layout.termfair.center,
+    lain.layout.termfair,           -- 7
+    lain.layout.termfair.center,    -- 8
 }
 
 awful.util.taglist_buttons = my_table.join(
