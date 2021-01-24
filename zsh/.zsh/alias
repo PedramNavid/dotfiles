@@ -23,6 +23,7 @@ alias vzrc='vim ~/.zshrc'
 alias vali='vim ~/.zsh/alias'
 alias vexp='vim ~/.zsh/exports'
 alias vrc='vim ~/.config/nvim/init.vim'
+alias vaw='vim ~/.config/awesome/rc.lua'
 
 #
 # Git
