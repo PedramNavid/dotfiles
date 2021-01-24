@@ -65,7 +65,7 @@ end
 -- }}}
 
 -- {{{ Autostart windowless processes
-funcs.run_once({'picom -b', 'unclutter &'})
+funcs.run_once({'picom -b', 'unclutter &', 'nitrogen --set-zoom-fill --random ~/wallpaper'})
 -- }}}
 
 -- {{{ Set Layout and Defaults
@@ -190,6 +190,7 @@ end), awful.button({}, 4, awful.tag.viewnext),
 globalkeys_map = {
     awful.key({altkey}, 'p', function() os.execute('scrot') end,
               {description = 'take a screenshot', group = 'hotkeys'}),
+
     awful.key({modkey}, 's', hotkeys_popup.show_help,
               {description = 'show help', group = 'awesome'}), -- Tag browsing
     awful.key({modkey}, 'Right', awful.tag.viewnext,
@@ -220,8 +221,6 @@ globalkeys_map = {
         awful.client.focus.global_bydirection('right')
         if client.focus then client.focus:raise() end
     end, {description = 'focus right', group = 'client'}),
-    awful.key({modkey}, 'w', function() awful.util.mymainmenu:show() end,
-              {description = 'show main menu', group = 'awesome'}), -- Layout manipulation
     awful.key({modkey, 'Shift'}, 'j', function() awful.client.swap.byidx(1) end,
               {description = 'swap with next client by index', group = 'client'}),
     awful.key({modkey, 'Shift'}, 'k',
