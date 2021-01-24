@@ -19,9 +19,9 @@ set nowritebackup
 set updatetime=300
 set shortmess+=c            " don't pass messages on ins completion menu
 set signcolumn=yes
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 set cmdheight=3
@@ -44,6 +44,10 @@ augroup end
 augroup file_read
   autocmd!
   autocmd VimEnter * :match Error /\v +$/
+augroup end
+
+augroup ft_lua  
+  autocmd!
 augroup end
 
 " Mappings {{{1
@@ -127,6 +131,7 @@ function! PackInit()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   call minpac#add('PedramNavid/vim-dbt')
+  call minpac#add('andrejlevkovitch/vim-lua-format')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('tpope/vim-surround')

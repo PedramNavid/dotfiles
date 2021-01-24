@@ -1,5 +1,10 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "python"],
+  "Lua.workspace.library": {
+    "/usr/share/nvim/runtime/lua": true,
+    "/usr/share/awesome/lib": true,
+    "/usr/share/lua/5.3": true
+  },
   "python.sortImports.path": "/Users/pedram.navid/.pyenv/versions/py3nvim/bin/isort",
   "python.formatting.blackPath": "/Users/pedram.navid/.pyenv/versions/py3nvim/bin/black",
   "python.formatting.provider": "black",
