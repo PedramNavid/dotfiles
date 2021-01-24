@@ -17,7 +17,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "DejaVu Sans 10"
+theme.font                                      = "Tamsyn 11"
 theme.fg_normal                                 = "#FEFEFE"
 theme.fg_focus                                  = "#32D6FF"
 theme.fg_urgent                                 = "#C83F11"
@@ -78,7 +78,7 @@ theme.widget_task                               = theme.dir .. "/icons/task.png"
 theme.widget_scissors                           = theme.dir .. "/icons/scissors.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
-theme.useless_gap                               = 2
+theme.useless_gap                               = 5
 theme.titlebar_close_button_focus               = theme.dir .. "/icons/titlebar/close_focus.png"
 theme.titlebar_close_button_normal              = theme.dir .. "/icons/titlebar/close_normal.png"
 theme.titlebar_ontop_button_focus_active        = theme.dir .. "/icons/titlebar/ontop_focus_active.png"
@@ -114,7 +114,7 @@ theme.cal = lain.widget.cal({
     --cal = "cal --color=always",
     attach_to = { binclock.widget },
     notification_preset = {
-        font = "DejaVu Sans 10",
+        font = "DejaVu Sans Mono 10",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
