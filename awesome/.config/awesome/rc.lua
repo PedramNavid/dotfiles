@@ -64,9 +64,6 @@ do
 end
 -- }}}
 
--- {{{ Autostart windowless processes
-funcs.run_once({'picom -b', 'unclutter &', 'nitrogen --set-zoom-fill --random ~/wallpaper'})
--- }}}
 
 -- {{{ Set Layout and Defaults
 awful.util.terminal = terminal
@@ -133,6 +130,10 @@ awful.util.tasklist_buttons = gears.table.join(table.unpack(tasklist_buttons))
 beautiful.init(string.format('%s/.config/awesome/themes/%s/theme.lua',
                              os.getenv('HOME'), chosen_theme)) -- }}}
 
+-- {{{ Autostart windowless processes
+funcs.run_once({'picom -b', 'unclutter &', 'nitrogen --set-zoom-fill --random ~/wallpaper'})
+-- }}}
+--
 -- {{{ Menu
 local myawesomemenu = {
     {'hotkeys', function() return false, hotkeys_popup.show_help end},
@@ -334,17 +335,17 @@ globalkeys_map = {
     awful.key({}, 'XF86MonBrightnessDown',
               function() os.execute('xbacklight -dec 10') end,
               {description = '-10%', group = 'hotkeys'}), -- ALSA volume control
-    awful.key({altkey}, 'Up', function()
+    awful.key({}, 'XF86AudioRaiseVolume', function()
         os.execute(string.format('amixer -q set %s 1%%+',
                                  beautiful.volume.channel))
         beautiful.volume.update()
     end, {description = 'volume up', group = 'hotkeys'}),
-    awful.key({altkey}, 'Down', function()
+    awful.key({}, 'XF86AudioLowerVolume', function()
         os.execute(string.format('amixer -q set %s 1%%-',
                                  beautiful.volume.channel))
         beautiful.volume.update()
     end, {description = 'volume down', group = 'hotkeys'}),
-    awful.key({altkey}, 'm', function()
+    awful.key({}, 'XF86AudioMute', function()
         os.execute(string.format('amixer -q set %s toggle', beautiful.volume
                                      .togglechannel or beautiful.volume.channel))
         beautiful.volume.update()
