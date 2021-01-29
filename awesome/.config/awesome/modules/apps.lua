@@ -1,5 +1,7 @@
 return {
     default = {
-        terminal = 'alacritty'
+        browser = 'luakit',
+        editor = 'nvim',
+        terminal = 'alacritty',
     }
 }
