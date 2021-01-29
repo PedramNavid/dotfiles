@@ -61,6 +61,7 @@ nnoremap <leader>ev :vsplit $myvimrc<cr>
 nnoremap <leader>u ddkp
 nnoremap <leader>d ddp
 nnoremap <leader>s :write<cr>
+nnoremap <leader>= :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Highlight trailing spaces as errors
 nnoremap <silent> <leader>w :match Error /\v +$/<CR>
