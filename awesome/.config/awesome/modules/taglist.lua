@@ -1,10 +1,9 @@
 local awful = require('awful')
 local key_mappings = require("modules.keys")
 
+local config = require('modules.configurations')
+
 local modkey = key_mappings.modkey
-local altkey = key_mappings.altkey
-local shiftkey = key_mappings.shiftkey
-local controlkey = key_mappings.controlkey
 
 local tag_maps = {
     awful.button({}, 1, function(t) t:view_only() end),
@@ -19,6 +18,7 @@ local tag_maps = {
     awful.button({}, 5, function(t) awful.tag.viewprev(t.screen) end)
 }
 
+awful.util.tagnames = config.tagnames
 
 return {
     tag_maps = tag_maps
