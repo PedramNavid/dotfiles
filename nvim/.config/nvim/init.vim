@@ -113,6 +113,10 @@ nnoremap <Leader>b :Buffers<cr>
 nnoremap <Leader>l :BLines<cr>
 nnoremap <Leader>/ :Rg<cr>
 
+" Nerdtree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+
 " Terminal Mode {{{2
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
@@ -135,6 +139,7 @@ function! PackInit()
   call minpac#add('andrejlevkovitch/vim-lua-format')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
+  call minpac#add('preservim/nerdtree')
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
   call minpac#add('tpope/vim-dispatch')
