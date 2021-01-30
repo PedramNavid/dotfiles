@@ -14,6 +14,8 @@ local dpi   = require("beautiful.xresources").apply_dpi
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
+local layouts = require("modules.layouts")
+
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/blackburn"
 -- theme.wallpaper                                 = theme.dir .. "/wall.png"
@@ -72,7 +74,8 @@ theme.titlebar_maximized_button_normal_active   = theme.dir .. "/icons/titlebar/
 theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/icons/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/maximized_normal_inactive.png"
 
-awful.util.tagnames = { "", "", "",  "", "", }
+-- browser, terminal, read, music, misc, misc2
+awful.util.tagnames = {"", "", "", "", "", "", }
 local markup     = lain.util.markup
 local separators = lain.util.separators
 local gray       = "#9E9C9A"
@@ -85,33 +88,11 @@ mytextclock.font = theme.font
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "Terminus 11",
+        font = theme.font,
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
 })
-
--- Mail IMAP check
---[[ commented because it needs to be set before use
-theme.mail = lain.widget.imap({
-    timeout  = 180,
-    server   = "server",
-    mail     = "mail",
-    password = "keyring get mail",
-    notification_preset = { fg = white }
-    settings = function()
-        mail  = ""
-        count = ""
-
-        if mailcount > 0 then
-            mail = "Mail "
-            count = mailcount .. " "
-        end
-
-        widget:set_markup(markup.font(theme.font, markup(gray, mail) .. count))
-    end
-})
---]]
 
 -- MPD
 theme.mpd = lain.widget.mpd({
@@ -206,13 +187,10 @@ theme.titlebar_bg_focus = gears.color({
 })
 
 function theme.at_screen_connect(s)
-    -- Quake application
     s.quake = lain.util.quake({ app = awful.util.terminal })
 
-    -- Tags
-    awful.tag(awful.util.tagnames, s, awful.layout.layouts)
+    awful.tag(awful.util.tagnames, s, layouts)
 
-    -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     s.mylayoutbox = awful.widget.layoutbox(s)
     s.mylayoutbox:buttons(my_table.join(
@@ -223,8 +201,11 @@ function theme.at_screen_connect(s)
                            awful.button({}, 5, function () awful.layout.inc(-1) end)))
 
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
-    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons, { bg_normal = barcolor, bg_focus = barcolor })
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(18), bg = barcolor })
+
+    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags,
+        awful.util.tasklist_buttons, { bg_normal = barcolor, bg_focus = barcolor })
+
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(24), bg = barcolor })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
