@@ -1,6 +1,10 @@
 local awful = require('awful')
+local gears = require('gears')
 local beautiful = require('beautiful')
 local globalkeys = require('modules.globalkeys')
+
+local key_mappings = require("modules.keys")
+local modkey = key_mappings.modkey
 
 awful.rules.rules = {
     -- All clients will match this rule.

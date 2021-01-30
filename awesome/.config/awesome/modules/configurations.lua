@@ -1,7 +1,9 @@
+local awful = require('awful')
 local layouts = require('modules.layouts')
 
 local chosen_theme = 'pedram'
-local tag_names = {'browse', 'term', 'read', 'music', 'misc', 'misc2'}
+
+awful.util.tagnames = {"", "", "", "", "", "", }
 
 local mylayouts = {
     layouts[1],

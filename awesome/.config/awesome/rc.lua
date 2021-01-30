@@ -5,14 +5,15 @@ local gears = require('gears')
 
 require('awful.autofocus')
 require('awful.hotkeys_popup.keys')
+local config = require('modules.configurations')
 
 require('modules.errors')
 require('modules.globalkeys')
 require('modules.menu')
 require('modules.mouse')
+require('modules.rules')
 require('modules.signals')
 
-local config = require('modules.configurations')
 local funcs = require('modules.funcs')
 local layouts = require("modules.layouts")
 local taglist = require('modules.taglist')

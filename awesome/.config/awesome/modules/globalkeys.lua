@@ -361,4 +361,4 @@ root.keys(keys.globalkeys)
 keys.clientbuttons = buttons
 keys.clientkeys = clientkeys
 
-return keys
+return {keys = keys, clientbuttons = buttons, clientkeys = clientkeys }

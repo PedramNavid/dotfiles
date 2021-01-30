@@ -75,7 +75,6 @@ theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/icons/titlebar/
 theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/maximized_normal_inactive.png"
 
 -- browser, terminal, read, music, misc, misc2
-awful.util.tagnames = {"", "", "", "", "", "", }
 local markup     = lain.util.markup
 local separators = lain.util.separators
 local gray       = "#9E9C9A"
