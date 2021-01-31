@@ -18,8 +18,6 @@ local tag_maps = {
     awful.button({}, 5, function(t) awful.tag.viewprev(t.screen) end)
 }
 
-awful.util.tagnames = config.tagnames
-
 return {
     tag_maps = tag_maps
 }

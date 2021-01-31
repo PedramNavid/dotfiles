@@ -1,41 +1,41 @@
 colors:
     primary:
-        background: '#24272e'
-        foreground: '#abb2bf'
+        background: '#1A2026'
+        foreground: '#FFFFFF'
     cursor:
-        text: '#0b0b0b'    # black
-        cursor: '#528bff'
+        text: '#242D35' 
+        cursor: '#FFFFFF'
     vi_mode_cursor:
-        text: '#abb2bf'
-        cursor: '#333841'
+        text: '#526170'
+        cursor: '#F4F5F2'
     selection:
-        text: '#abb2bf'
-        background: '#3e4452'
+        text: '#526170'
+        background: '#242D35'
     search:
         matches:
-            foreground: '#3e4452'
-            background: '#e5c07b'
+            foreground: '#242D35'
+            background: '#CD84C8'
         bar:
-            background: '#282c34'
-            foreground: '#abb2bf'
+            background: '#242D35'
+            foreground: '#526170'
     normal:
-        black:   '#24272e'
-        red:     '#e06c75'
-        green:   '#98c379'
-        yellow:  '#e5c07b'
-        blue:    '#61afef'
-        magenta: '#c678dd'
-        cyan:    '#56b6c2'
-        white:   '#abb2bf'
+        black:   '#242D35'
+        red:     '#FB6396'
+        green:   '#94CF95'
+        yellow:  '#FB6396'
+        blue:    '#6EC1D6'
+        magenta: '#CD84C8'
+        cyan:    '#7FE4D2'
+        white:   '#FFFFFF'
     bright:
-        black:   '#3e4452'
-        red:     '#be5046'
-        green:   '#98c379'
-        yellow:  '#d19a66'
-        blue:    '#61afef'
-        magenta: '#c678dd'
-        cyan:    '#56b6c2'
-        white:   '#5c6370'
+        black:   '#526170'
+        red:     '#F92D72'
+        green:   '#6CCB6E'
+        yellow:  '#F26190'
+        blue:    '#4CB9D6'
+        magenta: '#C269BC'
+        cyan:    '#58D6BF'
+        white:   '#F4F5F2'
 
 mouse:
     hide_when_typing: true
@@ -53,19 +53,19 @@ key_bindings:
 
 font:
   normal:
-    family: Hack Nerd Font Mono
+    family: monospace
     style: Regular
 
   bold:
-    family: Hack Nerd Font Mono
+    family: monospace
     style: Bold
 
   italic:
-    family: Hack Nerd Font Mono
+    family: monospace
     style: Italic
 
   bold_italic:
-    family: Hack Nerd Font Mono
+    family: monospace
     style: Bold Italic
 
   size: 10.0

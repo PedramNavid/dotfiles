@@ -16,6 +16,5 @@ local mylayouts = {
 
 return {
     chosen_theme = chosen_theme,
-    tag_names = tag_names,
     layouts = mylayouts
 }
