@@ -1,0 +1,8 @@
+antigen use oh-my-zsh
+
+antigen bundle <<EOBUNDLES
+    git
+EOBUNDLES
+
+antigen theme robbyrussell
+antigen apply

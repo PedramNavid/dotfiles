@@ -10,8 +10,8 @@ local mylayouts = {
     layouts[2],
     layouts[5],
     layouts[5],
-    layouts[3],
-    layouts[5]
+    layouts[5],
+    layouts[6]
 }
 
 return {

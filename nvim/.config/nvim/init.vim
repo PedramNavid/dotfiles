@@ -12,7 +12,7 @@ set relativenumber
 set shiftround              " round indent when using > and <
 set splitbelow
 set splitright
-set termguicolors           " enables 24-bit color support
+" set termguicolors           " enables 24-bit color support
 set colorcolumn=80
 set nobackup
 set nowritebackup
@@ -27,7 +27,7 @@ set expandtab
 set cmdheight=3
 set statusline=%02n\ %<%f\ %H%M%R%W%q%=%-14.(%y\ %l\\%L,%c%V%)\ %P
 
-colorscheme onedark
+colorscheme lena 
 
 "  Filetype Mappings {{{1
 "  ---------
