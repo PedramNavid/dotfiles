@@ -49,6 +49,6 @@ alias k=kubectl
 
 source <(kubectl completion zsh)
 
-typeset -a ANTIGEN_CHECK_FILES=(~/.zshrc ~/.antigenrc)
+typeset -a ANTIGEN_CHECK_FILES=($HOME/dotfiles/zsh/.zshrc $HOME/dotfiles/antigen/.antigenrc)
 source $HOME/antigen.zsh
-antigen init .antigenrc
+antigen init $HOME/dotfiles/antigen/.antigenrc
