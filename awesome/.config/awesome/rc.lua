@@ -4,6 +4,7 @@ local beautiful = require('beautiful')
 local gears = require('gears')
 local xrdb = beautiful.xresources.get_current_theme()
 
+require ('awful.remote')
 require('awful.autofocus')
 require('awful.hotkeys_popup.keys')
 local config = require('modules.configurations')

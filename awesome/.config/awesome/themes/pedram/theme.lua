@@ -18,6 +18,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local config = require('modules.configurations')
 
 local theme                                     = {}
+theme.docker_widget = require("awesome-wm-widgets.docker-widget.docker")
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/blackburn"
 -- theme.wallpaper                                 = theme.dir .. "/wall.png"
 theme.font                                      = "Hack Nerd Font 10"
@@ -218,8 +219,10 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             first,
+            theme.docker_widget() {
+                number_of_containers = 5
+            },
             theme.mpd.widget,
-            --theme.mail.widget,
             theme.weather.icon,
             theme.weather.widget,
             theme.fs.widget,

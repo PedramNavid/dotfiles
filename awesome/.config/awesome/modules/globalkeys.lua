@@ -167,6 +167,10 @@ keys.globalkeys = gtable.join(
     if beautiful.weather then beautiful.weather.show(7) end
     end, { description = 'show weather', group = 'widgets' }),
 
+    awful.key({altkey}, 'd', function()
+    beautiful.docker_widget.show_popup() 
+    end, { description = 'show docker', group = 'widgets' }),
+
     --- }}}
 
     -- {{{ Hotkeys
