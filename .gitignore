@@ -1,3 +1,4 @@
+awesome-wm-widgets
 *.local
 *.log
 nvim/.config/nvim/pack/minpac/*
