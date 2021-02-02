@@ -1,8 +1,18 @@
 antigen use oh-my-zsh
 
-antigen bundle <<EOBUNDLES
-    git
-EOBUNDLES
+antigen bundle archlinux
+antigen bundle common-aliases
+antigen bundle docker 
+antigen bundle docker-compose
+antigen bundle git
+antigen bundle ssh-agent
+antigen bundle systemd
+antigen bundle vi-mode
 
-antigen theme robbyrussell
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+
+antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+
 antigen apply
