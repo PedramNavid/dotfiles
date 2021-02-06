@@ -29,6 +29,7 @@ vim.b.expandtab = true
 vim.b.smartindent = true
 vim.b.tabstop = indent
 vim.b.swapfile = false
+vim.b.formatoptions = 'tqj'
 
 vim.o.clipboard = 'unnamedplus'
 vim.o.completeopt = 'menuone,noinsert,noselect'
@@ -76,9 +77,19 @@ end)
 vim.g.python3_host_prog = '$HOME/.pyenv/versions/py3nvim/bin/python'
 --- }}}
 
-
--- {{ General Keyboard Mappings 
+-- {{{ General Keyboard Mappings 
 vimp.nnoremap('<leader>,', ',')
---vim.cmd('write'0)
 vimp.nnoremap('<leader>s', function() vim.cmd('write') end)
+vimp.nnoremap('/',  '/\\v')		-- better searching
 -- }}}
+
+-- {{{ Window Movements
+vimp.nnoremap('<M-j>', '<C-w>j')
+vimp.nnoremap('<M-k>', '<C-w>k')
+vimp.nnoremap('<M-l>', '<C-w>l')
+vimp.nnoremap('<M-h>', '<C-w>h')
+-- }}
+
+-- {{ Insert Mode  Mappings
+vimp.inoremap('jj', '<ESC>')
+-- vim: fdm=marker
