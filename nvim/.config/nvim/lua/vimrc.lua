@@ -1,30 +1,36 @@
 local vimp = require('vimp')
 local util = require('util')
 
---- {{{ General settins
+-- {{{ General settins
 local indent = 4
 vim.cmd 'colorscheme lena'
--- }}} 
+-- }}}
 
 -- {{{ Packages
 vim.cmd 'packadd paq-nvim'
-local paq =  require('paq-nvim').paq
+local paq = require('paq-nvim').paq
 paq {'savq/paq-nvim', opt = true}
+
+
 paq {'bfredl/nvim-luadev'}
-paq {'shougo/deoplete-lsp'}
-paq {'shougo/deoplete.nvim', hook = vim.fn['remote#host#UpdateRemotePlugins']}
-paq {'nvim-treesitter/nvim-treesitter'}
-paq {'neovim/nvim-lspconfig'}
 paq {'junegunn/fzf', hook = vim.fn['fzf#install']}
 paq {'junegunn/fzf.vim'}
+paq {'neovim/nvim-lspconfig'}
+paq {'nvim-treesitter/nvim-treesitter'}
 paq {'ojroques/nvim-lspfuzzy'}
+paq {'preservim/nerdtree'}
 paq {'rafcamlet/nvim-luapad'}
+paq {'shougo/deoplete-lsp'}
+paq {'shougo/deoplete.nvim', hook = vim.fn['remote#host#UpdateRemotePlugins']}
 paq {'svermeulen/vimpeccable'}
+paq {'tpope/vim-dispatch'}
+paq {'tpope/vim-surround'}
+paq {'tpope/vim-unimpaired'}
 
-vim.g['deoplete#enable_at_startup'] = 1  -- enable deoplete at startup
+vim.g['deoplete#enable_at_startup'] = 1 -- enable deoplete at startup
 --- }}}
 
---- {{{ VIM Options
+-- {{{ VIM Options
 vim.b.expandtab = true
 vim.b.smartindent = true
 vim.b.tabstop = indent
@@ -61,7 +67,7 @@ vim.wo.wrap = false
 
 vim.g.mapleader = ','
 vim.g.maplocalleader = '\\'
---- }}}
+-- }}}
 
 -- {{{ Reload Mapping 
 vimp.nnoremap('<leader>r', function()
@@ -73,14 +79,15 @@ vimp.nnoremap('<leader>r', function()
 end)
 -- }}}
 
---- {{{ Plugin Settings 
+-- {{{ Plugin Settings 
 vim.g.python3_host_prog = '$HOME/.pyenv/versions/py3nvim/bin/python'
---- }}}
+-- }}}
 
+-- {{{ Key Mappings
 -- {{{ General Keyboard Mappings 
 vimp.nnoremap('<leader>,', ',')
 vimp.nnoremap('<leader>s', function() vim.cmd('write') end)
-vimp.nnoremap('/',  '/\\v')		-- better searching
+vimp.nnoremap('/', '/\\v')		-- better searching
 -- }}}
 
 -- {{{ Window Movements
@@ -88,8 +95,31 @@ vimp.nnoremap('<M-j>', '<C-w>j')
 vimp.nnoremap('<M-k>', '<C-w>k')
 vimp.nnoremap('<M-l>', '<C-w>l')
 vimp.nnoremap('<M-h>', '<C-w>h')
--- }}
+-- }}}
 
--- {{ Insert Mode  Mappings
+-- {{{ Insert Mode Mappings
 vimp.inoremap('jj', '<ESC>')
+-- }}}
+
+-- {{{ Terminal Mode Mappings
+vimp.tnoremap('<ESC>', '<C-\\><C-n>')
+vimp.tnoremap('<C-v><ESC>', '<ESC>')
+
+
+-- }}}
+
+-- {{{ Plugin Mappings
+vimp.nnoremap('<Leader>ff', ':Files<CR>')
+vimp.nnoremap('<Leader>gf', ':GFiles<CR>')
+vimp.nnoremap('<Leader>b', ':Buffers<CR>')
+vimp.nnoremap('<Leader>l', ':Lines<CR>')
+vimp.nnoremap('<Leader>/', ':Rg<CR>')
+
+vimp.nnoremap('<Leader>n', ':NERDTreeFocus<CR>')
+vimp.nnoremap('<C-n>', ':NERDTree<CR>')
+
+-- }}}
+-- }}}
+
 -- vim: fdm=marker
+
