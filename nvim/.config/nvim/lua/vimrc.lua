@@ -84,7 +84,7 @@ ts.setup {ensure_installed = 'maintained', highlight = { enable = true }}
 -- }}}
 
 -- {{{ COC Settings
-
+vim.g['coc_global_extensions'] = {'coc-json', 'coc-python'}
 --  }}}
 
 -- {{{ Key Mappings
