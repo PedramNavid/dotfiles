@@ -85,6 +85,7 @@ ts.setup {ensure_installed = 'maintained', highlight = { enable = true }}
 
 -- {{{ COC Settings
 vim.g['coc_global_extensions'] = {'coc-json', 'coc-python'}
+
 --  }}}
 
 -- {{{ Key Mappings
@@ -103,6 +104,7 @@ vimp.nnoremap('<M-h>', '<C-w>h')
 
 -- {{{ Insert Mode Mappings
 vimp.inoremap('jj', '<ESC>')
+vimp.inoremap('<expr> <c-space>', vim.fn['coc#refresh']())
 -- }}}
 
 -- {{{ Terminal Mode Mappings
