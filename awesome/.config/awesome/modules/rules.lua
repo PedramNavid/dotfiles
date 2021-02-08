@@ -34,6 +34,10 @@ awful.rules.rules = {
     {
         rule = {class = 'Gimp', role = 'gimp-image-window'},
         properties = {maximized = true}
-    }
+    },
+    {
+	    rule = { class = 'Slack' },
+	    properties = { screen = 1, tag = awful.util.tagnames[5] }
+    },
 }
 
