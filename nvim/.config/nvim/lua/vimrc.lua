@@ -1,6 +1,5 @@
 local vimp = require('vimp')
 local util = require('util')
-
 -- {{{ General settins
 local indent = 4
 vim.cmd 'colorscheme lena'
@@ -12,16 +11,14 @@ local paq = require('paq-nvim').paq
 paq {'savq/paq-nvim', opt = true}
 
 
+paq {'anott03/nvim-lspinstall'}
 paq {'bfredl/nvim-luadev'}
 paq {'junegunn/fzf', hook = vim.fn['fzf#install']}
 paq {'junegunn/fzf.vim'}
-paq {'neovim/nvim-lspconfig'}
+paq {'neoclide/coc.nvim'}
 paq {'nvim-treesitter/nvim-treesitter'}
-paq {'ojroques/nvim-lspfuzzy'}
 paq {'preservim/nerdtree'}
 paq {'rafcamlet/nvim-luapad'}
-paq {'shougo/deoplete-lsp'}
-paq {'shougo/deoplete.nvim', hook = vim.fn['remote#host#UpdateRemotePlugins']}
 paq {'svermeulen/vimpeccable'}
 paq {'tpope/vim-dispatch'}
 paq {'tpope/vim-surround'}
@@ -35,11 +32,11 @@ vim.b.expandtab = true
 vim.b.smartindent = true
 vim.b.tabstop = indent
 vim.b.swapfile = false
-vim.b.formatoptions = 'tqj'
 
 vim.o.clipboard = 'unnamedplus'
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.foldlevelstart = 0
+vim.o.formatoptions = string.gsub(vim.o.formatoptions, 'cro', '')
 vim.o.hidden = true
 vim.o.ignorecase = true
 vim.o.inccommand = 'split'
@@ -81,7 +78,14 @@ end)
 
 -- {{{ Plugin Settings 
 vim.g.python3_host_prog = '$HOME/.pyenv/versions/py3nvim/bin/python'
+
+local ts = require 'nvim-treesitter.configs'
+ts.setup {ensure_installed = 'maintained', highlight = { enable = true }}
 -- }}}
+
+-- {{{ COC Settings
+
+--  }}}
 
 -- {{{ Key Mappings
 -- {{{ General Keyboard Mappings 
