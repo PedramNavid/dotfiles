@@ -45,9 +45,6 @@ source $HOME/.zsh/exports
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-alias k=kubectl
-
-source <(kubectl completion zsh)
 
 typeset -a ANTIGEN_CHECK_FILES=($HOME/dotfiles/zsh/.zshrc $HOME/dotfiles/antigen/.antigenrc)
 source $HOME/antigen.zsh

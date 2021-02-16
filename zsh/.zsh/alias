@@ -8,7 +8,6 @@ alias cdair='cd $HOME/projects/vouch-airflow'
 alias cdaw='cd $HOME/dotfiles/awesome/.config/awesome/'
 
 alias dh='dirs -v' 		# print dirstack
-alias ls='ls --color'
 alias l='ls -AF'
 alias ll='l -l'
 alias la='ls -AF'
