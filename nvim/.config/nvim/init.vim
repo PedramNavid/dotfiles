@@ -1,8 +1,5 @@
 " Basic Settings {{{1
 " ----------
-
-
-
 set clipboard+=unnamedplus   " use system clipboard
 set cmdheight=3
 set colorcolumn=80
@@ -36,7 +33,7 @@ set statusline=%02n\ %<%f\ %H%M%R%W%q%=%-14.(%y\ %l\\%L,%c%V%)\ %P
 
 colorscheme lena
 
-"  Filetype Mappings {{{1
+"  Autogroups {{{1
 "  ---------
 augroup init_vim
   autocmd!
@@ -48,6 +45,10 @@ augroup file_read
   autocmd VimEnter * :match Error /\v +$/
 augroup end
 
+augroup whitespace
+  autocmd!
+augroup end
+
 " Mappings {{{1
 " ----------
 let mapleader = ','
@@ -55,6 +56,7 @@ let maplocalleader = '\'
 
 " Normal mode mappings {{{2
 nnoremap <leader>, ,
+nnoremap / /\v
 nnoremap <leader>s :write<cr>
 nnoremap <leader>= :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
@@ -62,15 +64,14 @@ nnoremap <leader>= :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <silent> <leader>w :match Error /\v +$/<CR>
 nnoremap <silent> <leader>W :match none<CR>
 
-nnoremap / /\v
-
-" Window Movements
+" Window Movements {{{3
 noremap <M-j> <c-w>j
 noremap <M-k> <c-w>k
 noremap <M-l> <c-w>l
 noremap <M-h> <c-w>h
+" }}}
 
-" Enable Fold Column Toggles
+" Enable Fold Column Toggles {{{3
 nnoremap <Leader>fc :call FoldColumnToggle()<CR>
 function! FoldColumnToggle()
   if &foldcolumn
@@ -79,10 +80,10 @@ function! FoldColumnToggle()
     setlocal foldcolumn=4
   endif
 endfunction
+" }}}
 
-" Quickfix Toggles
+" Quickfix Toggles {{{3
 nnoremap <Leader>q :call QuickfixToggle()<CR>
-
 let g:quickfix_is_open = 0
 function! QuickfixToggle()
   if g:quickfix_is_open
@@ -95,27 +96,29 @@ function! QuickfixToggle()
     let g:quickfix_is_open = 1
   endif
 endfunction
+" }}}
 
 " Insert mode mappings {{{2
 inoremap jj <esc>
 
 " Plugin Mappings {{{2
-" fzf
+" fzf {{{3
 nnoremap <Leader>ff :Files<cr>
 nnoremap <Leader>gf :GFiles<cr>
 nnoremap <Leader>b :Buffers<cr>
 nnoremap <Leader>l :BLines<cr>
 nnoremap <Leader>/ :Rg<cr>
 
-" Nerdtree
+" Nerdtree {{{3
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
+"}}}
 
 " Terminal Mode {{{2
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
 
-" Abbreviations {{{2
+" Abbreviations {{{1
 iabbrev adn and
 iabbrev teh the
 iabbrev tehn then
@@ -143,13 +146,13 @@ function! PackInit()
 endfunction
 
 
-" Commands {{{2
+" Plugin Commands {{{2
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
 command! PackStatus packadd minpac | call minpac#status()
+" }}}
 
 " Plugin Settings {{{2
-"
 " vim-test {{{3
 let test#strategy = 'dispatch'
 let test#python#runner = 'pytest'
