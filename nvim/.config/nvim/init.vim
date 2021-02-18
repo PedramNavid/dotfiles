@@ -35,18 +35,29 @@ colorscheme lena
 
 "  Autogroups {{{1
 "  ---------
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+
+set list listchars=trail:.,extends:>
+
+augroup trim_whitespace
+    autocmd!
+    autocmd FileWritePre * call TrimWhiteSpace()
+    autocmd FileAppendPre * call TrimWhiteSpace()
+    autocmd FilterWritePre * call TrimWhiteSpace()
+    autocmd BufWritePre * call TrimWhiteSpace()
+augroup end
+
 augroup init_vim
-  autocmd!
-  autocmd! BufWritePost init.vim source %
+    autocmd!
+  autocmd BufWritePost init.vim source %
 augroup end
 
 augroup file_read
   autocmd!
   autocmd VimEnter * :match Error /\v +$/
-augroup end
-
-augroup whitespace
-  autocmd!
 augroup end
 
 " Mappings {{{1
@@ -123,6 +134,7 @@ iabbrev adn and
 iabbrev teh the
 iabbrev tehn then
 iabbrev pigeoin pigeon
+
 
 " Plugins {{{1
 " --------
