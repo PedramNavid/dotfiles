@@ -2,12 +2,16 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Pedram Navid
-	email = pedram.navid@gmail.com
-[commit]
-	gpgsign = false
-[gpg]
-	program = gpg
+	email = pedram@hey.com
 [core]
 	editor = nvim
-	excludesfile = /Users/pedram.navid/.gitignore
-	attributesFile = /Users/pedram.navid/.gitattributes
+	excludesfile = ~/.gitignore
+	attributesFile = ~/.gitattributes
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
