@@ -2,6 +2,7 @@ export CLICOLOR=1
 export GPG_TTY=$(tty)
 
 export FZF_DEFAULT_COMMAND='rg --files'
+export SPACESHIP_BATTERY_SHOW='always'
 
 if [[ -f  ~/.zsh/exports.local ]]; then
     source ~/.zsh/exports.local

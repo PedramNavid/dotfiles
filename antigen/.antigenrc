@@ -1,8 +1,16 @@
 antigen use oh-my-zsh
 
-antigen bundle archlinux
+case "$OSTYPE" in
+    darwin*)
+        antigen bundle battery
+    ;;
+    linux*)
+        antigen bundle archlinux
+    ;;
+esac
+
 antigen bundle common-aliases
-antigen bundle docker 
+antigen bundle docker
 antigen bundle docker-compose
 antigen bundle git
 antigen bundle ssh-agent

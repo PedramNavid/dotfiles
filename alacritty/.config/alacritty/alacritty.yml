@@ -50,6 +50,7 @@ key_bindings:
   - { key: H, mods: Alt,     chars: "\x1bh" }
   - { key: L, mods: Alt,     chars: "\x1bl" }
   - { key: Space, mods: Control, chars: "\x00" }
+  - { key: T, mods: Command, command: { program: "/usr/local/bin/tmux", args: ["new-window"] }}
 
 font:
   normal:
@@ -68,4 +69,4 @@ font:
     family: Hack Nerd Font 
     style: Bold Italic
 
-  size: 10.0
+  size: 14.0
