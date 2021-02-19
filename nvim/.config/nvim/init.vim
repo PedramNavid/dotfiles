@@ -31,6 +31,12 @@ set wildmode=list,longest
 
 set statusline=%02n\ %<%f\ %H%M%R%W%q%=%-14.(%y\ %l\\%L,%c%V%)\ %P
 
+" Lua-based Settings {{{1
+lua require('tools')
+let g:vimsyn_embed = 'l'
+
+" }}}
+
 colorscheme lena
 
 "  Autogroups {{{1
@@ -112,19 +118,6 @@ endfunction
 " Insert mode mappings {{{2
 inoremap jj <esc>
 
-" Plugin Mappings {{{2
-" fzf {{{3
-nnoremap <Leader>ff :Files<cr>
-nnoremap <Leader>gf :GFiles<cr>
-nnoremap <Leader>b :Buffers<cr>
-nnoremap <Leader>l :BLines<cr>
-nnoremap <Leader>/ :Rg<cr>
-
-" Nerdtree {{{3
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-"}}}
-
 " Terminal Mode {{{2
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
@@ -145,17 +138,37 @@ function! PackInit()
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-  call minpac#add('PedramNavid/vim-dbt')
   call minpac#add('andrejlevkovitch/vim-lua-format')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+  call minpac#add('nvim-lua/plenary.nvim')
+  call minpac#add('nvim-lua/popup.nvim')
+  call minpac#add('nvim-telescope/telescope.nvim')
   call minpac#add('preservim/nerdtree')
+  call minpac#add('rafcamlet/nvim-luapad')
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
   call minpac#add('tpope/vim-dispatch')
   call minpac#add('vim-test/vim-test')
+
+  call minpac#add('ryanoasis/vim-devicons')
+  call minpac#add('kyazdani42/nvim-web-devicons')
 endfunction
+
+" Plugin Mappings {{{2
+" Telescope {{{3
+
+nnoremap <Leader>ff <cmd>Telescope find_files<cr>
+nnoremap <Leader>gf <cmd>Telescope live_grep<cr>
+nnoremap <Leader>b <cmd>Telescope buffers<cr>
+lua require('config.telescope')
+
+" Nerdtree {{{3
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+"}}}
+
 
 
 " Plugin Commands {{{2
@@ -165,6 +178,8 @@ command! PackStatus packadd minpac | call minpac#status()
 " }}}
 
 " Plugin Settings {{{2
+lua require('config.devicons')
+
 " vim-test {{{3
 let test#strategy = 'dispatch'
 let test#python#runner = 'pytest'
@@ -173,10 +188,12 @@ nmap <silent> <LocalLeader>tf :TestFile<CR>
 nmap <silent> <LocalLeader>ts :TestSuite<CR>
 nmap <silent> <LocalLeader>tl :TestLast<CR>
 nmap <silent> <LocalLeader>tv :TestVisit<CR>
+
 " Python Globals {{{3
 " Create a py3nvim virtual env and install nvim from pip
 let g:python3_host_prog = '$HOME/.pyenv/versions/py3nvim/bin/python'
 
+" Dev Icons
 
 " LanguageClient Options {{{3
 " Coc.nvim Plugin Settings {{{3
