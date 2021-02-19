@@ -28,4 +28,4 @@ typeset -a ANTIGEN_CHECK_FILES=($HOME/dotfiles/zsh/.zshrc $HOME/dotfiles/antigen
 source $HOME/antigen.zsh
 antigen init $HOME/dotfiles/antigen/.antigenrc
 
-if ! [[ -v TMUX ]]; then tmux; fi
+if ! [[ -v TMUX || -v SSH_TTY ]]; then tmux; fi
