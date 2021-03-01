@@ -5,6 +5,8 @@ set cmdheight=3
 set colorcolumn=80
 set expandtab
 set foldlevelstart=0        " 0 is fold everything, -1 is fold nothing
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set formatoptions-=cro
 set hidden
 set icm=split               " show live preview of substitute command
@@ -41,7 +43,7 @@ colorscheme lena
 
 "  Autogroups {{{1
 "  ---------
-function TrimWhiteSpace()
+function! TrimWhiteSpace()
   %s/\s*$//
   ''
 endfunction
@@ -57,7 +59,7 @@ augroup trim_whitespace
 augroup end
 
 augroup init_vim
-    autocmd!
+  autocmd!
   autocmd BufWritePost init.vim source %
 augroup end
 
@@ -144,8 +146,8 @@ function! PackInit()
   call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('nvim-lua/popup.nvim')
+  call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
   call minpac#add('nvim-telescope/telescope.nvim')
-  call minpac#add('preservim/nerdtree')
   call minpac#add('rafcamlet/nvim-luapad')
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
@@ -158,7 +160,6 @@ endfunction
 
 " Plugin Mappings {{{2
 " Telescope {{{3
-
 nnoremap <Leader>ff <cmd>Telescope find_files<cr>
 nnoremap <Leader>gf <cmd>Telescope live_grep<cr>
 nnoremap <Leader>b <cmd>Telescope buffers<cr>
@@ -170,7 +171,6 @@ nnoremap <C-n> :NERDTree<CR>
 "}}}
 
 
-
 " Plugin Commands {{{2
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
@@ -179,6 +179,7 @@ command! PackStatus packadd minpac | call minpac#status()
 
 " Plugin Settings {{{2
 lua require('config.devicons')
+lua require('config.treesitter')
 
 " vim-test {{{3
 let test#strategy = 'dispatch'
