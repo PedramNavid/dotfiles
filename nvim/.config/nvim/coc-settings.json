@@ -6,11 +6,14 @@
     "/usr/share/awesome/lib": true,
     "/usr/share/lua/5.3": true
   },
-  "python.sortImports.path": "/Users/pedram.navid/.pyenv/versions/py3nvim/bin/isort",
-  "python.formatting.blackPath": "/Users/pedram.navid/.pyenv/versions/py3nvim/bin/black",
+  "python.sortImports.path": "/Users/pedram/.pyenv/versions/py3nvim/bin/isort",
+  "python.formatting.blackPath": "/Users/pedram/.pyenv/versions/py3nvim/bin/black",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "/Users/pedram/.pyenv/versions/py3nvim/bin/flake8",
   "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "/Users/pedram/.pyenv/versions/py3nvim/bin/mypy",
+  "python.linting.pylintEnabled": false,
   "python.jediEnabled": true,
-  "python.jediPath": "/Users/pedram.navid/.pyenv/versions/py3nvim/lib/python3.9/site-packages"
+  "python.jediPath": "/Users/pedram/.pyenv/versions/py3nvim/lib/python3.9/site-packages"
 }
