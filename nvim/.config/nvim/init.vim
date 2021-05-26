@@ -6,8 +6,7 @@ set colorcolumn=80
 set expandtab
 set foldlevelstart=0        " 0 is fold everything, -1 is fold nothing
 set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set formatoptions-=cro
+set formatoptions-=ro
 set hidden
 set icm=split               " show live preview of substitute command
 set ignorecase
@@ -146,7 +145,6 @@ function! PackInit()
   call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('nvim-lua/popup.nvim')
-  call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
   call minpac#add('nvim-telescope/telescope.nvim')
   call minpac#add('preservim/nerdtree')
   call minpac#add('rafcamlet/nvim-luapad')
@@ -180,7 +178,6 @@ command! PackStatus packadd minpac | call minpac#status()
 
 " Plugin Settings {{{2
 lua require('config.devicons')
-lua require('config.treesitter')
 
 " vim-test {{{3
 let test#strategy = 'dispatch'
@@ -210,8 +207,7 @@ let g:coc_global_extensions = [
       \ 'coc-yank',
       \ 'coc-json',
       \ 'coc-git',
-      \ 'coc-tsserver',
-      \ 'coc-python'
+      \ 'coc-tsserver'
       \ ]
 
 " Trigger completion and select from popup

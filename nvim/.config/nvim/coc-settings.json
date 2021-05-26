@@ -1,19 +1,32 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "python"],
-  "Lua.diagnostics.globals": ["root", "client", "screen", "awesome", "mouse", "vim"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "python",
+    "typescript",
+    "typescriptreact",
+    "html"
+  ],
+  "eslint.autoFixOnSave": true,
+  "html.format.wrapLineLength": 80,
+  "Lua.diagnostics.globals": [
+    "root",
+    "client",
+    "screen",
+    "awesome",
+    "mouse",
+    "vim"
+  ],
   "Lua.workspace.library": {
     "/usr/share/nvim/runtime/lua": true,
     "/usr/share/awesome/lib": true,
     "/usr/share/lua/5.3": true
   },
-  "python.sortImports.path": "/Users/pedram/.pyenv/versions/py3nvim/bin/isort",
+  "prettier.disableLanguages": ["html"],
   "python.formatting.blackPath": "/Users/pedram/.pyenv/versions/py3nvim/bin/black",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Path": "/Users/pedram/.pyenv/versions/py3nvim/bin/flake8",
   "python.linting.mypyEnabled": true,
-  "python.linting.mypyPath": "/Users/pedram/.pyenv/versions/py3nvim/bin/mypy",
-  "python.linting.pylintEnabled": false,
-  "python.jediEnabled": true,
-  "python.jediPath": "/Users/pedram/.pyenv/versions/py3nvim/lib/python3.9/site-packages"
+  "python.sortImports.path": "/Users/pedram/.pyenv/versions/py3nvim/bin/isort"
+
 }
