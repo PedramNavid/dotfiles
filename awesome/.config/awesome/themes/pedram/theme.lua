@@ -152,6 +152,7 @@ theme.volume = lain.widget.alsa({
 
 -- Weather
 theme.weather = lain.widget.weather({
+    APPID = "9ab7f4c47222cd3de6f43afae90d41f1",
     city_id = 5347322, -- placeholder (London)
     units = "imperial",
     settings = function()
