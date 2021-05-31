@@ -35,7 +35,7 @@ theme.fg_urgent                                 = x.color9
 
 theme.border_width                              = dpi(2)
 theme.border_normal                             = x.background
-theme.border_focus                              = x.background
+theme.border_focus                              = x.color3
 theme.taglist_fg_focus                          = x.foreground
 theme.taglist_bg_focus                          = x.background
 theme.tasklist_fg_focus                         = x.color11

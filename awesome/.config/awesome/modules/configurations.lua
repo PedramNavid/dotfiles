@@ -3,10 +3,11 @@ local layouts = require('modules.layouts')
 
 local chosen_theme = 'pedram'
 
-awful.util.tagnames = {"", "", "", "", "", "" }
+awful.util.tagnames = {"", "","", "", "", "", "" }
 
 local mylayouts = {
     layouts[1],
+    layouts[2],
     layouts[2],
     layouts[5],
     layouts[5],
