@@ -59,7 +59,7 @@ augroup end
 
 augroup init_vim
   autocmd!
-  autocmd BufWritePost init.vim source %
+  autocmd BufWritePost init.vim :source $MYVIMRC
 augroup end
 
 augroup file_read
