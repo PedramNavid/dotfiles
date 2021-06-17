@@ -21,12 +21,14 @@ fpath=($HOME/.zsh/completion $HOME/.zsh/functions $fpath)
 source $HOME/.zsh/alias
 source $HOME/.zsh/exports
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if hash pyenv 2>/dev/null ; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 typeset -a ANTIGEN_CHECK_FILES=($HOME/dotfiles/zsh/.zshrc $HOME/dotfiles/antigen/.antigenrc)
 source $HOME/antigen.zsh
 antigen init $HOME/dotfiles/antigen/.antigenrc
 
-eval "$(direnv hook zsh)"
-eval "$(rbenv init -)"
+if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; fi
+if hash rbenv 2>/dev/null; then eval "$(rbenv init -)"; fi

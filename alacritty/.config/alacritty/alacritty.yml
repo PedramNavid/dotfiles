@@ -3,7 +3,7 @@ colors:
         background: '#1A2026'
         foreground: '#FFFFFF'
     cursor:
-        text: '#242D35' 
+        text: '#242D35'
         cursor: '#FFFFFF'
     vi_mode_cursor:
         text: '#526170'
@@ -37,10 +37,12 @@ colors:
         cyan:    '#58D6BF'
         white:   '#F4F5F2'
 
+scrolling:
+  history: 25000
+
+background_opacity: 0.9
 mouse:
     hide_when_typing: true
-    url:
-        modifiers: Shift
 selection:
     save_to_clipboard: true
 
@@ -58,15 +60,15 @@ font:
     style: Regular
 
   bold:
-    family: Hack Nerd Font 
+    family: Hack Nerd Font
     style: Bold
 
   italic:
-    family: Hack Nerd Font 
+    family: Hack Nerd Font
     style: Italic
 
   bold_italic:
-    family: Hack Nerd Font 
+    family: Hack Nerd Font
     style: Bold Italic
 
-  size: 14.0
+  size: 12.5

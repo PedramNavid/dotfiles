@@ -63,7 +63,11 @@ awful.util.tasklist_buttons = gears.table.join(table.unpack(tasklist.tasklist_bu
 beautiful.init(string.format('%s/.config/awesome/themes/%s/theme.lua',
                              os.getenv('HOME'), chosen_theme))
 
-funcs.run_once({'picom -b', 'unclutter &'})
+funcs.run_once({
+    'picom -b --config ~/.config/picomn/picomn.conf',
+    'unclutter &',
+    'alacritty --class ncmpcpp -e ncmpcpp'
+ })
 
 awful.screen.connect_for_each_screen(function(s)
     require("modules.wallpaper")(s)

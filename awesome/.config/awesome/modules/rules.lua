@@ -1,10 +1,6 @@
 local awful = require('awful')
-local gears = require('gears')
 local beautiful = require('beautiful')
 local globalkeys = require('modules.globalkeys')
-
-local key_mappings = require("modules.keys")
-local modkey = key_mappings.modkey
 
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -29,15 +25,17 @@ awful.rules.rules = {
     }, -- Set Firefox to always map on the first tag on screen 1.
     {
         rule = {class = 'Firefox'},
-        properties = {screen = 1, tag = awful.util.tagnames[1]}
-    },
-    {
-        rule = {class = 'Gimp', role = 'gimp-image-window'},
-        properties = {maximized = true}
+        properties = {screen = 1, tag = awful.util.tagnames[2]}
     },
     {
 	    rule = { class = 'Slack' },
 	    properties = { screen = 1, tag = awful.util.tagnames[5] }
     },
+
+    {
+      rule = { instance = 'ncmpcpp' },
+      properties = { screen = 1, tag = awful.util.tagnames[4] }
+    },
+
 }
 
