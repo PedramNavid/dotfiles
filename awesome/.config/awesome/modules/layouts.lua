@@ -14,11 +14,11 @@ lain.layout.cascade.tile.ncol = 2
 
 return {
     awful.layout.suit.tile, -- 1
-    awful.layout.suit.tile.left, -- 2
-    awful.layout.suit.tile.bottom, -- 3
-    awful.layout.suit.tile.top, -- 4
-    awful.layout.suit.fair, -- 5
-    awful.layout.suit.corner.nw, -- 6
-    lain.layout.termfair, -- 7
-    lain.layout.termfair.center -- 8
+    awful.layout.suit.tile, -- 2
+    awful.layout.suit.tile, -- 3
+    awful.layout.suit.tile, -- 4
+    awful.layout.suit.tile, -- 5
+    awful.layout.suit.tile, -- 6
+    awful.layout.suit.tile, -- 7
+    awful.layout.suit.tile, -- 8
 }
