@@ -5,7 +5,7 @@ set cmdheight=3
 set colorcolumn=80
 set expandtab
 set foldlevelstart=0        " 0 is fold everything, -1 is fold nothing
-set foldmethod=expr
+set foldmethod=manual
 set formatoptions-=ro
 set hidden
 set icm=split               " show live preview of substitute command
@@ -150,6 +150,7 @@ function! PackInit()
   call minpac#add('rafcamlet/nvim-luapad')
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
+  call minpac#add('tpope/vim-fugitive')
   call minpac#add('tpope/vim-dispatch')
   call minpac#add('vim-test/vim-test')
 
@@ -213,7 +214,8 @@ let g:coc_global_extensions = [
 " Trigger completion and select from popup
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <Nul> coc#refresh()
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -231,6 +233,7 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format)
 nmap <leader>e  :CocCommand explorer<CR>
+nmap <leader>ac  <Plug>(coc-codeaction)
 
 " Text Objects in/all function in/all class
 xmap if <Plug>(coc-funcobj-i)
@@ -241,6 +244,9 @@ xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
+
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Popup navigation
 inoremap <silent><expr> <TAB>
@@ -255,6 +261,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Functions  {{{4
+
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -264,6 +271,7 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
 " }}}
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -280,4 +288,11 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
