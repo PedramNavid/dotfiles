@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Pedram Navid
-	email = pedram@hey.com
+	email = pedram@hightouch.io
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore

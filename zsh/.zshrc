@@ -32,3 +32,6 @@ antigen init $HOME/dotfiles/antigen/.antigenrc
 
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; fi
 if hash rbenv 2>/dev/null; then eval "$(rbenv init -)"; fi
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
