@@ -13,6 +13,7 @@ antigen bundle common-aliases
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle git
+antigen bundle kubectl
 antigen bundle ssh-agent
 antigen bundle systemd
 antigen bundle vi-mode
