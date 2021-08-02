@@ -29,12 +29,12 @@ awful.rules.rules = {
     },
     {
 	    rule = { class = 'Slack' },
-	    properties = { screen = 1, tag = awful.util.tagnames[5] }
+	    properties = { screen = 1, tag = awful.util.tagnames[4] }
     },
 
     {
       rule = { instance = 'ncmpcpp' },
-      properties = { screen = 1, tag = awful.util.tagnames[4] }
+      properties = { screen = 1, tag = awful.util.tagnames[5] }
     },
 
 }
