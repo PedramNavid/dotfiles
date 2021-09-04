@@ -1,5 +1,6 @@
 export CLICOLOR=1
 export GPG_TTY=$(tty)
+export EDITOR=vim
 
 export FZF_DEFAULT_COMMAND='rg --files'
 export SPACESHIP_BATTERY_SHOW='always'

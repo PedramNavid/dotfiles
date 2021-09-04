@@ -26,6 +26,8 @@ alias vrc='vim ~/.config/nvim/init.vim'
 alias vaw='vim ~/.config/awesome/rc.lua'
 alias vawtheme='vim ~./config/awesome/themes/pedram/theme.lua'
 
+alias ssh='TERM=xterm-256color ssh'
+
 if [[ -f  ~/.zsh/alias.local ]]; then
     source ~/.zsh/alias.local
 fi
