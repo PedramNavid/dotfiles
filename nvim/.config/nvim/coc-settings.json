@@ -23,7 +23,7 @@
     "/usr/share/lua/5.3": true
   },
   "prettier.disableLanguages": ["html"],
-  "python.formatting.blackPath": "/Users/pedram/.pyenv/versions/py3nvim/bin/black",
+  "python.formatting.blackPath": "~/.pyenv/versions/py3nvim/bin/black",
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
