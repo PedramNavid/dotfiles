@@ -1,4 +1,5 @@
 node_modules/
+pyrightconfig.json
 .python-version
 .idea
 **/.DS_Store

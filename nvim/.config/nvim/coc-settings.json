@@ -28,5 +28,4 @@
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
   "python.sortImports.path": "/Users/pedram/.pyenv/versions/py3nvim/bin/isort"
-
 }

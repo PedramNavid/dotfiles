@@ -40,7 +40,7 @@ colors:
 scrolling:
   history: 25000
 
-background_opacity: 0.9
+background_opacity: 0.98
 mouse:
     hide_when_typing: true
 selection:

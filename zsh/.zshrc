@@ -1,3 +1,4 @@
+zmodload zsh/zprof
 HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
@@ -6,8 +7,8 @@ setopt autocd autolist beep notify SHARE_HISTORY
 unsetopt nomatch
 
 # zstyle :compinstall filename '/Users/pedram.navid/.zshrc'
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit
+# compinit
 
 # Directories
 # cd acts as pushd, without printing the dir stack

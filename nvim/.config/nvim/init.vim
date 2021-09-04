@@ -15,6 +15,7 @@ set list
 set mouse=nv
 set nobackup
 set noswapfile
+set nowrap
 set nowritebackup
 set number
 set relativenumber
@@ -142,6 +143,7 @@ function! PackInit()
   call minpac#add('andrejlevkovitch/vim-lua-format')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
+  call minpac#add('hashivim/vim-terraform')
   call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('nvim-lua/popup.nvim')
@@ -161,9 +163,9 @@ endfunction
 " Plugin Mappings {{{2
 " Telescope {{{3
 nnoremap <Leader>ff <cmd>Telescope find_files<cr>
+nnoremap <Leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <Leader>gf <cmd>Telescope live_grep<cr>
 nnoremap <Leader>b <cmd>Telescope buffers<cr>
-lua require('config.telescope')
 
 " Nerdtree {{{3
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -214,8 +216,6 @@ let g:coc_global_extensions = [
 " Trigger completion and select from popup
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <Nul> coc#refresh()
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)

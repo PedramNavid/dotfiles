@@ -2,9 +2,9 @@
 # Files/Directories
 alias cdp='cd $HOME/projects'
 alias cdd='cd $HOME/dotfiles'
-alias cddbt='cd $HOME/projects/vouch-dwh/vouch-dbt'
+alias cddbt='cd $HOME/projects/hightouch-dwh/dbt/hightouch'
 alias cdnv='cd $HOME/.config/nvim'
-alias cdair='cd $HOME/projects/vouch-airflow'
+alias cdair='cd $HOME/projects/hightouch-airflow'
 alias cdaw='cd $HOME/dotfiles/awesome/.config/awesome/'
 
 alias dh='dirs -v' 		# print dirstack
@@ -25,3 +25,7 @@ alias vexp='vim ~/.zsh/exports'
 alias vrc='vim ~/.config/nvim/init.vim'
 alias vaw='vim ~/.config/awesome/rc.lua'
 alias vawtheme='vim ~./config/awesome/themes/pedram/theme.lua'
+
+if [[ -f  ~/.zsh/alias.local ]]; then
+    source ~/.zsh/alias.local
+fi
