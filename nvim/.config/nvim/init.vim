@@ -102,7 +102,7 @@ endfunction
 " }}}
 
 " Quickfix Toggles {{{3
-nnoremap <Leader>q :call QuickfixToggle()<CR>
+nnoremap <LocalLeader>q :call QuickfixToggle()<CR>
 let g:quickfix_is_open = 0
 function! QuickfixToggle()
   if g:quickfix_is_open
@@ -144,17 +144,18 @@ function! PackInit()
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('hashivim/vim-terraform')
-  call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+" call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+  call minpac#add('neovim/nvim-lspconfig')
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('nvim-lua/popup.nvim')
   call minpac#add('nvim-telescope/telescope.nvim')
-  call minpac#add('preservim/nerdtree')
+" call minpac#add('preservim/nerdtree')
   call minpac#add('rafcamlet/nvim-luapad')
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
   call minpac#add('tpope/vim-fugitive')
   call minpac#add('tpope/vim-dispatch')
-  call minpac#add('vim-test/vim-test')
+" call minpac#add('vim-test/vim-test')
 
   call minpac#add('ryanoasis/vim-devicons')
   call minpac#add('kyazdani42/nvim-web-devicons')
@@ -168,8 +169,8 @@ nnoremap <Leader>gf <cmd>Telescope live_grep<cr>
 nnoremap <Leader>b <cmd>Telescope buffers<cr>
 
 " Nerdtree {{{3
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
 "}}}
 
 
@@ -182,14 +183,68 @@ command! PackStatus packadd minpac | call minpac#status()
 " Plugin Settings {{{2
 lua require('config.devicons')
 
+
+" nvim-lspconfig {{{3
+
+lua << EOF
+require'lspconfig'.pyright.setup{}
+
+local nvim_lsp = require('lspconfig')
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<leader>td', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+end
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+EOF
+
 " vim-test {{{3
-let test#strategy = 'dispatch'
-let test#python#runner = 'pytest'
-nmap <silent> <LocalLeader>tn :TestNearest<CR>
-nmap <silent> <LocalLeader>tf :TestFile<CR>
-nmap <silent> <LocalLeader>ts :TestSuite<CR>
-nmap <silent> <LocalLeader>tl :TestLast<CR>
-nmap <silent> <LocalLeader>tv :TestVisit<CR>
+" let test#strategy = 'dispatch'
+" let test#python#runner = 'pytest'
+" nmap <silent> <LocalLeader>tn :TestNearest<CR>
+" nmap <silent> <LocalLeader>tf :TestFile<CR>
+" nmap <silent> <LocalLeader>ts :TestSuite<CR>
+" nmap <silent> <LocalLeader>tl :TestLast<CR>
+" nmap <silent> <LocalLeader>tv :TestVisit<CR>
 
 " Python Globals {{{3
 " Create a py3nvim virtual env and install nvim from pip
@@ -197,102 +252,92 @@ let g:python3_host_prog = '$HOME/.pyenv/versions/py3nvim/bin/python'
 
 " Dev Icons
 
-" LanguageClient Options {{{3
 " Coc.nvim Plugin Settings {{{3
 "
-let g:coc_global_extensions = [
-      \ 'coc-highlight',
-      \ 'coc-lists',
-      \ 'coc-prettier',
-      \ 'coc-snippets',
-      \ 'coc-vimlsp',
-      \ 'coc-yaml',
-      \ 'coc-yank',
-      \ 'coc-json',
-      \ 'coc-git',
-      \ 'coc-tsserver'
-      \ ]
-
-" Trigger completion and select from popup
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <Nul> coc#refresh()
-
-" Diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Jump to quick keys
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Other helpful shortcuts
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-nmap <leader>rn <Plug>(coc-rename)
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format)
-nmap <leader>e  :CocCommand explorer<CR>
-nmap <leader>ac  <Plug>(coc-codeaction)
-
-" Text Objects in/all function in/all class
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
-
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-
-" Popup navigation
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Functions  {{{4
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-" }}}
-
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-" Note coc#float#scroll works on neovim >= 0.4.3 or vim >= 8.2.0750
-nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-
-command! -nargs=0 Format :call CocAction('format')
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" let g:coc_global_extensions = [
+"       \ 'coc-highlight',
+"       \ 'coc-lists',
+"       \ 'coc-prettier',
+"       \ 'coc-snippets',
+"       \ 'coc-vimlsp',
+"       \ 'coc-yaml',
+"       \ 'coc-yank',
+"       \ 'coc-json',
+"       \ 'coc-git',
+"       \ 'coc-tsserver'
+"       \ ]
+"
+" " Trigger completion and select from popup
+" inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <Nul> coc#refresh()
+"
+" " Diagnostics
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+"
+" " Jump to quick keys
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+"
+" " Other helpful shortcuts
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nmap <leader>rn <Plug>(coc-rename)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format)
+" nmap <leader>e  :CocCommand explorer<CR>
+" nmap <leader>ac  <Plug>(coc-codeaction)
+"
+" " Text Objects in/all function in/all class
+" xmap if <Plug>(coc-funcobj-i)
+" omap if <Plug>(coc-funcobj-i)
+" xmap af <Plug>(coc-funcobj-a)
+" omap af <Plug>(coc-funcobj-a)
+" xmap ic <Plug>(coc-classobj-i)
+" omap ic <Plug>(coc-classobj-i)
+" xmap ac <Plug>(coc-classobj-a)
+" omap ac <Plug>(coc-classobj-a)
+"
+" nmap <silent> <C-s> <Plug>(coc-range-select)
+" xmap <silent> <C-s> <Plug>(coc-range-select)
+"
+" " Popup navigation
+"
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+"
+" " Functions  {{{4
+"
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   elseif (coc#rpc#ready())
+"     call CocActionAsync('doHover')
+"   else
+"     execute '!' . &keywordprg . " " . expand('<cword>')
+"   endif
+" endfunction
+"
+" " }}}
+"
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+"
+" " Remap <C-f> and <C-b> for scroll float windows/popups.
+" " Note coc#float#scroll works on neovim >= 0.4.3 or vim >= 8.2.0750
+"
+" command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"
+" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
