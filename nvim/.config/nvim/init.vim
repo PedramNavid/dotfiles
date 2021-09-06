@@ -5,13 +5,17 @@ set cmdheight=3
 set colorcolumn=80
 set expandtab
 set foldlevelstart=0        " 0 is fold everything, -1 is fold nothing
-set foldmethod=manual
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldminlines=3
+set foldnestmax=5
 set formatoptions-=ro
 set hidden
 set icm=split               " show live preview of substitute command
 set ignorecase
 set joinspaces
 set list
+set listchars=tab:▸\ ,eol:↲,trail:·
 set mouse=nv
 set nobackup
 set noswapfile
@@ -30,11 +34,11 @@ set splitright
 set tabstop=4
 set updatetime=300
 set wildmode=list,longest
-
+set rtp+=~/projects/nvim-plugins/dbt.nvim
 set statusline=%02n\ %<%f\ %H%M%R%W%q%=%-14.(%y\ %l\\%L,%c%V%)\ %P
 
 " Lua-based Settings {{{1
-lua require('tools')
+lua require('pedram.globals')
 let g:vimsyn_embed = 'l'
 
 " }}}
@@ -148,9 +152,10 @@ function! PackInit()
   call minpac#add('neovim/nvim-lspconfig')
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('nvim-lua/popup.nvim')
+  call minpac#add('nvim-lua/completion-nvim')
   call minpac#add('nvim-telescope/telescope.nvim')
+  call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
 " call minpac#add('preservim/nerdtree')
-  call minpac#add('rafcamlet/nvim-luapad')
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
   call minpac#add('tpope/vim-fugitive')
@@ -163,6 +168,14 @@ endfunction
 
 " Plugin Mappings {{{2
 " Telescope {{{3
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').file_browser()<cr>
+nnoremap <leader>fbh <cmd>lua require('telescope.builtin').file_browser({hidden=true})<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
 nnoremap <Leader>ff <cmd>Telescope find_files<cr>
 nnoremap <Leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <Leader>gf <cmd>Telescope live_grep<cr>
@@ -181,61 +194,26 @@ command! PackStatus packadd minpac | call minpac#status()
 " }}}
 
 " Plugin Settings {{{2
+
+nnoremap <LocalLeader>vs :source $MYVIMRC<cr>
+lua package.loaded['pedram.basic'] = nil
+lua basic = require('pedram.basic')
+
 lua require('config.devicons')
+lua require('config.lua-ls')
+lua require('config.lsp-bindings')
+lua require('config.telescope')
 
-
-" nvim-lspconfig {{{3
-
-lua << EOF
-require'lspconfig'.pyright.setup{}
-
-local nvim_lsp = require('lspconfig')
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<leader>td', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
-end
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
-end
-EOF
+" nvim-completion
+" https://github.com/nvim-lua/completion-nvim
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+imap <silent> <c-n> <Plug>(completion_trigger)
+" possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
+" let g:completion_enable_snippet = 'UltiSnips'
 
 " vim-test {{{3
 " let test#strategy = 'dispatch'
