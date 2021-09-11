@@ -4,7 +4,7 @@
 	name = Pedram Navid
 	email = pedram@hightouch.io
 [core]
-	editor = nvim
+	editor = nvr -s
 	excludesfile = ~/.gitignore
 	attributesFile = ~/.gitattributes
 [init]
