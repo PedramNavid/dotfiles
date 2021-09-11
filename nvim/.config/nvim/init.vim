@@ -144,24 +144,26 @@ function! PackInit()
   call minpac#init()
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
+  call minpac#add('airblade/vim-gitgutter')
   call minpac#add('andrejlevkovitch/vim-lua-format')
+  call minpac#add('bfredl/nvim-luadev')
+
+  call minpac#add('euclidianAce/BetterLua.vim')
+  call minpac#add('folke/lua-dev.nvim')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('hashivim/vim-terraform')
-" call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+  call minpac#add('kristijanhusak/completion-tags')
   call minpac#add('neovim/nvim-lspconfig')
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('nvim-lua/popup.nvim')
   call minpac#add('nvim-lua/completion-nvim')
   call minpac#add('nvim-telescope/telescope.nvim')
   call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
-" call minpac#add('preservim/nerdtree')
+  call minpac#add('psf/black')
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
   call minpac#add('tpope/vim-fugitive')
-  call minpac#add('tpope/vim-dispatch')
-" call minpac#add('vim-test/vim-test')
-
   call minpac#add('ryanoasis/vim-devicons')
   call minpac#add('kyazdani42/nvim-web-devicons')
 endfunction
@@ -176,11 +178,11 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-nnoremap <Leader>ff <cmd>Telescope find_files<cr>
-nnoremap <Leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <Leader>gf <cmd>Telescope live_grep<cr>
-nnoremap <Leader>b <cmd>Telescope buffers<cr>
 
+" Luadev
+nnoremap <LocalLeader>rl <Plug>(Luadev-RunLine)
+nnoremap <LocalLeader>rr <Plug>(Luadev-Run)
 " Nerdtree {{{3
 " nnoremap <leader>n :NERDTreeFocus<CR>
 " nnoremap <C-n> :NERDTree<CR>
@@ -196,13 +198,10 @@ command! PackStatus packadd minpac | call minpac#status()
 " Plugin Settings {{{2
 
 nnoremap <LocalLeader>vs :source $MYVIMRC<cr>
-lua package.loaded['pedram.basic'] = nil
-lua basic = require('pedram.basic')
 
-lua require('config.devicons')
-lua require('config.lua-ls')
-lua require('config.lsp-bindings')
-lua require('config.telescope')
+lua require('pedram.devicons')
+lua require('pedram.lsp-bindings')
+lua require('pedram.telescope')
 
 " nvim-completion
 " https://github.com/nvim-lua/completion-nvim
@@ -211,7 +210,9 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
-imap <silent> <c-n> <Plug>(completion_trigger)
+imap <tab> <Plug>(completion_smart_tab)
+imap <s-tab> <Plug>(completion_smart_s_tab)
+let g:completion_enable_auto_hover = 1
 " possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
 " let g:completion_enable_snippet = 'UltiSnips'
 

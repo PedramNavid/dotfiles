@@ -9,3 +9,4 @@ R = function(name)
 end
 
 vim.cmd [[nnoremap asdf :lua R("dbt")<CR>]]
+
