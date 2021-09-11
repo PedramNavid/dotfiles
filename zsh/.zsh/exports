@@ -2,6 +2,9 @@ export CLICOLOR=1
 export GPG_TTY=$(tty)
 export EDITOR=vim
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 export FZF_DEFAULT_COMMAND='rg --files'
 export SPACESHIP_BATTERY_SHOW='always'
 export SPACESHIP_PROMPT_ORDER=(

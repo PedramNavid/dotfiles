@@ -18,13 +18,7 @@ alias mv="mv -i"
 
 # File Edits
 #
-export EDITOR=NVIM
-if hash nvr 2>/dev/null; then
-    EDITOR='nvr -s'
-fi
-
-alias vim=$EDITOR
-alias nvim=$EDITOR
+alias vim=nvim
 alias vzrc='vim ~/.zshrc'
 alias vali='vim ~/.zsh/alias'
 alias vexp='vim ~/.zsh/exports'
