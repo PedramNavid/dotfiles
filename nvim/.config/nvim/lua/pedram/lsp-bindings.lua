@@ -45,27 +45,42 @@ nvim_lsp.pyright.setup{
 
 }
 
+local library = {}
+local path = vim.split(package.path, ';')
+
+table.insert(path, "lua/?.lua")
+table.insert(path, "lua/?/init.lua")
+
+local function add(lib)
+    for _, p in pairs(vim.fn.expand(lib, false, true)) do
+        p = vim.loop.fs_realpath(p)
+        library[p] = true
+    end
+end
+
+add("$VIMRUNTIME")
+add("~/.config/nvim")
+add("~/build/neovim/src/nvim/lua")
+
 nvim_lsp.sumneko_lua.setup{
-    cmd = {lua_ls.sumneko_binary, "-E", lua_ls.sumneko_root_path .. "/main.lua"},
+    cmd = {lua_ls.sumneko_binary, "-E" ,lua_ls.sumneko_root_path .. "/main.lua"},
     on_attach = on_attach,
     diagnostics = {
         enable = true
     },
     settings = {
         Lua = {
-            runtime = { version = "LuaJIT", path = vim.split(package.path, ';') },
+            runtime = { version = "LuaJIT", path = path },
             completion = { keywordSnippet = "Disable", },
-            diagnostics = { enable = true,
+            diagnostics = {
+                enable = true,
                 globals = { "vim", "P", },
-            }
-        },
-        workspace = {
-            library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                [vim.fn.expand("~/build/neovim/src/nvim/lua")] = true
             },
+        workspace = {
+            library = library,
             maxPreload = 1000,
-            preloadFileSize = 1000,
-    }
+            preloadFileSize = 51000,
+        }
+     }
   }
 }

@@ -15,7 +15,7 @@ end
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 lua_ls.sumneko_root_path = ''
 if system_name == "Linux" then
-    lua_ls.sumneko_root_path '/home/pedram/projects/lua-langauge-server'
+    lua_ls.sumneko_root_path = '/home/pedram/projects/lua-language-server'
 else
     lua_ls.sumneko_root_path = '/Users/pedram/projects/lua-language-server'
 end
