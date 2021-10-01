@@ -18,6 +18,10 @@ wincmd _ | wincmd |
 vsplit
 1wincmd h
 wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
 wincmd t
@@ -27,10 +31,13 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 160 + 160) / 320)
-exe 'vert 2resize ' . ((&columns * 159 + 160) / 320)
+exe 'vert 1resize ' . ((&columns * 105 + 105) / 210)
+exe '2resize ' . ((&lines * 31 + 33) / 66)
+exe 'vert 2resize ' . ((&columns * 104 + 105) / 210)
+exe '3resize ' . ((&lines * 30 + 33) / 66)
+exe 'vert 3resize ' . ((&columns * 104 + 105) / 210)
 argglobal
-balt src/permifrost/core/permissions/utils/snowflake_grants.py
+balt tests/permifrost/core/permissions/test_snowflake_grants.py
 setlocal fdm=expr
 setlocal fde=nvim_treesitter#foldexpr()
 setlocal fmr={{{,}}}

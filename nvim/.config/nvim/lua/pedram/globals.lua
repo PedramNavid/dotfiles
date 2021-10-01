@@ -8,5 +8,5 @@ R = function(name)
   return require(name)
 end
 
-vim.cmd [[nnoremap asdf :lua R("dbt")<CR>]]
+vim.cmd [[nnoremap asdf :lua R("neodbt")<CR>]]
 
