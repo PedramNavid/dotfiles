@@ -6,6 +6,7 @@ alias cddbt='cd $HOME/projects/hightouch-dwh/dbt/hightouch'
 alias cdnv='cd $HOME/.config/nvim'
 alias cdair='cd $HOME/projects/hightouch-airflow'
 alias cdaw='cd $HOME/dotfiles/awesome/.config/awesome/'
+alias cdlua='cd $HOME/dotfiles/nvim/.config/nvim/lua/pedram'
 
 alias dh='dirs -v' 		# print dirstack
 alias l='ls -AF'
