@@ -34,7 +34,7 @@ set splitright
 set tabstop=4
 set updatetime=300
 set wildmode=list,longest
-set rtp+=~/projects/nvim-plugins/dbt.nvim
+set rtp+=~/projects/nvim-plugins/neodbt.nvim
 set statusline=%02n\ %<%f\ %H%M%R%W%q%=%-14.(%y\ %l\\%L,%c%V%)\ %P
 
 " Lua-based Settings {{{1
@@ -70,6 +70,12 @@ augroup end
 augroup file_read
   autocmd!
   autocmd VimEnter * :match Error /\v +$/
+augroup end
+
+augroup lua_format
+  autocmd!
+  autocmd FileType lua nnoremap <buffer> <LocalLeader>f :call LuaFormat()<cr>
+  autocmd BufWritePre *.lua call LuaFormat()
 augroup end
 
 " Mappings {{{1
@@ -147,28 +153,32 @@ function! PackInit()
   call minpac#add('airblade/vim-gitgutter')
   call minpac#add('andrejlevkovitch/vim-lua-format')
   call minpac#add('bfredl/nvim-luadev')
-
+  call minpac#add('editorconfig/editorconfig-vim')
   call minpac#add('euclidianAce/BetterLua.vim')
   call minpac#add('folke/lua-dev.nvim')
+  call minpac#add('hashivim/vim-terraform')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
-  call minpac#add('hashivim/vim-terraform')
   call minpac#add('kristijanhusak/completion-tags')
+  call minpac#add('kyazdani42/nvim-web-devicons')
   call minpac#add('neovim/nvim-lspconfig')
+  call minpac#add('nvim-lua/completion-nvim')
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('nvim-lua/popup.nvim')
-  call minpac#add('nvim-lua/completion-nvim')
   call minpac#add('nvim-telescope/telescope.nvim')
   call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
   call minpac#add('psf/black')
+  call minpac#add('rafcamlet/nvim-luapad')
+  call minpac#add('ryanoasis/vim-devicons')
+  call minpac#add('tpope/vim-fugitive')
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
-  call minpac#add('tpope/vim-fugitive')
-  call minpac#add('ryanoasis/vim-devicons')
-  call minpac#add('kyazdani42/nvim-web-devicons')
+
 endfunction
 
 " Plugin Mappings {{{2
+"
+nnoremap <LocalLeader>s :source<CR>
 " Telescope {{{3
 " Using Lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
