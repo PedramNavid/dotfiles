@@ -157,12 +157,13 @@ function! PackInit()
   call minpac#add('euclidianAce/BetterLua.vim')
   call minpac#add('folke/lua-dev.nvim')
   call minpac#add('hashivim/vim-terraform')
+  call minpac#add('hrsh7th/cmp-nvim-lsp')
+  call minpac#add('hrsh7th/cmp-buffer')
+  call minpac#add('hrsh7th/nvim-cmp')
   call minpac#add('junegunn/fzf')
   call minpac#add('junegunn/fzf.vim')
-  call minpac#add('kristijanhusak/completion-tags')
   call minpac#add('kyazdani42/nvim-web-devicons')
   call minpac#add('neovim/nvim-lspconfig')
-  call minpac#add('nvim-lua/completion-nvim')
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('nvim-lua/popup.nvim')
   call minpac#add('nvim-telescope/telescope.nvim')
@@ -218,7 +219,7 @@ lua require('pedram.telescope')
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,menuone,noselect
 set shortmess+=c
 let g:completion_enable_auto_hover = 1
 " possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'

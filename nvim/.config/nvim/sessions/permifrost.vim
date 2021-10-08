@@ -10,6 +10,7 @@ endif
 set shortmess=aoO
 argglobal
 %argdel
+$argadd tests/permifrost/core/permissions/test_snowflake_grants.py
 edit src/permifrost/core/permissions/utils/snowflake_grants.py
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
@@ -46,25 +47,17 @@ setlocal fdl=5
 setlocal fml=3
 setlocal fdn=5
 setlocal fen
-33
-normal! zo
-59
-normal! zo
-186
-normal! zo
-1587
-normal! zo
-let s:l = 97 - ((55 * winheight(0) + 41) / 82)
+let s:l = 1664 - ((16 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 97
-normal! 057|
+keepjumps 1664
+normal! 013|
 wincmd w
 argglobal
-if bufexists("term://~/projects/permifrost//12528:/bin/zsh") | buffer term://~/projects/permifrost//12528:/bin/zsh | else | edit term://~/projects/permifrost//12528:/bin/zsh | endif
+if bufexists("todo.txt") | buffer todo.txt | else | edit todo.txt | endif
 if &buftype ==# 'terminal'
-  silent file term://~/projects/permifrost//12528:/bin/zsh
+  silent file todo.txt
 endif
 balt src/permifrost/core/permissions/utils/snowflake_grants.py
 setlocal fdm=expr
@@ -75,18 +68,45 @@ setlocal fdl=0
 setlocal fml=3
 setlocal fdn=5
 setlocal fen
-let s:l = 35 - ((0 * winheight(0) + 41) / 82)
+let s:l = 5 - ((4 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 35
-normal! 027|
+keepjumps 5
+normal! 042|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 160 + 160) / 320)
-exe 'vert 2resize ' . ((&columns * 159 + 160) / 320)
+argglobal
+if bufexists("term://~/projects/permifrost//85929:/bin/zsh") | buffer term://~/projects/permifrost//85929:/bin/zsh | else | edit term://~/projects/permifrost//85929:/bin/zsh | endif
+if &buftype ==# 'terminal'
+  silent file term://~/projects/permifrost//85929:/bin/zsh
+endif
+balt todo.txt
+setlocal fdm=expr
+setlocal fde=nvim_treesitter#foldexpr()
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=3
+setlocal fdn=5
+setlocal fen
+let s:l = 1 - ((0 * winheight(0) + 15) / 30)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 023|
+wincmd w
+3wincmd w
+exe 'vert 1resize ' . ((&columns * 105 + 105) / 210)
+exe '2resize ' . ((&lines * 31 + 33) / 66)
+exe 'vert 2resize ' . ((&columns * 104 + 105) / 210)
+exe '3resize ' . ((&lines * 30 + 33) / 66)
+exe 'vert 3resize ' . ((&columns * 104 + 105) / 210)
 tabnext 1
-badd +48 src/permifrost/core/permissions/utils/snowflake_grants.py
-badd +0 term://~/projects/permifrost//12528:/bin/zsh
+badd +1 tests/permifrost/core/permissions/test_snowflake_grants.py
+badd +1606 src/permifrost/core/permissions/utils/snowflake_grants.py
+badd +5 todo.txt
+badd +0 term://~/projects/permifrost//85929:/bin/zsh
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif

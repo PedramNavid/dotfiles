@@ -23,7 +23,7 @@ source $HOME/.zsh/alias
 source $HOME/.zsh/exports
 
 if hash pyenv 2>/dev/null ; then
-    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 fi
 
