@@ -194,11 +194,6 @@ nnoremap <Leader>gf <cmd>Telescope live_grep<cr>
 " Luadev
 nnoremap <LocalLeader>rl <Plug>(Luadev-RunLine)
 nnoremap <LocalLeader>rr <Plug>(Luadev-Run)
-" Nerdtree {{{3
-" nnoremap <leader>n :NERDTreeFocus<CR>
-" nnoremap <C-n> :NERDTree<CR>
-"}}}
-
 
 " Plugin Commands {{{2
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
@@ -210,9 +205,7 @@ command! PackStatus packadd minpac | call minpac#status()
 
 nnoremap <LocalLeader>vs :source $MYVIMRC<cr>
 
-lua require('pedram.devicons')
-lua require('pedram.lsp-bindings')
-lua require('pedram.telescope')
+lua require('pedram.startup')
 
 " nvim-completion
 " https://github.com/nvim-lua/completion-nvim
@@ -225,107 +218,9 @@ let g:completion_enable_auto_hover = 1
 " possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
 " let g:completion_enable_snippet = 'UltiSnips'
 
-" vim-test {{{3
-" let test#strategy = 'dispatch'
-" let test#python#runner = 'pytest'
-" nmap <silent> <LocalLeader>tn :TestNearest<CR>
-" nmap <silent> <LocalLeader>tf :TestFile<CR>
-" nmap <silent> <LocalLeader>ts :TestSuite<CR>
-" nmap <silent> <LocalLeader>tl :TestLast<CR>
-" nmap <silent> <LocalLeader>tv :TestVisit<CR>
 
 " Python Globals {{{3
 " Create a py3nvim virtual env and install nvim from pip
 let g:python3_host_prog = '$HOME/.pyenv/versions/py3nvim/bin/python'
 
-" Dev Icons
 
-" Coc.nvim Plugin Settings {{{3
-"
-" let g:coc_global_extensions = [
-"       \ 'coc-highlight',
-"       \ 'coc-lists',
-"       \ 'coc-prettier',
-"       \ 'coc-snippets',
-"       \ 'coc-vimlsp',
-"       \ 'coc-yaml',
-"       \ 'coc-yank',
-"       \ 'coc-json',
-"       \ 'coc-git',
-"       \ 'coc-tsserver'
-"       \ ]
-"
-" " Trigger completion and select from popup
-" inoremap <silent><expr> <c-space> coc#refresh()
-" inoremap <silent><expr> <Nul> coc#refresh()
-"
-" " Diagnostics
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
-"
-" " Jump to quick keys
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
-"
-" " Other helpful shortcuts
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-" nmap <leader>rn <Plug>(coc-rename)
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format)
-" nmap <leader>e  :CocCommand explorer<CR>
-" nmap <leader>ac  <Plug>(coc-codeaction)
-"
-" " Text Objects in/all function in/all class
-" xmap if <Plug>(coc-funcobj-i)
-" omap if <Plug>(coc-funcobj-i)
-" xmap af <Plug>(coc-funcobj-a)
-" omap af <Plug>(coc-funcobj-a)
-" xmap ic <Plug>(coc-classobj-i)
-" omap ic <Plug>(coc-classobj-i)
-" xmap ac <Plug>(coc-classobj-a)
-" omap ac <Plug>(coc-classobj-a)
-"
-" nmap <silent> <C-s> <Plug>(coc-range-select)
-" xmap <silent> <C-s> <Plug>(coc-range-select)
-"
-" " Popup navigation
-"
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-"
-" " Functions  {{{4
-"
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   elseif (coc#rpc#ready())
-"     call CocActionAsync('doHover')
-"   else
-"     execute '!' . &keywordprg . " " . expand('<cword>')
-"   endif
-" endfunction
-"
-" " }}}
-"
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-"
-" " Remap <C-f> and <C-b> for scroll float windows/popups.
-" " Note coc#float#scroll works on neovim >= 0.4.3 or vim >= 8.2.0750
-"
-" command! -nargs=0 Format :call CocAction('format')
-" command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-"
-" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>

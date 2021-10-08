@@ -150,5 +150,3 @@ nvim_lsp.sumneko_lua.setup {
         }
     }
 }
-
--- Setup nvim-cmp.
