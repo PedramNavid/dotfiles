@@ -168,7 +168,7 @@ keys.globalkeys = gtable.join(
     end, { description = 'show weather', group = 'widgets' }),
 
     awful.key({altkey}, 'd', function()
-    beautiful.docker_widget.show_popup() 
+    beautiful.docker_widget.show_popup()
     end, { description = 'show docker', group = 'widgets' }),
 
     --- }}}
@@ -183,21 +183,19 @@ keys.globalkeys = gtable.join(
     { description = '-10%', group = 'hotkeys' }),
 
     awful.key({}, 'XF86AudioRaiseVolume', function()
-    os.execute(string.format('amixer -q set %s 1%%+', beautiful.volume.channel))
+    os.execute('pactl set-sink-volume @DEFAULT_SINK@ +1000')
     beautiful.volume.update()
     end,
     { description = 'volume up', group = 'hotkeys' }),
 
     awful.key({}, 'XF86AudioLowerVolume', function()
-    os.execute(string.format('amixer -q set %s 1%%-', beautiful.volume.channel))
+    os.execute('pactl set-sink-volume @DEFAULT_SINK@ -1000')
     beautiful.volume.update()
     end,
     { description = 'volume down', group = 'hotkeys' }),
 
     awful.key({}, 'XF86AudioMute', function()
-    os.execute(string.format(
-        'amixer -q set %s toggle',
-         beautiful.volume.togglechannel or beautiful.volume.channel))
+    os.execute('pactl set-sink-mute @DEFAULT_SINK@ toggle')
     beautiful.volume.update()
     end,
     { description = 'toggle mute', group = 'hotkeys' }),

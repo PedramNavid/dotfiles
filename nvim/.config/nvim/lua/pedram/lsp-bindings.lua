@@ -119,7 +119,7 @@ end
 
 add("$VIMRUNTIME")
 add("~/.config/nvim")
-add("~/build/neovim/src/nvim/lua")
+add("~/repos/neovim/src/nvim/lua")
 
 nvim_lsp.sumneko_lua.setup {
     on_attach = on_attach,

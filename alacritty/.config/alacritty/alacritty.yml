@@ -40,7 +40,7 @@ colors:
 scrolling:
   history: 25000
 
-background_opacity: 0.98
+background_opacity: 0.99
 mouse:
     hide_when_typing: true
 selection:
@@ -56,19 +56,19 @@ key_bindings:
 
 font:
   normal:
-    family: Hack Nerd Font
+    family: Hack
     style: Regular
 
   bold:
-    family: Hack Nerd Font
+    family: Hack
     style: Bold
 
   italic:
-    family: Hack Nerd Font
+    family: Hack
     style: Italic
 
   bold_italic:
-    family: Hack Nerd Font
+    family: Hack
     style: Bold Italic
 
   size: 12.5

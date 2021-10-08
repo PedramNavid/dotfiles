@@ -5,7 +5,7 @@ local chosen_theme = 'pedram'
 
 awful.util.tagnames = {
     "", -- 1
-    "", -- 2
+    "", -- 2
     "", -- 3
     "", -- 4
     "", -- 5
