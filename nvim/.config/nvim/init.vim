@@ -32,6 +32,7 @@ set softtabstop=4
 set splitbelow
 set splitright
 set tabstop=4
+set termguicolors
 set updatetime=300
 set wildmode=list,longest
 set rtp+=~/projects/nvim-plugins/neodbt.nvim
@@ -42,7 +43,7 @@ let g:vimsyn_embed = 'l'
 
 " }}}
 
-colorscheme lena
+colorscheme aquarium
 
 "  Autogroups {{{1
 "  ---------
@@ -155,6 +156,7 @@ function! PackInit()
   call minpac#add('editorconfig/editorconfig-vim')
   call minpac#add('euclidianAce/BetterLua.vim')
   call minpac#add('folke/lua-dev.nvim')
+  call minpac#add('FrenzyExists/aquarium-vim')
   call minpac#add('hashivim/vim-terraform')
   call minpac#add('hrsh7th/cmp-nvim-lsp')
   call minpac#add('hrsh7th/cmp-buffer')
@@ -202,6 +204,8 @@ command! PackStatus packadd minpac | call minpac#status()
 " }}}
 
 " Plugin Settings {{{2
+"
+lua require'colorizer'.setup()
 
 nnoremap <LocalLeader>vs :source $MYVIMRC<cr>
 
@@ -222,3 +226,5 @@ let g:completion_enable_auto_hover = 1
 " Python Globals {{{3
 " Create a py3nvim virtual env and install nvim from pip
 let g:python3_host_prog = '$HOME/.pyenv/versions/py3nvim/bin/python'
+
+
