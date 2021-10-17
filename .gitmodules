@@ -13,3 +13,9 @@
 [submodule "nvim/.config/nvim/pack/minpac/start/fzf.vim"]
 	path = nvim/.config/nvim/pack/minpac/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "awesome/.config/awesome/awesome-wm-widgets"]
+	path = awesome/.config/awesome/awesome-wm-widgets
+	url = https://github.com/streetturtle/awesome-wm-widgets.git
+[submodule "awesome/.config/awesome/bling"]
+	path = awesome/.config/awesome/bling
+	url = https://github.com/Nooo37/bling.git
