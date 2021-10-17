@@ -9,8 +9,6 @@
 	attributesFile = ~/.gitattributes
 [init]
 	defaultBranch = main
-[pull]
-	rebase = false
 [fetch]
 	prune = true
 [diff]

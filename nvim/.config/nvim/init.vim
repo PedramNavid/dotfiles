@@ -38,7 +38,6 @@ set rtp+=~/projects/nvim-plugins/neodbt.nvim
 set statusline=%02n\ %<%f\ %H%M%R%W%q%=%-14.(%y\ %l\\%L,%c%V%)\ %P
 
 " Lua-based Settings {{{1
-lua require('pedram.globals')
 let g:vimsyn_embed = 'l'
 
 " }}}
@@ -164,6 +163,7 @@ function! PackInit()
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('kyazdani42/nvim-web-devicons')
   call minpac#add('neovim/nvim-lspconfig')
+  call minpac#add('norcalli/nvim-colorizer.lua')
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('nvim-lua/popup.nvim')
   call minpac#add('nvim-telescope/telescope.nvim')
