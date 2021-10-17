@@ -104,6 +104,20 @@ nvim_lsp.pyright.setup {
 
 }
 
+nvim_lsp.efm.setup {
+    settings = {
+        rootMarkers = {".git/"},
+        languages = {
+            sh = {
+                lintCommand = "sh-shellcheck"
+            },
+            zsh = {
+                lintCommand = "sh-shellcheck"
+            }
+        }
+    }
+}
+
 local library = {}
 local path = vim.split(package.path, ';')
 
