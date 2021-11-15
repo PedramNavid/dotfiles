@@ -3,7 +3,6 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, 'luarocks.loader')
 
-local gears = require('gears')
 require('awful.autofocus')
 
 local beautiful = require('beautiful')

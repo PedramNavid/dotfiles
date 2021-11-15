@@ -24,7 +24,34 @@ local calwidget = calendar_widget({
 })
 
 screen.connect_signal('request::desktop_decoration', function(s)
-    awful.tag({'1', '2', '3', '4'}, s, awful.layout.layouts[1])
+    local layout = awful.layout.suit
+    awful.tag.add('1tr', {
+        layout = layout.tile.right,
+        master_fill_policy = 'master_width_factor',
+        gap_single_client = true,
+        screen = s,
+        selected = true
+    })
+
+    awful.tag.add('2tt', {
+        layout = layout.tile.top,
+        screen = s
+    })
+
+    awful.tag.add('3c', {
+        layout = layout.corner.nw,
+        screen = s
+    })
+    awful.tag.add('4f', {
+        layout = layout.fair,
+        screen = s
+    })
+
+    awful.tag.add('5m', {
+        layout = layout.max,
+        screen = s
+    })
+
     s.mypromptbox = awful.widget.prompt()
 
     s.mylayoutbox = awful.widget.layoutbox {
