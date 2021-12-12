@@ -104,6 +104,20 @@ nvim_lsp.pyright.setup {
 
 }
 
+nvim_lsp.efm.setup {
+    settings = {
+        rootMarkers = {".git/"},
+        languages = {
+            sh = {
+                lintCommand = "sh-shellcheck"
+            },
+            zsh = {
+                lintCommand = "sh-shellcheck"
+            }
+        }
+    }
+}
+
 local library = {}
 local path = vim.split(package.path, ';')
 
@@ -119,7 +133,8 @@ end
 
 add("$VIMRUNTIME")
 add("~/.config/nvim")
-add("~/build/neovim/src/nvim/lua")
+add("~/repos/neovim/src/nvim/lua")
+add("~/repos/awesome/lib")
 
 nvim_lsp.sumneko_lua.setup {
     on_attach = on_attach,
@@ -140,7 +155,7 @@ nvim_lsp.sumneko_lua.setup {
             },
             diagnostics = {
                 enable = true,
-                globals = {"vim", "P"}
+                globals = {"vim", "P", "awesome", "tag", "screen", "client"}
             },
             workspace = {
                 library = library,
@@ -150,5 +165,3 @@ nvim_lsp.sumneko_lua.setup {
         }
     }
 }
-
--- Setup nvim-cmp.

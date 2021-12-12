@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+#!/bin/zsh
 HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
@@ -6,9 +6,10 @@ SAVEHIST=5000
 setopt autocd autolist beep notify SHARE_HISTORY
 unsetopt nomatch
 
-# zstyle :compinstall filename '/Users/pedram.navid/.zshrc'
-# autoload -Uz compinit
-# compinit
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
 
 # Directories
 # cd acts as pushd, without printing the dir stack
@@ -27,14 +28,15 @@ if hash pyenv 2>/dev/null ; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-typeset -a ANTIGEN_CHECK_FILES=($HOME/dotfiles/zsh/.zshrc $HOME/dotfiles/antigen/.antigenrc)
-source $HOME/antigen.zsh
-antigen init $HOME/dotfiles/antigen/.antigenrc
-
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; fi
 if hash rbenv 2>/dev/null; then eval "$(rbenv init -)"; fi
 
-# Added by serverless binary installer
-export PATH="$HOME/.serverless/bin:$PATH"
+if [ "$(uname)" == "Darwin" ]; then
+    export PATH="$HOME/.serverless/bin:$PATH"
+    alias luamake=/Users/pedram/projects/lua-language-server/3rd/luamake/luamake
+fi
 
-alias luamake=/Users/pedram/projects/lua-language-server/3rd/luamake/luamake
+eval "$(starship init zsh)"
+if [[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
