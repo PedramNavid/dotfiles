@@ -7,3 +7,4 @@ set smartindent     " auto-indent on new lines
 set colorcolumn=80
 
 inoremap {{ref {{ ref('') }}<Esc>F'i
+inoremap {{source {{ source('', '') }}<Esc>3F'i
