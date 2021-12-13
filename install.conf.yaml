@@ -1,0 +1,15 @@
+- defaults:
+    link:
+      relink: true
+  
+- clean: ['~']
+
+- link:
+    ~/.gitconfig: gitconfig
+    ~/.gitignore: gitignore
+    ~/.config/kitty: 
+      create: true
+      path: kitty
+    ~/.config/nvim: nvim
+    ~/.config/starship.toml: starship.toml
+    ~/.tmux.conf: tmux.conf
