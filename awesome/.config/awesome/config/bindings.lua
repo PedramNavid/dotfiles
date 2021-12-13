@@ -39,6 +39,12 @@ awful.keyboard.append_global_keybindings({
         description = 'lua execute prompt',
         group = 'awesome'
     }),
+
+    awful.key({keys.modkey}, 'b', function() awful.spawn(apps.browser) end, {
+        description = 'open the browser',
+        group = 'launcher'
+    }),
+
     awful.key({keys.modkey}, 'Return',
               function() awful.spawn(apps.terminal) end, {
         description = 'open a terminal',
