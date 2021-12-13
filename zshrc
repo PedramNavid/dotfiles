@@ -19,7 +19,11 @@ bindkey -v
 
 # Environment  {{{
 
+export EDITOR=nvim
+
+alias cdd="cd $HOME/dotfiles"
 alias vim="nvim"
+
 [[ -f ~/.zsh/alias.local ]] && source (~/.zsh/alias.local)
 [[ -f ~/.zsh/exports.local ]] && source (~/.zsh/exports.local)
 
