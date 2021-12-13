@@ -4,6 +4,9 @@
   
 - clean: ['~']
 
+- create:
+    - ~/.zsh
+
 - link:
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
@@ -13,3 +16,4 @@
     ~/.config/nvim: nvim
     ~/.config/starship.toml: starship.toml
     ~/.tmux.conf: tmux.conf
+    ~/.zshrc: zshrc
