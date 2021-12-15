@@ -10,6 +10,14 @@ antibody bundle dracula/zsh
 
 # }}}
 
+# Keyboard Shorcuts {{{
+
+bindkey '^R' history-incremental-search-backward
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
+
+# }}}
+
 # Prompt and Settings {{{
 
 eval "$(starship init zsh)"
