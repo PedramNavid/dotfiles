@@ -12,16 +12,16 @@ antibody bundle dracula/zsh
 
 # Keyboard Shorcuts {{{
 
+bindkey -v
 bindkey '^R' history-incremental-search-backward
-bindkey "^P" up-line-or-search
-bindkey "^N" down-line-or-search
+bindkey '^P' up-line-or-search
+bindkey '^N' down-line-or-search
 
 # }}}
 
 # Prompt and Settings {{{
 
 eval "$(starship init zsh)"
-bindkey -v
 
 # }}}
 
