@@ -1,16 +1,16 @@
 ## Other Quality of Life Things
-[] - Tmux session for dotfiles, etc.
+[x] - Tmux session for dotfiles, etc.
 [x] -  ctrl p for zsh
 
 
 ## VIMprovments
-[] - System Clipboard
-[] - Shortcut for saving file
+[x ] - System Clipboard
+[x] - Shortcut for saving file
 [x] - Autocomplete for lua, python
 [] - Lua gloals for printing vim
 [] - Keymap cheatsheet for vim lsp
-[] - auto format delete trailing whitepsace
-[] - vim shortcuts for buffer switch tpope
+[x] - auto format delete trailing whitepsace
+[x] - vim shortcuts for buffer switch tpope
 [] - fuzzy finder ,ff
 [] - terminal esc
 
