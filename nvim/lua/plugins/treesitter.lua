@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained", 
+    ensure_installed = "maintained",
     highlight = {
       enable = true,              -- false will disable the whole extension
     },
@@ -16,3 +16,13 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
     }
   }
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.sql= {
+  install_info = {
+    url = "~/projects/tree-sitter-sql", -- local path or git repo
+    files = {"src/parser.c"}
+  },
+  filetype = "sql", -- if filetype does not agrees with parser name
+  used_by = {"bar", "baz"} -- additional filetypes that use this parser
+}

@@ -14,9 +14,12 @@ nnoremap {'<Leader>ff', '<cmd>Telescope find_files<CR>'}
 nnoremap {'<Leader>fb', '<cmd>Telescope file_browser<CR>'}
 nnoremap {'<Leader>fg', '<cmd>Telescope live_grep<CR>'}
 nnoremap {'<Leader>fb', '<cmd>Telescope buffers<CR>'}
-nnoremap {'<Leader>fs', '<cmd>Telescope lsp_document_symbols<CR>'}
-nnoremap {'<Leader>fws', '<cmd>Telescope lsp_workspace_symbols<CR>'}
-nnoremap {'<Leader>gs', '<cmd>Telescope git_status<CR>'}
+nnoremap {'<Leader>gr', '<cmd>Telescope lsp_references<CR>'}
+nnoremap {'<Leader>gd', '<cmd>Telescope lsp_definitions<CR>'}
+nnoremap {'<Leader>gi', '<cmd>Telescope lsp_implementations<CR>'}
+nnoremap {'<Leader>gs', '<cmd>Telescope lsp_document_symbols<CR>'}
+nnoremap {'<Leader>gws', '<cmd>Telescope lsp_workspace_symbols<CR>'}
+nnoremap {'<Leader>q', '<cmd>Telescope diagnostics<CR>'}
 
 -- Window Movements
 nnoremap {'<M-j>', '<c-w>j'}
