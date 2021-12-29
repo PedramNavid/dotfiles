@@ -4,15 +4,15 @@
 
 
 ## VIMprovments
-[x ] - System Clipboard
+[x] - System Clipboard
 [x] - Shortcut for saving file
 [x] - Autocomplete for lua, python
 [] - Lua gloals for printing vim
 [] - Keymap cheatsheet for vim lsp
 [x] - auto format delete trailing whitepsace
 [x] - vim shortcuts for buffer switch tpope
-[] - fuzzy finder ,ff
-[] - terminal esc
+[x] - fuzzy finder ,ff
+[x] - terminal esc
 
 ## Snippets
 version: 2
