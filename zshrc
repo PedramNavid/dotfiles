@@ -28,7 +28,9 @@ eval "$(starship init zsh)"
 # Environment  {{{
 
 export EDITOR=nvim
+export FZF_DEFAULT_COMMAND='rg --files'
 
+alias cdp="cd $HOME/projects"
 alias cdd="cd $HOME/dotfiles"
 alias vim="nvim"
 
