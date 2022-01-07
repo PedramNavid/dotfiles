@@ -35,7 +35,9 @@ require"lspconfig".efm.setup {
     }
 }
 
-local servers = {'pyright', 'dockerls', 'jsonls', 'sumneko_lua'}
+local servers = {
+    'pyright', 'dockerls', 'jsonls', 'sumneko_lua', 'eslint', 'tsserver'
+}
 
 for _, lsp in ipairs(servers) do
     if lsp == 'sumneko_lua' then
