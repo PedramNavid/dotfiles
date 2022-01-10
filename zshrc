@@ -34,8 +34,8 @@ alias cdp="cd $HOME/projects"
 alias cdd="cd $HOME/dotfiles"
 alias vim="nvim"
 
-[[ -f ~/.zsh/alias.local ]] && source (~/.zsh/alias.local)
-[[ -f ~/.zsh/exports.local ]] && source (~/.zsh/exports.local)
+[[ -f $HOME/dotfiles/alias.local ]] && source $HOME/dotfiles/alias.local
+[[ -f $HOME/dotfiles/exports.local ]] && source $HOME/dotfiles/exports.local
 
 # }}}
 
