@@ -15,6 +15,8 @@ return require('packer').startup(function()
     use 'neovim/nvim-lspconfig'
     use 'Mofiqul/dracula.nvim'
     use 'tpope/vim-unimpaired'
+    use 'rust-lang/rust.vim'
+    use 'simrat39/rust-tools.nvim'
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/plenary.nvim'}}
