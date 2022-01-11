@@ -36,7 +36,7 @@ require"lspconfig".efm.setup {
 }
 
 local servers = {
-    'pyright', 'dockerls', 'jsonls', 'sumneko_lua', 'eslint', 'tsserver'
+    'pyright', 'dockerls', 'jsonls', 'sumneko_lua', 'eslint', 'tsserver', 'rls'
 }
 
 for _, lsp in ipairs(servers) do

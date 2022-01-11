@@ -17,4 +17,4 @@
     ~/.config/starship.toml: starship.toml
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
-    /usr/local/bin/tmux_session:  bin/tmux_session
+    ~/bin/tmux_session:  bin/tmux_session

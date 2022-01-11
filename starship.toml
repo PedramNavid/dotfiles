@@ -1,6 +1,7 @@
 format = """
 $username\
 $hostname\
+$kubernetes \
 $directory\
 $git_branch\
 $git_commit\
@@ -22,4 +23,7 @@ $character"""
 threshold = 50
 
 [time]
+disabled = false
+
+[kubernetes]
 disabled = false
