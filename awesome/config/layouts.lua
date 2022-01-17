@@ -13,6 +13,8 @@ local mylauncher = awful.widget.launcher({
     menu = menu.mainmenu
 })
 
+local pihealth = require('config.customwidgets.pihealth')
+
 -- Keyboard map indicator and switcher
 local mykeyboardlayout = awful.widget.keyboardlayout()
 
@@ -132,6 +134,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
                 layout = wibox.layout.fixed.horizontal,
                 volume_widget(),
                 mykeyboardlayout,
+                pihealth,
                 wibox.widget.systray(),
                 mytextclock,
                 s.mylayoutbox

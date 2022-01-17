@@ -18,3 +18,4 @@
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
     ~/bin/tmux_session:  bin/tmux_session
+    ~/.config/awesome: awesome

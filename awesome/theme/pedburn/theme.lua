@@ -66,11 +66,11 @@ theme.titlebar_bg_normal = black
 -- You can add as many variables as
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
--- theme.fg_widget        = "#AECF96"
--- theme.fg_center_widget = "#88A175"
--- theme.fg_end_widget    = "#FF5656"
--- theme.bg_widget        = "#494B4F"
--- theme.border_widget    = "#3F3F3F"
+ theme.stack1 = blue_sapphire
+ theme.stack2 = middle_green
+ theme.stack3 = yellow
+ theme.stack4 = peach
+ theme.stack5 =  muted_purple
 -- }}}
 
 -- {{{ Mouse finder

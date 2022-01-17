@@ -13,15 +13,19 @@ local on_attach = function(client, bufnr)
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings.
-    local opts = {noremap = true, silent = true}
+    local opts = {
+        noremap = true,
+        silent = true
+    }
 
     mappings.lsp_keymaps(bufnr, opts)
 
 end
 
 require"lspconfig".efm.setup {
-    init_options = {documentFormatting = true},
-    filetypes = {"lua"},
+    init_options = {
+        documentFormatting = true
+    },
     settings = {
         rootMarkers = {".git/"},
         languages = {
@@ -43,12 +47,20 @@ for _, lsp in ipairs(servers) do
     if lsp == 'sumneko_lua' then
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            settings = {Lua = {diagnostics = {globals = {'vim'}}}}
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = {'vim'}
+                    }
+                }
+            }
         }
     else
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = 150}
+            flags = {
+                debounce_text_changes = 150
+            }
         }
     end
 end
