@@ -3,38 +3,44 @@ local wibox = require('wibox')
 local beautiful = require('beautiful')
 local gears = require('gears')
 
-local cmd = 'bash -c "~/dotfiles/awesome/config/customwidgets/script.sh"'
+local cmd =
+    'bash -c "~/dotfiles/awesome/config/customwidgets/pihealth_script.sh"'
 
 local config = {
-    font = "sans 10",
+    font = "Play 9",
     temp_max_value = 80,
     temp_min_value = 20,
     widget_step_width = 2,
     widget_step_spacing = 1,
     widget_width = 50,
-    popup_width = 300,
-    popup_height = 200,
+    popup_width = 650,
+    popup_height = 120,
     popup_border_color = beautiful.border_color_active,
     popup_border_width = 1,
-    popup_text_width = 40,
-    bar_width = 150,
-    bar_height = 15,
-    bar_paddings = 2,
-    bar_border_width = 3,
+    popup_text_width = 30,
+    bar_width = 90,
+    bar_height = 10,
+    bar_paddings = 1,
+    bar_border_width = 2,
     bar_color = "linear:80,0:0,0:0,#D08770:0.5,#BF616A:0.9,"
         .. beautiful.fg_normal,
-    background_color = "#000000"
+    background_color = beautiful.bg_normal
 
 }
 
 local function parse_cmd_output(s)
-    local result = {}
+    local temp_result = {}
+    local uptime_result = {}
     local lines = gears.string.split(s, "\n")
     for _, line in pairs(lines) do
         local row = gears.string.split(line, " ")
-        result[row[1]] = row[2]
+        if row[2] == "temp" then
+            temp_result[row[1]] = row[3]
+        elseif row[2] == "uptime" then
+            uptime_result[row[1]] = row[3]
+        end
     end
-    return result
+    return temp_result, uptime_result
 end
 
 local popup = awful.popup {
@@ -61,9 +67,18 @@ local function create_textbox(args)
     }
 end
 
+local function uptime_to_parts(uptime)
+    local up_t = math.floor(uptime)
+    local up_d = math.floor(up_t / (3600 * 24))
+    local up_h = math.floor((up_t % (3600 * 24)) / 3600)
+    local up_m = math.floor(((up_t % (3600 * 24)) % 3600) / 60)
+    local up_s = math.floor(((up_t % (3600 * 24)) % 3600) % 60)
+    return string.format("%02.0f:%02.0f:%02.0f:%02.0f", up_d, up_h, up_m, up_s)
+end
+
 local function update_widget(widget, stdout, stderr)
     if stderr ~= '' then print(stderr) end
-    local parsed = parse_cmd_output(stdout)
+    local temp_results, uptime_results = parse_cmd_output(stdout)
 
     local rows = {
         layout = wibox.layout.fixed.vertical,
@@ -72,21 +87,29 @@ local function update_widget(widget, stdout, stderr)
 
     local i = 1
     local hostnames = {}
-    for n in pairs(parsed) do table.insert(hostnames, n) end
+    for n in pairs(temp_results) do table.insert(hostnames, n) end
     table.sort(hostnames)
     for _, host in ipairs(hostnames) do
-        local temp = parsed[host]
+        local temp = temp_results[host]
+        local uptime = uptime_to_parts(uptime_results[host])
         widget:add_value(temp)
         local row = {
             create_textbox {
                 text = host
             },
             create_textbox {
-                text = string.format("%.1f", temp)
+                text = uptime,
+                forced_width = 170
+            },
+            create_textbox {
+                text = string.format("%.1f°C", temp),
+                forced_width = 80,
+                align = "right"
+
             },
             {
-                min_value = 10,
-                max_value = 60,
+                min_value = config.temp_min_value,
+                max_value = config.temp_max_value,
                 forced_width = config.bar_width,
                 forced_height = config.bar_height,
                 paddings = config.bar_padddings,
@@ -103,15 +126,32 @@ local function update_widget(widget, stdout, stderr)
         i = i + 1
     end
 
-    local texthost = wibox.widget {
+    local text_headers = wibox.widget {
+        create_textbox {
+            markup = '<b>Host</b>'
+        },
+        create_textbox {
+            markup = '<b>Uptime</b>'
+        },
+        create_textbox {
+            markup = '<b>Temp</b>'
+        },
+        create_textbox {
+            markup = '<b>Temp Graph</b>'
+        },
+        widget = wibox.layout.ratio.horizontal
+    }
+
+    local text_rows = {
         rows,
         widget = wibox.container.background,
         bg = config.background_color
     }
 
     popup:setup{
-        texthost,
-        layout = wibox.layout.ratio.horizontal
+        text_headers,
+        text_rows,
+        widget = wibox.layout.fixed.vertical
     }
 
 end
@@ -121,6 +161,7 @@ local graph_widget = wibox.widget {
     min_value = config.temp_min_value,
     step_width = config.widget_step_width,
     step_spacing = config.widget_step_spacing,
+    background_color = config.background_color,
     color = "linear:0,0:0,30:0,#FF0000:0.4,#FFFF00:0.8," .. beautiful.fg_normal,
     forced_width = config.widget_width,
     widget = wibox.widget.graph
