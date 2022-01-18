@@ -62,9 +62,9 @@ Paused:
 
 First you need to have spotify CLI installed, it uses dbus to communicate with spotify-client:
 
-```bash 
+```bash
 git clone https://gist.github.com/fa6258f3ff7b17747ee3.git
-cd ./fa6258f3ff7b17747ee3 
+cd ./fa6258f3ff7b17747ee3
 chmod +x sp
 sudo cp ./sp /usr/local/bin/
 ```
@@ -78,7 +78,7 @@ s.mytasklist, -- Middle widget
 	{ -- Right widgets
     	layout = wibox.layout.fixed.horizontal,
 		...
-        -- default        
+        -- default
         spotify_widget(),
         -- customized
         spotify_widget({
@@ -86,5 +86,5 @@ s.mytasklist, -- Middle widget
            play_icon = '/usr/share/icons/Papirus-Light/24x24/categories/spotify.svg',
            pause_icon = '/usr/share/icons/Papirus-Dark/24x24/panel/spotify-indicator.svg'
         }),
-		...      
+		...
 ```

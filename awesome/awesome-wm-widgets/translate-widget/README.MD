@@ -24,15 +24,7 @@ This widget allows quickly translate words or phrases without opening a browser 
 1. Add a shortcut to run translate prompt:
 
     ```lua
-    awful.key({ modkey }, "c", function() 
-        translate.launch{api_key = '<api-key>', url = 'url'} 
-   end, { description = "run translate prompt", group = "launcher" })    
+    awful.key({ modkey }, "c", function()
+        translate.launch{api_key = '<api-key>', url = 'url'}
+   end, { description = "run translate prompt", group = "launcher" })
    ```
-   
-   
-   
-      
-   
-   
-   
-

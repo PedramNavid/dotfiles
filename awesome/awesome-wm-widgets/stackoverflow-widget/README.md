@@ -44,4 +44,3 @@ It is possible to customize widget by providing a table with all or some of the 
             })
             ...
     ```
-    

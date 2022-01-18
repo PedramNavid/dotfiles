@@ -26,5 +26,3 @@ models:
         tests:
           - unique
           - not_null
-
-

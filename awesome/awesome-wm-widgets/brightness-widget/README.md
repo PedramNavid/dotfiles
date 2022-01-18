@@ -21,12 +21,12 @@ _Note:_ If brightness is controlled only by the widget (either by a mouse, or by
 
 ## Installation
 
-To choose the right `program` argument, first you need to check which of them works better for you. 
+To choose the right `program` argument, first you need to check which of them works better for you.
 
  - using `xbacklight`:
- 
+
     Install (on Ubuntu it's available in the apt repository) it and check if it works by running:
- 
+
     ```bash
     xbacklight -get
     ```
@@ -34,7 +34,7 @@ To choose the right `program` argument, first you need to check which of them wo
     If there is no output it means that it doesn't work, you can either try to fix it, or try to use `light`.
 
  - using `light` command
- 
+
     Install (on Ubuntu it's available in the apt repository) from the repo: [github.com/haikarainen/light](https://github.com/haikarainen/light) and check if it works by running
 
     ```bash
@@ -69,7 +69,7 @@ s.mytasklist, -- Middle widget
         brightness_widget{
             type = 'icon_and_text',
             program = 'xbacklight',
-            step = 2,        
+            step = 2,
         }
     }
     ...

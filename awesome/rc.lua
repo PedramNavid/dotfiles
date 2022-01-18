@@ -33,4 +33,3 @@ require('config.rules')
 require('config.titlebars')
 require('config.notifications')
 require('config.layouts')
-

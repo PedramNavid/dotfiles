@@ -126,4 +126,3 @@ function widget.launch(...)
 end
 
 return widget
-

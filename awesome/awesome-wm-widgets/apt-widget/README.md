@@ -24,4 +24,3 @@ s.mytasklist, -- Middle widget
 		apt_widget(),
 		...
 ```
-
