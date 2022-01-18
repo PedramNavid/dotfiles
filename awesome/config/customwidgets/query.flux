@@ -1,0 +1,5 @@
+from(bucket: "rasp-pi")
+  |> range(start: -1h)
+  |> filter(fn: (r) => r["_field"] == "temp")
+  |> drop(fn: (column) => column != "_value" and column != "host")
+  |> last()
