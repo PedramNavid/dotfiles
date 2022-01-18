@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/streetturtle/awesome-wm-widgets/labels/weather" target="_blank"><img alt="GitHub issues by-label" src="https://img.shields.io/github/issues/streetturtle/awesome-wm-widgets/weather"></a>
-  
+
   <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20weather%20widget%20for%20Awesome%20Window%20Manager%20&url=https://github.com/streetturtle/awesome-wm-widgets/blob/master/weather-widget" target="_blank">
   <img alt="Twitter URL" src="https://img.shields.io/twitter/url?logo=twitter&style=social&url=https%3A%2F%2Fgithub.com%2Fstreetturtle%2Fawesome-wm-widgets%2Fblob%2Fmaster%2Fweather-widget">
    </a>
@@ -25,7 +25,7 @@ It is possible to customize widget by providing a table with all or some of the 
 
 | Name | Default | Description |
 |---|---|---|
-| coordinates | Required | Table with two elements: latitude and longitude, e.g. `{46.204400, 6.143200}` | 
+| coordinates | Required | Table with two elements: latitude and longitude, e.g. `{46.204400, 6.143200}` |
 | api_key | Required | Get it [here](https://openweathermap.org/appid) |
 | font_name | `beautiful.font:gsub("%s%d+$", "")` | **Name** of the font to use e.g. 'Play' |
 | both_units_widget | false | Show temperature in both units - '28°C (83°F) |

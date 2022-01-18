@@ -18,9 +18,3 @@ augroup Trim_Whitespace
     autocmd BufWritePre * call TrimWhiteSpace()
 augroup end
 ]]
-
-vim.cmd [[
-augroup JS_Formatting
-    autocmd! BufWritePre *.js,*.jsx EslintFixAll
-augroup end
-]]

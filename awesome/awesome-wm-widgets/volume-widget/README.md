@@ -6,7 +6,7 @@ Volume widget based on [amixer](https://linux.die.net/man/1/amixer) (is used for
 
 From left to right: `horizontal_bar`, `vertical_bar`, `icon`, `icon_and_text`, `arc`
 
-A right-click on the widget opens a popup where you can choose a sink/source:  
+A right-click on the widget opens a popup where you can choose a sink/source:
 ![sink-sources](screenshots/volume-sink-sources.png)
 
 Left click toggles mute and middle click opens a mixer ([pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol/) by default).
@@ -66,9 +66,9 @@ Depending on the chosen widget type add parameters from the corresponding sectio
 
 | Name | Default | Description |
 |---|---|---|
-| `icon_dir`| `./icons`| Path to the folder with icons | 
+| `icon_dir`| `./icons`| Path to the folder with icons |
 
-_Note:_ if you are changing icons, the folder should contain following .svg images: 
+_Note:_ if you are changing icons, the folder should contain following .svg images:
  - audio-volume-high-symbolic
  - audio-volume-medium-symbolic
  - audio-volume-low-symbolic
@@ -78,7 +78,7 @@ _Note:_ if you are changing icons, the folder should contain following .svg imag
 
 | Name | Default | Description |
 |---|---|---|
-| `icon_dir`| `./icons`| Path to the folder with icons | 
+| `icon_dir`| `./icons`| Path to the folder with icons |
 | `font` | `beautiful.font` | Font name and size, like `Play 12` |
 
 #### `arc` parameters
@@ -115,4 +115,4 @@ _Note:_ I didn't figure out how does the `forced_height` property of progressbar
 | `width` | `10` | The bar width |
 | `margins` | `20` | Top and bottom margins (if your wibar is 22 px high, bar will be 2 px = 22 - 2*10) |
 | `shape` | `'bar'` | [gears.shape](https://awesomewm.org/doc/api/libraries/gears.shape.html), could be `octogon`, `hexagon`, `powerline`, etc |
-| `with_icon` | `true` | Show volume icon| 
+| `with_icon` | `true` | Show volume icon|

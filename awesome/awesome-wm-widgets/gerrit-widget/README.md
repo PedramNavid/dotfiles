@@ -1,17 +1,17 @@
 # Gerrit widget
 
 It shows number of currently assigned reviews in [Gerrit](https://www.gerritcodereview.com/) to the user (by default) :
- 
+
  ![gerrit_widget](./gerrit_widget.png)
- 
+
  when clicked it shows reviews in a list:
- 
+
  ![popup](./popup.png)
- 
+
  left click on an item will open review in the default browser, right click will copy the review number, which you can use to checkout this review by running `git-review -d <review number>`.
- 
+
  Also, if a new review is assigned to the user, there will be a pop-up:
- 
+
  ![new_review](./new_review.png)
 
 ## Customization
@@ -32,12 +32,12 @@ It is possible to customize widget by providing a table with all or some of the 
 
 ## Installation
 
-1. This widget relies on Gerrit [REST API](https://gerrit-review.googlesource.com/Documentation/rest-api.html), so you need to have a permission to access it. You also need to setup [netrc](https://ec.haxx.se/usingcurl-netrc.html), as widget uses curl to communicate with API and you have to be authenticated. 
+1. This widget relies on Gerrit [REST API](https://gerrit-review.googlesource.com/Documentation/rest-api.html), so you need to have a permission to access it. You also need to setup [netrc](https://ec.haxx.se/usingcurl-netrc.html), as widget uses curl to communicate with API and you have to be authenticated.
 To test if you have access to API and netrc setup is correct run following command, you should have a json response:
 
     ```bash
      curl  -s --request GET --netrc https://gerrit-host.com/a/changes/\?q\=status:open+AND+NOT+is:wip+AND+is:reviewer | tail -n +2
-    ``` 
+    ```
     Note: `tail -n +2` is needed to skip first line of the response, as gerrit returns some characters there in order to prevent XSS hacks.
 
 1. Download json parser for lua from [github.com/rxi/json.lua](https://github.com/rxi/json.lua) and place it under **~/.config/awesome/** (don't forget to star a repo):
@@ -74,4 +74,3 @@ To test if you have access to API and netrc setup is correct run following comma
             })
             ...
     ```
-    

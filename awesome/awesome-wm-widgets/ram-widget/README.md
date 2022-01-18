@@ -36,4 +36,3 @@ s.mytasklist, -- Middle widget
 	}
 	...
 ```
-

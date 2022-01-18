@@ -4,7 +4,7 @@
   <a href="https://github.com/streetturtle/awesome-wm-widgets/labels/gitlab" target="_blank"><img alt="GitHub issues by-label" src="https://img.shields.io/github/issues/streetturtle/awesome-wm-widgets/gitlab"></a>
 </p>
 
-The widget shows the number of merge requests assigned to the user and when clicked shows additional information, such as 
+The widget shows the number of merge requests assigned to the user and when clicked shows additional information, such as
  - author's name and avatar (opens user profile page when clicked);
  - MR name (opens MR when clicked);
  - source and target branches;

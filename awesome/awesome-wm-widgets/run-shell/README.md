@@ -22,4 +22,3 @@ Run prompt which is put inside a widget:
 
     ```lua
     awful.key({modkey}, "r", function () run_shell.launch() end),
- 

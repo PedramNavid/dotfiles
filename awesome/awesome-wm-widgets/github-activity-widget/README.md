@@ -59,7 +59,7 @@ gears.timer {
 }
 ```
 
-There are several reasons to store output in a file and then use it as a source to build the widget, instead of calling it everytime the widget is opened: 
+There are several reasons to store output in a file and then use it as a source to build the widget, instead of calling it everytime the widget is opened:
  - activity feed does not update that often
  - events API doesn't provide filtering of fields, so the output is quite large (300 events)
  - it's much faster to read file from filesystem
@@ -82,7 +82,7 @@ else
             DOWNLOAD_AVATAR_CMD,
             CACHE_DIR,
             event.actor.id,
-            event.actor.avatar_url), 
+            event.actor.avatar_url),
             -- and then set
             function() avatar_img:set_image(path_to_avatar) end)
 end

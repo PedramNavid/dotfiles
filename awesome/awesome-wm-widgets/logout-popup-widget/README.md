@@ -23,7 +23,7 @@ cd ./.config/awesome/
 git clone https://github.com/streetturtle/awesome-wm-widgets
 git clone https://github.com/streetturtle/awesome-buttons
 ```
-Then 
+Then
 
 - to show by a shortcut - define a shortcut in `globalkeys`:
 
@@ -39,7 +39,7 @@ Then
 
     ```lua
     local logout_popup = require("awesome-wm-widgets.logout-popup-widget.logout-popup")
-    
+
     s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,

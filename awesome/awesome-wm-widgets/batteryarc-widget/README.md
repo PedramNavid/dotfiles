@@ -57,7 +57,7 @@ s.mytasklist, -- Middle widget
     	layout = wibox.layout.fixed.horizontal,
 		...
         --[[default]]
-		batteryarc_widget(),		
+		batteryarc_widget(),
         --[[or customized]]
         batteryarc_widget({
             show_current_level = true,

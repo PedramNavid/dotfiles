@@ -227,5 +227,3 @@ let g:completion_enable_auto_hover = 1
 " Python Globals {{{3
 " Create a py3nvim virtual env and install nvim from pip
 let g:python3_host_prog = '$HOME/.pyenv/versions/py3nvim/bin/python'
-
-

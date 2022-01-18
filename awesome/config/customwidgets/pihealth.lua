@@ -192,4 +192,3 @@ graph_widget:buttons(awful.util.table.join(
 awful.widget.watch(cmd, 10, update_widget, graph_widget)
 
 return pihealth_widget
-

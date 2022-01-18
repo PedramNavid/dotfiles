@@ -1,6 +1,6 @@
 # Github Contributions Widget
 
-The widget is inspired by the https://github-contributions.now.sh/ and relies on it's API. 
+The widget is inspired by the https://github-contributions.now.sh/ and relies on it's API.
 
 It shows the contribution graph, similar to the one on the github profile page: ![screenshot](./screenshots/screenshot.jpg)
 
@@ -40,10 +40,10 @@ To add a new theme, simply add a new entry in `themes` table (themes.lua) with t
 
 ### Screenshots
 
-1000 days, with border:  
+1000 days, with border:
 ![screenshot1](./screenshots/screenshot1.jpg)
 
-365 days, no border:  
+365 days, no border:
 ![screenshot2](./screenshots/screenshot2.jpg)
 
 ## Installation

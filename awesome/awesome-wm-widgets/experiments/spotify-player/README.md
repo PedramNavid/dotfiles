@@ -1,4 +1,4 @@
-# Spotify Player 
+# Spotify Player
 
 In progress
 
