@@ -33,11 +33,7 @@ eval "$(starship init zsh)"
 
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --files'
-<<<<<<< HEAD
-export PATH=$PATH:$HOME/bin:$HOME/repos/lua-language-server/bin:$HOME/.local/bin/
-=======
 export PATH=$PATH:$HOME/bin:$HOME/repos/lua-language-server/bin:$HOME/go/bin:$HOME/.local/bin
->>>>>>> b36c0f96a9a52ab5a673255945ef48519ba03abd
 
 alias cdp="cd $HOME/projects"
 alias cdd="cd $HOME/dotfiles"
