@@ -14,6 +14,7 @@ local mylauncher = awful.widget.launcher({
 })
 
 local pihealth = require('config.customwidgets.pihealth')
+local purpleair_widget = require('config.customwidgets.purpleair')
 
 -- Keyboard map indicator and switcher
 local mykeyboardlayout = awful.widget.keyboardlayout()
@@ -59,10 +60,15 @@ screen.connect_signal('request::desktop_decoration', function(s)
     s.mylayoutbox = awful.widget.layoutbox {
         screen = s,
         buttons = {
-            awful.button({}, 1, function() awful.layout.inc(1) end),
-            awful.button({}, 3, function() awful.layout.inc(-1) end),
-            awful.button({}, 4, function() awful.layout.inc(-1) end),
-            awful.button({}, 5, function() awful.layout.inc(1) end)
+            awful.button({}, 1, function()
+                awful.layout.inc(1)
+            end), awful.button({}, 3, function()
+                awful.layout.inc(-1)
+            end), awful.button({}, 4, function()
+                awful.layout.inc(-1)
+            end), awful.button({}, 5, function()
+                awful.layout.inc(1)
+            end)
         }
     }
 
@@ -70,18 +76,16 @@ screen.connect_signal('request::desktop_decoration', function(s)
         screen = s,
         filter = awful.widget.taglist.filter.all,
         buttons = {
-            awful.button({}, 1, function(t) t:view_only() end),
-            awful.button({keys.modkey}, 1, function(t)
+            awful.button({}, 1, function(t)
+                t:view_only()
+            end), awful.button({keys.modkey}, 1, function(t)
                 if client.focus then client.focus:move_to_tag(t) end
-            end),
-            awful.button({}, 3, awful.tag.viewtoggle),
+            end), awful.button({}, 3, awful.tag.viewtoggle),
             awful.button({keys.modkey}, 3, function(t)
                 if client.focus then client.focus:toggle_tag(t) end
-            end),
-            awful.button({}, 4, function(t)
+            end), awful.button({}, 4, function(t)
                 awful.tag.viewprev(t.screen)
-            end),
-            awful.button({}, 5, function(t)
+            end), awful.button({}, 5, function(t)
                 awful.tag.viewnext(t.screen)
             end)
         }
@@ -98,18 +102,15 @@ screen.connect_signal('request::desktop_decoration', function(s)
                     context = 'tasklist',
                     action = 'toggle_minimization'
                 }
-            end),
-            awful.button({}, 3, function()
+            end), awful.button({}, 3, function()
                 awful.menu.client_list {
                     theme = {
                         width = 250
                     }
                 }
-            end),
-            awful.button({}, 4, function()
+            end), awful.button({}, 4, function()
                 awful.client.focus.byidx(-1)
-            end),
-            awful.button({}, 5, function()
+            end), awful.button({}, 5, function()
                 awful.client.focus.byidx(1)
             end)
         }
@@ -132,8 +133,10 @@ screen.connect_signal('request::desktop_decoration', function(s)
             s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                volume_widget(),
-                mykeyboardlayout,
+                volume_widget({
+                    font = "Play 10"
+                }),
+                purpleair_widget,
                 pihealth,
                 wibox.widget.systray(),
                 mytextclock,

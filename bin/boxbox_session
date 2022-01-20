@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+tmux new-session -s fun -n dotfiles -d -c ~/dotfiles
+tmux new-window -t fun -n imprv -d -c ~/dotfiles "nvim ~/dotfiles/vimprovements.md"
+tmux new-window -t fun -n projects -d -c ~/projects
+tmux attach -t fun

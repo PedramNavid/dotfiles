@@ -27,7 +27,7 @@ local marron = '#59024B'
 -- }}
 
 -- {{{ Styles
-theme.font = 'sans 8'
+theme.font = 'Play 10'
 
 -- {{{ Colors
 theme.fg_normal = middle_green
