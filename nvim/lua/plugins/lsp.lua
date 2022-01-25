@@ -22,22 +22,23 @@ local on_attach = function(client, bufnr)
 
 end
 
-require"lspconfig".efm.setup {
-    init_options = {
-        documentFormatting = true
-    },
-    settings = {
-        rootMarkers = {".git/"},
-        languages = {
-            lua = {
-                {
-                    formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=80 --break-after-table-lb",
-                    formatStdin = true
-                }
-            }
-        }
-    }
-}
+-- require"lspconfig".efm.setup {
+--     init_options = {
+--         documentFormatting = true
+--     },
+--     settings = {
+--         rootMarkers = {".git/"},
+--         filtypes = {"lua"},
+--         languages = {
+--             lua = {
+--                 {
+--                     formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=80 --break-after-table-lb",
+--                     formatStdin = true
+--                 }
+--             }
+--         }
+--     }
+-- }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
                                                                      .protocol
                                                                      .make_client_capabilities())
@@ -66,8 +67,14 @@ for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
             capabilities = capabilities,
-            settings = {Lua = {diagnostics = {globals = {'vim', 'use'}}}}
-       }
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = {'vim', 'use'}
+                    }
+                }
+            }
+        }
     elseif lsp == 'rust-analyzer' then
         nvim_lsp[lsp].setup({
             on_attach = on_attach,
@@ -78,8 +85,12 @@ for _, lsp in ipairs(servers) do
                         importGranularity = "module",
                         importPrefix = "by_self"
                     },
-                    cargo = {loadOutDirsFromCheck = true},
-                    procMacro = {enable = true}
+                    cargo = {
+                        loadOutDirsFromCheck = true
+                    },
+                    procMacro = {
+                        enable = true
+                    }
                 }
             }
         })
@@ -89,7 +100,9 @@ for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
             capabilities = capabilities,
-            flags = {debounce_text_changes = 150}
+            flags = {
+                debounce_text_changes = 150
+            }
         }
     end
 end
