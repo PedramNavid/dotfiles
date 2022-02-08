@@ -1,3 +1,0 @@
-*.rb diff=ruby
-*.rake diff=ruby
-*.py diff=python
