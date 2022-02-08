@@ -1,6 +1,10 @@
 local awful = require('awful')
 local beautiful = require('beautiful')
 local wibox = require('wibox')
+local lain = require('lain')
+local my_table = awful.util.table
+local separators = lain.util.separators
+local dpi   = require("beautiful.xresources").apply_dpi
 
 local calendar_widget = require('awesome-wm-widgets.calendar-widget.calendar')
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
@@ -13,11 +17,42 @@ local mylauncher = awful.widget.launcher({
     menu = menu.mainmenu
 })
 
+-- Custom Widgets
 local pihealth = require('config.customwidgets.pihealth')
 local purpleair_widget = require('config.customwidgets.purpleair')
-
--- Keyboard map indicator and switcher
-local mykeyboardlayout = awful.widget.keyboardlayout()
+local task = wibox.widget.imagebox(beautiful.widget_task)
+local spr  = wibox.widget.textbox(' ')
+local arrow = separators.arrow_left
+local mpdicon = wibox.widget.imagebox(beautiful.widget_music)
+local purpleicon = wibox.widget.imagebox(beautiful.widget_ac)
+local markup = lain.util.markup
+local memicon = wibox.widget.imagebox(beautiful.widget_mem)
+local mem = lain.widget.mem({
+    settings = function()
+        widget:set_markup(markup.font(beautiful.font, " " .. mem_now.used .. "MB "))
+    end
+})
+local mpd_widget = lain.widget.mpd({
+    settings = function()
+        if mpd_now.state == "play" then
+            artist = " " .. mpd_now.artist .. " "
+            title  = mpd_now.title  .. " "
+            mpdicon:set_image(beautiful.widget_music_on)
+            widget:set_markup(markup.font(beautiful.font, markup("#111111", artist) .. " " .. title))
+        elseif mpd_now.state == "pause" then
+            widget:set_markup(markup.font(beautiful.font, " mpd paused "))
+            mpdicon:set_image(beautiful.widget_music_pause)
+        else
+            widget:set_text("")
+            mpdicon:set_image(beautiful.widget_music)
+        end
+    end
+})
+lain.widget.contrib.task.attach(task, {
+    -- do not colorize output
+    show_cmd = "task | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g'"
+})
+task:buttons(my_table.join(awful.button({}, 1, lain.widget.contrib.task.prompt)))
 
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
@@ -28,30 +63,23 @@ local calwidget = calendar_widget({
 
 screen.connect_signal('request::desktop_decoration', function(s)
     local layout = awful.layout.suit
-    awful.tag.add('1tr', {
+    awful.tag.add('web', {
         layout = layout.tile.right,
-        master_fill_policy = 'master_width_factor',
-        gap_single_client = true,
         screen = s,
         selected = true
     })
 
-    awful.tag.add('2tt', {
-        layout = layout.tile.top,
+    awful.tag.add('term', {
+        layout = layout.fair.horizontal,
         screen = s
     })
 
-    awful.tag.add('3c', {
-        layout = layout.corner.nw,
+    awful.tag.add('code', {
+        layout = layout.corner.ne,
         screen = s
     })
-    awful.tag.add('4f', {
+    awful.tag.add('other', {
         layout = layout.fair,
-        screen = s
-    })
-
-    awful.tag.add('5m', {
-        layout = layout.max,
         screen = s
     })
 
@@ -60,15 +88,11 @@ screen.connect_signal('request::desktop_decoration', function(s)
     s.mylayoutbox = awful.widget.layoutbox {
         screen = s,
         buttons = {
-            awful.button({}, 1, function()
-                awful.layout.inc(1)
-            end), awful.button({}, 3, function()
-                awful.layout.inc(-1)
-            end), awful.button({}, 4, function()
-                awful.layout.inc(-1)
-            end), awful.button({}, 5, function()
-                awful.layout.inc(1)
-            end)
+            awful.button({}, 1, function() awful.layout.inc(1) end),
+            awful.button({}, 2, function() awful.layout.set(awful.layout.layouts[1]) end),
+            awful.button({}, 3, function() awful.layout.inc(-1) end),
+            awful.button({}, 4, function() awful.layout.inc(-1) end),
+            awful.button({}, 5, function() awful.layout.inc(1) end)
         }
     }
 
@@ -126,20 +150,38 @@ screen.connect_signal('request::desktop_decoration', function(s)
             layout = wibox.layout.align.horizontal,
             { -- Left widgets
                 layout = wibox.layout.fixed.horizontal,
-                mylauncher,
                 s.mytaglist,
-                s.mypromptbox
+                s.mypromptbox,
+                spr
             },
             s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                volume_widget({
-                    font = "Play 10"
-                }),
-                purpleair_widget,
-                pihealth,
+
                 wibox.widget.systray(),
-                mytextclock,
+                arrow(beautiful.bg_normal, "#343434"),
+
+                wibox.container.background(
+                    wibox.container.margin(
+                        wibox.widget { purpleicon, purpleair_widget, layout = wibox.layout.align.horizontal },
+                    dpi(4), dpi(7)), "#343434"),
+                arrow("#343434", beautiful.muted_purple),
+
+                wibox.container.background(
+                    wibox.container.margin(
+                        wibox.widget { mpdicon, mpd_widget, layout=wibox.layout.align.horizontal },
+                    dpi(3), dpi(6)), beautiful.muted_purple),
+                arrow(beautiful.muted_purple, beautiful.yellow),
+
+                wibox.container.background(
+                    wibox.container.margin(
+                        wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal },
+                    dpi(2), dpi(3)), beautiful.yellow),
+                arrow(beautiful.yellow, beautiful.peach),
+
+                wibox.container.background(
+                    wibox.container.margin(mytextclock,
+                        dpi(3), dpi(6)), beautiful.peach),
                 s.mylayoutbox
             }
         }
