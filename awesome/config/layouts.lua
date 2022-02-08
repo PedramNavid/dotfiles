@@ -1,66 +1,12 @@
 local awful = require('awful')
 local beautiful = require('beautiful')
 local wibox = require('wibox')
-local lain = require('lain')
-local my_table = awful.util.table
-local separators = lain.util.separators
 local dpi   = require("beautiful.xresources").apply_dpi
-
-local calendar_widget = require('awesome-wm-widgets.calendar-widget.calendar')
-local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
-
-local menu = require('config.menu')
 local keys = require('config.keys')
-
-local mylauncher = awful.widget.launcher({
-    image = beautiful.awesome_icon,
-    menu = menu.mainmenu
-})
+local widgets = require('config.widgets')
 
 -- Custom Widgets
-local pihealth = require('config.customwidgets.pihealth')
-local purpleair_widget = require('config.customwidgets.purpleair')
-local task = wibox.widget.imagebox(beautiful.widget_task)
-local spr  = wibox.widget.textbox(' ')
-local arrow = separators.arrow_left
-local mpdicon = wibox.widget.imagebox(beautiful.widget_music)
-local purpleicon = wibox.widget.imagebox(beautiful.widget_ac)
-local markup = lain.util.markup
-local memicon = wibox.widget.imagebox(beautiful.widget_mem)
-local mem = lain.widget.mem({
-    settings = function()
-        widget:set_markup(markup.font(beautiful.font, " " .. mem_now.used .. "MB "))
-    end
-})
-local mpd_widget = lain.widget.mpd({
-    settings = function()
-        if mpd_now.state == "play" then
-            artist = " " .. mpd_now.artist .. " "
-            title  = mpd_now.title  .. " "
-            mpdicon:set_image(beautiful.widget_music_on)
-            widget:set_markup(markup.font(beautiful.font, markup("#111111", artist) .. " " .. title))
-        elseif mpd_now.state == "pause" then
-            widget:set_markup(markup.font(beautiful.font, " mpd paused "))
-            mpdicon:set_image(beautiful.widget_music_pause)
-        else
-            widget:set_text("")
-            mpdicon:set_image(beautiful.widget_music)
-        end
-    end
-})
-lain.widget.contrib.task.attach(task, {
-    -- do not colorize output
-    show_cmd = "task | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g'"
-})
-task:buttons(my_table.join(awful.button({}, 1, lain.widget.contrib.task.prompt)))
-
 -- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
-local calwidget = calendar_widget({
-    placement = 'top_right',
-    radius = 8
-})
-
 screen.connect_signal('request::desktop_decoration', function(s)
     local layout = awful.layout.suit
     awful.tag.add('web', {
@@ -152,35 +98,26 @@ screen.connect_signal('request::desktop_decoration', function(s)
                 layout = wibox.layout.fixed.horizontal,
                 s.mytaglist,
                 s.mypromptbox,
-                spr
+                widgets.sp
             },
             s.mytasklist, -- Middle widget
             { -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
 
                 wibox.widget.systray(),
-                arrow(beautiful.bg_normal, "#343434"),
+                widgets.arrow(beautiful.bg_normal, "#343434"),
+
+                widgets.purpleair_widget,
+                widgets.arrow("#343434", beautiful.muted_purple),
+
+                widgets.mpd_widget,
+                widgets.arrow(beautiful.muted_purple, beautiful.yellow),
+
+                widgets.mem_widget,
+                widgets.arrow(beautiful.yellow, beautiful.peach),
 
                 wibox.container.background(
-                    wibox.container.margin(
-                        wibox.widget { purpleicon, purpleair_widget, layout = wibox.layout.align.horizontal },
-                    dpi(4), dpi(7)), "#343434"),
-                arrow("#343434", beautiful.muted_purple),
-
-                wibox.container.background(
-                    wibox.container.margin(
-                        wibox.widget { mpdicon, mpd_widget, layout=wibox.layout.align.horizontal },
-                    dpi(3), dpi(6)), beautiful.muted_purple),
-                arrow(beautiful.muted_purple, beautiful.yellow),
-
-                wibox.container.background(
-                    wibox.container.margin(
-                        wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal },
-                    dpi(2), dpi(3)), beautiful.yellow),
-                arrow(beautiful.yellow, beautiful.peach),
-
-                wibox.container.background(
-                    wibox.container.margin(mytextclock,
+                    wibox.container.margin(widgets.mytextclock,
                         dpi(3), dpi(6)), beautiful.peach),
                 s.mylayoutbox
             }
@@ -188,7 +125,4 @@ screen.connect_signal('request::desktop_decoration', function(s)
     }
 end)
 
-mytextclock:connect_signal('button::press', function(_, _, _, button)
-    if button == 1 then calwidget.toggle() end
-end)
 -- }}}

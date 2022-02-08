@@ -2,12 +2,9 @@
 --  "Zenburn" awesome theme  --
 --    By Adrian C. (anrxc)   --
 -------------------------------
-local themes_path = require('gears.filesystem').get_themes_dir()
-local config_dir = require('gears.filesystem').get_configuration_dir()
 local rnotification = require('ruled.notification')
 local dpi = require('beautiful.xresources').apply_dpi
 local gfs = require('gears.filesystem')
-local lain = require('lain')
 
 local theme = {}
 local theme_dir = os.getenv("HOME") .. "/.config/awesome/theme/pedburn"
@@ -22,28 +19,35 @@ local yellow = '#F2D57E'
 local peach = '#F28D8D'
 local muted_purple = '#BF6396'
 local purple = '#A6038B'
+local white = "#AEAEAE"
 
 theme.font = 'Terminus 9'
 
-theme.fg_normal = black
-theme.fg_focus = yellow
-theme.fg_urgent = yellow
-theme.bg_normal = black
-theme.bg_focus = black_blue
-theme.bg_urgent = black
-theme.bg_systray = black
+theme.fg_normal                                 = white
+theme.fg_focus                                  = yellow
+theme.fg_urgent                                 = peach
+theme.bg_normal                                 = black
+theme.bg_focus                                  = black_blue
+theme.bg_urgent                                 = black_blue
+theme.taglist_fg_focus                          = theme.fg_focus
+theme.tasklist_bg_focus                         = theme.bg_focus
+theme.tasklist_fg_focus                         = theme.fg_focus
+theme.border_normal                             = black_blue
+theme.border_focus                              = blue_sapphire
+theme.border_marked                             = yellow
+theme.titlebar_bg_focus                         = theme.bg_focus
+theme.titlebar_bg_normal                        = theme.bg_normal
+theme.titlebar_bg_focus                         = theme.bg_focus
+theme.titlebar_bg_normal                        = theme.bg_normal
+theme.titlebar_fg_focus                         = theme.fg_focus
 
 theme.useless_gap = dpi(4)
 theme.border_width = dpi(3)
-theme.border_color_normal = blue_sapphire
-theme.border_color_active = middle_green
-theme.border_color_marked = purple
 
-theme.titlebar_bg_focus = black
-theme.titlebar_bg_normal = black
-
+theme.black = black
 theme.blue_sapphire= blue_sapphire
 theme.middle_greeen = middle_green
+theme.purple = purple
 theme.yellow= yellow
 theme.peach = peach
 theme.muted_purple= muted_purple
@@ -78,7 +82,7 @@ theme.layout_cornerse                           = theme_dir .. "/layouts/corners
 
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
-theme.useless_gap                               = 0
+theme.useless_gap                               = 10
 theme.titlebar_close_button_focus               = theme_dir .. "/icons/titlebar/close_focus.png"
 theme.titlebar_close_button_normal              = theme_dir .. "/icons/titlebar/close_normal.png"
 theme.titlebar_ontop_button_focus_active        = theme_dir .. "/icons/titlebar/ontop_focus_active.png"
