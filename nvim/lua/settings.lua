@@ -3,11 +3,12 @@ vim.o.smartindent = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
+vim.o.wrap = false
 
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 2
-vim.o.colorcolumn = '80'
-vim.o.listchars = 'tab:▸\\ ,eol:↲,trail:·'
+vim.o.colorcolumn = "80"
+vim.o.listchars = "tab:▸\\ ,eol:↲,trail:·"
 vim.o.list = true
 vim.o.mouse = "nv"
 vim.o.number = true
@@ -18,4 +19,4 @@ vim.o.foldminlines = 3
 vim.o.completeopt = "menu,menuone,noselect"
 
 vim.go.termguicolors = true
-vim.cmd [[colorscheme dracula]]
+vim.cmd([[colorscheme dracula]])

@@ -13,3 +13,7 @@ repos:
     -   id: check-executables-have-shebangs
     -   id: check-shebang-scripts-are-executable
     -   id: check-symlinks
+- repo: https://github.com/JohnnyMorganz/StyLua
+  rev: v0.12.2
+  hooks:
+    - id: stylua # or stylua-system / stylua-github
