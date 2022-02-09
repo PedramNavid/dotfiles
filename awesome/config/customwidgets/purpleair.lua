@@ -2,6 +2,7 @@ local wibox = require("wibox")
 local watch = require("awful.widget.watch")
 local gears = require("gears")
 local beautiful = require("beautiful")
+local aqi = require("config.customwidgets.aqi")
 
 local SENSOR_ID = "109500|116323"
 local GET_SENSOR_CMD = [[bash -c "curl -s --show-error -X GET 'https://www.purpleair.com/json?show=]]
@@ -43,8 +44,9 @@ local function parse_command_output(s)
 		local row = gears.string.split(line, ",")
 		local location = row[1]
 		if row[2] ~= nil then
-			local aqi = math.floor(tonumber(row[2]))
-			result[location] = aqi
+			local aq = aqi.aqi_from_pm(tonumber(row[2]))
+			local desc = aqi.get_aqi_description(aq)
+			result[location] = { aq, desc }
 		end
 	end
 	return result
@@ -57,7 +59,7 @@ local function update_widget(widget, stdout, stderr)
 	end
 	local result = parse_command_output(stdout)
 	for k, v in pairs(result) do
-		text = text .. k .. ": " .. v .. "  "
+		text = text .. k .. ": " .. v[1] .. " " .. "(" .. v[2] .. ")" .. "  "
 	end
 	text = text:sub(1, -2)
 	widget:set_text(text)
