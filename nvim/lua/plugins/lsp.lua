@@ -13,31 +13,28 @@ local on_attach = function(client, bufnr)
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- Mappings.
-    local opts = {
-        noremap = true,
-        silent = true
-    }
+    local opts = {noremap = true, silent = true}
 
     mappings.lsp_keymaps(bufnr, opts)
 
 end
 
-require"lspconfig".efm.setup {
-    init_options = {
-        documentFormatting = true
-    },
-    settings = {
-        rootMarkers = {".git/"},
-        languages = {
-            lua = {
-                {
-                    formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=80 --break-after-table-lb",
-                    formatStdin = true
-                }
-            }
-        }
-    }
-}
+-- require"lspconfig".efm.setup {
+--     init_options = {documentFormatting = true},
+--
+--     filetypes = {'lua'},
+--     settings = {
+--         rootMarkers = {".git/"},
+--         languages = {
+--             lua = {
+--                 {
+--                     formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=80 --break-after-table-lb",
+--                     formatStdin = true
+--                 }
+--             }
+--         }
+--     }
+-- }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp
                                                                      .protocol
                                                                      .make_client_capabilities())
@@ -51,7 +48,8 @@ local null_ls = require("null-ls")
 local sources = {
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.diagnostics.write_good,
-    null_ls.builtins.code_actions.gitsigns
+    null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.formatting.black
 }
 
 null_ls.setup({
@@ -67,7 +65,7 @@ for _, lsp in ipairs(servers) do
             on_attach = on_attach,
             capabilities = capabilities,
             settings = {Lua = {diagnostics = {globals = {'vim', 'use'}}}}
-       }
+        }
     elseif lsp == 'rust-analyzer' then
         nvim_lsp[lsp].setup({
             on_attach = on_attach,
