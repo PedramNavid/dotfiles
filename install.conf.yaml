@@ -6,13 +6,12 @@
 
 - create:
     - ~/.zsh
+    - ~/bin
 
 - link:
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
-    ~/.config/kitty:
-      create: true
-      path: kitty
+    ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/starship.toml: starship.toml
     ~/.tmux.conf: tmux.conf
