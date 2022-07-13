@@ -48,3 +48,10 @@ alias swaprm="rm -rf ~/.local/share/nvim/swap"
 # vim: set nospell foldmethod=marker foldlevel=0:
 
 alias luamake=/home/pedram/repos/lua-language-server/3rd/luamake/luamake
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+source ~/.dbt-completion.bash
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

@@ -21,3 +21,4 @@ vim.o.completeopt = "menu,menuone,noselect"
 
 vim.go.termguicolors = true
 vim.cmd [[colorscheme dracula]]
+vim.cmd [[autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab]]

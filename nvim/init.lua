@@ -1,10 +1,6 @@
 require('settings')
 
 require('plugins.init')
-require('plugins.lsp')
-require('plugins.nvim-cmp')
-require('plugins.treesitter')
-require('plugins.rust')
 require('mappings')
 require('macros')
 
