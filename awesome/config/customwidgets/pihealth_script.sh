@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-source ~/dotfiles/exports.local
-
 QUERY='from(bucket: "rasp-pi")
   |> range(start: -15m)
   |> filter(fn: (r) => r["_field"] == "temp" or r["_field"] == "uptime")

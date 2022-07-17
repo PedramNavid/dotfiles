@@ -22,7 +22,8 @@ menu.mainmenu = awful.menu({
     items = {
         {'awesome', menu.menu, beautiful.awesome_icon},
         {'open terminal', apps.terminal}
-    }
+    },
+    width = 200
 })
 
 menubar.utils.terminal = apps.terminal -- Set the terminal for applications that require it

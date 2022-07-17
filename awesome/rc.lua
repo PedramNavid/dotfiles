@@ -25,7 +25,6 @@ require('awful.autofocus')
 
 require('awful.hotkeys_popup.keys')
 beautiful.init('/home/pedram/.config/awesome/theme/pedburn/theme.lua')
--- beautiful.init(gears.filesystem.get_themes_dir() .. 'zenburn/theme.lua')
 require('config.bindings')
 require('config.tags')
 require('config.wallpaper')

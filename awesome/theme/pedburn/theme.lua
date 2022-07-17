@@ -10,46 +10,52 @@ local gfs = require('gears.filesystem')
 -- {{{ Main
 local theme = {}
 local wallpath = '/home/pedram/wallpaper'
-theme.wallpaper = gfs.get_random_file_from_dir(wallpath, {'jpg'}, true)
+theme.wallpaper = gfs.get_random_file_from_dir(wallpath, {'jpg', 'png'}, true)
 -- }}
 
 -- {{ Color Theme
 
-local black = '#001219'
-local black_blue = '#041833'
-local blue_sapphire = '#005f73'
-local middle_green = '#2699A6'
-local yellow = '#F2D57E'
-local peach = '#F28D8D'
-local muted_purple = '#BF6396'
-local purple = '#A6038B'
-local marron = '#59024B'
+local dracula = {}
+dracula.bg = "#282a36"
+dracula.current_line = "#44475a"
+dracula.fg = "#f8f8f2"
+dracula.comment = "#6272a4"
+dracula.cyan = "#8be9fd"
+dracula.green = "#50fa7b"
+dracula.orange = "#ffb86c"
+dracula.pink = "#ff79c6"
+dracula.purple = "#bd93f9"
+dracula.red = "#ff5555"
+dracula.yellow = "f1fa8c"
 -- }}
 
 -- {{{ Styles
-theme.font = 'Play 10'
+theme.font = 'Hack 12'
 
 -- {{{ Colors
-theme.fg_normal = middle_green
-theme.fg_focus = yellow
-theme.fg_urgent = yellow
-theme.bg_normal = black
-theme.bg_focus = black_blue
-theme.bg_urgent = black
-theme.bg_systray = black
+theme.fg_normal = dracula.fg
+theme.bg_normal = dracula.bg
+
+theme.fg_focus = dracula.fg
+theme.bg_focus = dracula.current_line
+
+theme.fg_urgent = dracula.orange
+theme.bg_urgent = dracula.bg
+
+theme.bg_systray = dracula.bg
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap = dpi(4)
-theme.border_width = dpi(3)
-theme.border_color_normal = blue_sapphire
-theme.border_color_active = middle_green
-theme.border_color_marked = purple
+theme.useless_gap = dpi(6)
+theme.border_width = dpi(4)
+theme.border_color_normal = dracula.bg
+theme.border_color_active = dracula.current_line
+theme.border_color_marked = dracula.yellow
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_bg_focus = black
-theme.titlebar_bg_normal = black
+theme.titlebar_bg_focus = dracula.bg
+theme.titlebar_bg_normal = dracula.current_line
 -- }}}
 
 -- There are other variable sets
@@ -66,15 +72,9 @@ theme.titlebar_bg_normal = black
 -- You can add as many variables as
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
- theme.stack1 = blue_sapphire
- theme.stack2 = middle_green
- theme.stack3 = yellow
- theme.stack4 = peach
- theme.stack5 =  muted_purple
 -- }}}
 
 -- {{{ Mouse finder
-theme.mouse_finder_color = peach;
 -- mouse_finder_[timeout|animate_timeout|radius|factor]
 -- }}}
 
@@ -83,7 +83,9 @@ theme.mouse_finder_color = peach;
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_height = dpi(20)
-theme.menu_width = dpi(100)
+theme.menu_width = dpi(200)
+theme.menu_border_color = dracula.current_line
+theme.menu_border_width = dpi(2)
 -- }}}
 
 -- {{{ Icons

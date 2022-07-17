@@ -13,9 +13,6 @@ local mylauncher = awful.widget.launcher({
     menu = menu.mainmenu
 })
 
-local pihealth = require('config.customwidgets.pihealth')
-local purpleair_widget = require('config.customwidgets.purpleair')
-
 -- Keyboard map indicator and switcher
 local mykeyboardlayout = awful.widget.keyboardlayout()
 
@@ -28,7 +25,7 @@ local calwidget = calendar_widget({
 
 screen.connect_signal('request::desktop_decoration', function(s)
     local layout = awful.layout.suit
-    awful.tag.add('1tr', {
+    awful.tag.add('1', {
         layout = layout.tile.right,
         master_fill_policy = 'master_width_factor',
         gap_single_client = true,
@@ -36,22 +33,22 @@ screen.connect_signal('request::desktop_decoration', function(s)
         selected = true
     })
 
-    awful.tag.add('2tt', {
-        layout = layout.tile.top,
+    awful.tag.add('2', {
+        layout = layout.tile,
         screen = s
     })
 
-    awful.tag.add('3c', {
-        layout = layout.corner.nw,
+    awful.tag.add('3', {
+        layout = layout.tile,
         screen = s
     })
-    awful.tag.add('4f', {
-        layout = layout.fair,
+    awful.tag.add('4', {
+        layout = layout.tile,
         screen = s
     })
 
-    awful.tag.add('5m', {
-        layout = layout.max,
+    awful.tag.add('5', {
+        layout = layout.tile,
         screen = s
     })
 
@@ -121,12 +118,13 @@ screen.connect_signal('request::desktop_decoration', function(s)
     s.mywibox = awful.wibar {
         position = 'top',
         screen = s,
+        stretch = false,
+        width = 1200,
         -- @DOC_SETUP_WIDGETS@
         widget = {
             layout = wibox.layout.align.horizontal,
             { -- Left widgets
                 layout = wibox.layout.fixed.horizontal,
-                mylauncher,
                 s.mytaglist,
                 s.mypromptbox
             },
@@ -136,11 +134,10 @@ screen.connect_signal('request::desktop_decoration', function(s)
                 volume_widget({
                     font = "Play 10"
                 }),
-                purpleair_widget,
-                pihealth,
+                --purpleair_widget,
+                --pihealth,
                 wibox.widget.systray(),
                 mytextclock,
-                s.mylayoutbox
             }
         }
     }

@@ -15,7 +15,7 @@ local icon_widget = wibox.widget {
     {
         widget = wibox.widget.imagebox,
         resize = false,
-        image = 'weather.svg'
+        image = '/home/pedram/dotfiles/awesome/theme/pedburn/weather.svg'
     },
     layout = wibox.container.margin(_, 3, 3, 0),
     set_image = function(self, path)
@@ -36,7 +36,6 @@ local purpleair_widget = wibox.widget {
 }
 
 local function update_widget(widget, stdout, stderr)
-    print('updating widget')
     if stderr ~= '' then print(stderr) end
     local result = stdout
     print(result)
