@@ -1,0 +1,5 @@
+{
+  "Lua.telemetry.enable": false,
+  "Lua.diagnostics.globals": ["vim"]
+
+}

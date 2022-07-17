@@ -17,6 +17,8 @@ return require('packer').startup(function()
     use 'tpope/vim-unimpaired'
     use 'wbthomason/packer.nvim'
     use 'thalesmello/lkml.vim'
+    use 'vimwiki/vimwiki'
+    use { 'neoclide/coc.nvim', branch = 'release' }
 
     use {
         'nvim-telescope/telescope.nvim',

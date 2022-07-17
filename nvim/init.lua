@@ -1,6 +1,7 @@
 require('settings')
 
 require('plugins.init')
+require('plugins.load')
 require('mappings')
 require('macros')
 
