@@ -9,7 +9,6 @@ local gfs = require('gears.filesystem')
 
 -- {{{ Main
 local theme = {}
-<<<<<<< Updated upstream
 local wallpath = '/home/pedram/wallpaper'
 theme.wallpaper = gfs.get_random_file_from_dir(wallpath, {'jpg'}, true)
 -- }}
@@ -41,64 +40,6 @@ theme.bg_systray = black
 -- }}}
 
 -- {{{ Borders
-=======
-local theme_dir = os.getenv("HOME") .. "/.config/awesome/theme/pedburn"
-local wallpath = "/home/pedram/wallpaper"
-theme.wallpaper = gfs.get_random_file_from_dir(wallpath, { "jpg" }, true)
-
-local colors = {}
-
-colors.foreground = "#f8f8f2"
-colors.background = "#282a36"
-colors.selection_fg = "#ffffff"
-colors.selection_bg = "#44475a"
-colors.url_color = "#8be9fd"
-
-colors.black = "#21222c"
-colors.black_bg = "#6272a4"
-
-colors.red = "#ff5555"
-colors.red_bg = "#ff6e6e"
-colors.green = "#50fa7b"
-colors.green_bg = "#69ff94"
-
-colors.yellow = "#f1fa8c"
-colors.yellow_bg = "#ffffa5"
-colors.purple = "#bd93f9"
-colors.purple_bg = "#d6acff"
-
-colors.magenta = "#ff79c6"
-colors.magenta_bg = "#ff92df"
-
-colors.cyan = "#8be9fd"
-colors.cyan_bg = "#a4ffff"
-
-colors.white = "#f8f8f2"
-colors.white_bg = "#ffffff"
-
-theme.colors = colors
-theme.font = "Terminus 9"
-
-theme.fg_normal = colors.white
-theme.fg_focus = colors.selection_fg
-theme.fg_urgent = colors.yellow
-theme.bg_normal = colors.background
-theme.bg_focus = colors.selection_bg
-theme.bg_urgent = colors.selection_bg
-
-theme.taglist_fg_focus = colors.selection_fg
-theme.tasklist_fg_focus = colors.selection_fg
-theme.tasklist_bg_focus = colors.selection_bg
-
-theme.border_normal = colors.background
-theme.border_focus = colors.purple_bg
-theme.border_marked = colors.yellow_bg
-
-theme.titlebar_bg_focus = colors.background
-theme.titlebar_bg_normal = colors.background
-theme.titlebar_fg_focus = colors.selection_fg
-
->>>>>>> Stashed changes
 theme.useless_gap = dpi(4)
 theme.border_width = dpi(3)
 theme.border_color_normal = blue_sapphire

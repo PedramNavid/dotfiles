@@ -18,4 +18,3 @@
     ~/.zshrc: zshrc
     ~/bin/tmux_session:  bin/tmux_session
     ~/.config/awesome: awesome
-    ~/.config/picom.conf: picom.conf

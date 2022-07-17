@@ -17,8 +17,6 @@ vim.o.relativenumber = true
 
 vim.o.foldlevelstart = 0
 vim.o.foldminlines = 3
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.completeopt = "menu,menuone,noselect"
 
 vim.go.termguicolors = true
