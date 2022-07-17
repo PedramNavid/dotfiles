@@ -33,7 +33,7 @@ eval "$(starship init zsh)"
 
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --files'
-export PATH=$PATH:$HOME/bin:$HOME/repos/lua-language-server/bin:$HOME/go/bin:$HOME/.local/bin
+export PATH=$PATH:$HOME/bin:$HOME/repos/lua-language-server/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/.pyenv/bin
 
 alias cdp="cd $HOME/projects"
 alias cdd="cd $HOME/dotfiles"
@@ -46,7 +46,8 @@ alias swaprm="rm -rf ~/.local/share/nvim/swap"
 # }}}
 
 # vim: set nospell foldmethod=marker foldlevel=0:
-
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
 alias luamake=/home/pedram/repos/lua-language-server/3rd/luamake/luamake
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
