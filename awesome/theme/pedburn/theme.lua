@@ -30,7 +30,7 @@ dracula.yellow = "f1fa8c"
 -- }}
 
 -- {{{ Styles
-theme.font = 'Hack 12'
+theme.font = 'Hack 11'
 
 -- {{{ Colors
 theme.fg_normal = dracula.fg
@@ -46,10 +46,10 @@ theme.bg_systray = dracula.bg
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap = dpi(6)
-theme.border_width = dpi(4)
+theme.useless_gap = dpi(4)
+theme.border_width = dpi(3)
 theme.border_color_normal = dracula.bg
-theme.border_color_active = dracula.current_line
+theme.border_color_active = dracula.fg
 theme.border_color_marked = dracula.yellow
 -- }}}
 

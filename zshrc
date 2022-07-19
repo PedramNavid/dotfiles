@@ -7,6 +7,7 @@ antibody bundle ohmyzsh/ohmyzsh path:plugins/git
 antibody bundle ohmyzsh/ohmyzsh path:plugins/kubectl
 antibody bundle ohmyzsh/ohmyzsh path:plugins/systemd
 antibody bundle ohmyzsh/ohmyzsh path:plugins/ubuntu
+antibody bundle ohmyzsh/ohmyzsh path:plugins/archlinux
 antibody bundle zsh-users/zsh-autosuggestions
 antibody bundle zsh-users/zsh-completions
 antibody bundle zsh-users/zsh-syntax-highlighting
