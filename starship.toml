@@ -26,4 +26,4 @@ threshold = 50
 disabled = false
 
 [kubernetes]
-disabled = false
+disabled = true
