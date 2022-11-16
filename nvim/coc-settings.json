@@ -1,5 +1,6 @@
 {
   "Lua.telemetry.enable": false,
-  "Lua.diagnostics.globals": ["vim"]
-
+  "Lua.diagnostics.globals": ["vim"],
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "python.formatting.provider": "black"
 }

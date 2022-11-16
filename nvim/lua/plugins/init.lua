@@ -18,6 +18,10 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
     use 'thalesmello/lkml.vim'
     use 'vimwiki/vimwiki'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
     use { 'neoclide/coc.nvim', branch = 'release' }
 
     use {
@@ -31,4 +35,5 @@ return require('packer').startup(function()
 
     use 'simrat39/rust-tools.nvim'
     use 'rust-lang/rust.vim'
+    use 'github/copilot.vim'
 end)
