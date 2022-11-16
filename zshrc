@@ -3,8 +3,10 @@ source <(antibody init)
 antibody bundle djui/alias-tips
 antibody bundle robbyrussell/oh-my-zsh
 antibody bundle ohmyzsh/ohmyzsh path:plugins/common-aliases
+antibody bundle ohmyzsh/ohmyzsh path:plugins/docker
 antibody bundle ohmyzsh/ohmyzsh path:plugins/git
 antibody bundle ohmyzsh/ohmyzsh path:plugins/kubectl
+antibody bundle ohmyzsh/ohmyzsh path:plugins/rust
 antibody bundle ohmyzsh/ohmyzsh path:plugins/systemd
 antibody bundle ohmyzsh/ohmyzsh path:plugins/ubuntu
 antibody bundle ohmyzsh/ohmyzsh path:plugins/archlinux
@@ -17,11 +19,12 @@ antibody bundle dracula/zsh
 # }}}
 
 # Keyboard Shorcuts {{{
-
+autoload edit-command-line
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey '^P' up-line-or-search
 bindkey '^N' down-line-or-search
+bindkey -M vicmd v edit-command-line
 
 # }}}
 
@@ -61,3 +64,7 @@ autoload -U +X compinit && compinit
 export AIRFLOW_HOME=~/projects/airflow
 #
 # vim: set nospell foldmethod=marker foldlevel=0:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
