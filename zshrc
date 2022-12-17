@@ -1,3 +1,4 @@
+zmodload zsh/zprof
 # Plugin {{{
 source <(antibody init)
 antibody bundle djui/alias-tips
@@ -50,7 +51,7 @@ alias swaprm="rm -rf ~/.local/share/nvim/swap"
 alias zrc="nvim $HOME/.zshrc"
 alias vrc="nvim $HOME/.config/nvim/init.lua"
 alias cdv="cd $HOME/.config/nvim/init.lua"
-
+alias scrcap="scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 [[ -f $HOME/dotfiles/alias.local ]] && source $HOME/dotfiles/alias.local
 [[ -f $HOME/dotfiles/exports.local ]] && source $HOME/dotfiles/exports.local
 
@@ -62,9 +63,9 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 autoload -U +X compinit && compinit
 export AIRFLOW_HOME=~/projects/airflow
-#
-# vim: set nospell foldmethod=marker foldlevel=0:
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(luarocks path --bin)"
+# vim: set nospell foldmethod=marker foldlevel=0:

@@ -1,6 +1,12 @@
 {
-  "Lua.telemetry.enable": false,
-  "Lua.diagnostics.globals": ["vim"],
-  "coc.preferences.formatOnSaveFiletypes": ["rust"],
-  "python.formatting.provider": "black"
+    "Lua.telemetry.enable": false,
+    "Lua.diagnostics.globals": [
+        "vim"
+    ],
+    "coc.preferences.formatOnSaveFiletypes": [
+        "rust"
+    ],
+    "python.formatting.provider": "black",
+    "python.pythonPath": "/home/pedram/.pyenv/shims/python",
+    "python.formatting.blackPath": "/home/pedram/.pyenv/versions/neovim/bin/black"
 }
