@@ -1,7 +1,7 @@
 local awful = require('awful')
 local beautiful = require('beautiful')
 local wibox = require('wibox')
-
+local lain = require('lain')
 local calendar_widget = require('awesome-wm-widgets.calendar-widget.calendar')
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 
@@ -48,7 +48,7 @@ screen.connect_signal('request::desktop_decoration', function(s)
     })
 
     awful.tag.add('5', {
-        layout = layout.tile,
+        layout = lain.layout.termfair.center,
         screen = s
     })
 
