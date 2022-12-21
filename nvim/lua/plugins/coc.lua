@@ -1,6 +1,11 @@
 local add_cmd = vim.api.nvim_create_user_command
 
-vim.g.coc_global_extensions = { 'coc-json', 'coc-git', 'coc-sumneko-lua', 'coc-pyright', 'coc-yaml' }
+vim.g.coc_global_extensions = { 'coc-json',
+    'coc-git',
+    'coc-sumneko-lua',
+    'coc-pyright',
+    'coc-yaml',
+    'coc-vetur' }
 
 -- Completion
 vim.api.nvim_set_keymap("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
@@ -40,6 +45,7 @@ vim.api.nvim_set_keymap("n", "<leader>rn", "<Plug>(coc-rename)", {})
 
 -- Code Actions
 vim.api.nvim_set_keymap("n", "<leader>.", "<Plug>(coc-codeaction)", {})
+vim.api.nvim_set_keymap("n", "<leader>ac", "v<Plug>(coc-codeaction-selected)", {})
 vim.api.nvim_set_keymap("n", "<leader>qf", "<Plug>(coc-fix-current)", {})
 
 
@@ -47,8 +53,6 @@ vim.api.nvim_set_keymap("n", "<leader>qf", "<Plug>(coc-fix-current)", {})
 add_cmd('Format', ':call CocActionAsync("format")', { nargs = 0 })
 add_cmd('Fold', ':call CocAction("fold")', { nargs = 0 })
 add_cmd('OR', ':call CocActionAsync("runCommand", "editor.action.organizeImport")', { nargs = 0 })
-
-
 vim.api.nvim_set_keymap("n", "<leader>l", ":CocCommand eslint.executeAutofix<CR>", {})
 vim.api.nvim_set_keymap("n", "<leader>f", ":CocCommand prettier.formatFile<CR>", { noremap = true })
 
