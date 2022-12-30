@@ -19,6 +19,8 @@ antibody bundle dracula/zsh
 
 # }}}
 
+export HISTSIZE=100000
+
 # Keyboard Shorcuts {{{
 autoload edit-command-line
 bindkey -v

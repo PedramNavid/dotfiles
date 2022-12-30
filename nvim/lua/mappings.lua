@@ -11,7 +11,10 @@ end
 
 
 -- General Shortcuts
-nnoremap {'<Leader>s', ':write<CR>'}
+nnoremap {'<Leader>s',      ':write<CR>'}
+nnoremap {'<Leader>bd',    ':bd<CR>'}
+
+-- Telescope Shortcuts
 nnoremap {'<Leader>ff', '<cmd>Telescope find_files<CR>'}
 nnoremap {'<Leader>fb', '<cmd>Telescope file_browser<CR>'}
 nnoremap {'<Leader>fg', '<cmd>Telescope live_grep<CR>'}
