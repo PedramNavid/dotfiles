@@ -4,9 +4,19 @@
         "vim"
     ],
     "coc.preferences.formatOnSaveFiletypes": [
-        "rust"
+        "rust",
+        "python",
+        "json"
     ],
-    "python.formatting.provider": "black",
+    "coc.preferences.formatOnType": true,
+    "pyright.organizeimports.provider": "isort",
+    "pyright.testing.provider": "pytest",
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.typeCheckingMode": "strict",
+    "python.formatting.blackPath": "/home/pedram/.pyenv/versions/neovim/bin/black",
+    "python.formatting.blackdPath": "/home/pedram/.pyenv/versions/neovim/bin/blackd",
+    "python.formatting.provider": "blackd",
+    "python.linting.ruffEnabled": true,
     "python.pythonPath": "/home/pedram/.pyenv/shims/python",
-    "python.formatting.blackPath": "/home/pedram/.pyenv/versions/neovim/bin/black"
+    "python.sortImports.path": "/home/pedram/.pyenv/versions/neovim/bin/isort",
 }
