@@ -1,0 +1,7 @@
+export HISTSIZE=100000
+export STARSHIP_CONFIG=~/dotfiles/starship.toml
+export EDITOR=nvim
+export FZF_DEFAULT_COMMAND='rg --files'
+export PATH=$PATH:$HOME/bin:$HOME/repos/lua-language-server/bin:$HOME/go/bin:$HOME/.local/bin
+
+export AIRFLOW_HOME=~/projects/airflow

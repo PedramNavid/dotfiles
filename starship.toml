@@ -1,3 +1,6 @@
+scan_timeout = 10
+command_timeout = 300
+
 format = """
 $username\
 $hostname\
@@ -24,3 +27,6 @@ disabled = false
 
 [kubernetes]
 disabled = true
+
+[git_status]
+ignore_submodules = true

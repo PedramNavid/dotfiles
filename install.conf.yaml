@@ -16,6 +16,9 @@
     ~/.config/starship.toml: starship.toml
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
+    ~/.exports: exports
+    ~/.alias: alias
     ~/bin/tmux_session:  bin/tmux_session
     ~/.config/awesome: awesome
     ~/.config/picom.conf: picom.conf
+    ~/.zsh_plugins.sh: zsh_plugins.sh
