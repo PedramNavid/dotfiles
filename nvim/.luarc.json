@@ -9,6 +9,7 @@
         "/Users/pedram/.local/share/nvim/site/pack/packer/start/cmp-path/lua",
         "/Users/pedram/.local/share/nvim/site/pack/packer/start/cmp_luasnip/lua",
         "/Users/pedram/.local/share/nvim/site/pack/packer/start/copilot.vim/lua",
+        "/Users/pedram/projects/neovim-plugins/dbtpal/lua",
         "/Users/pedram/.local/share/nvim/site/pack/packer/start/harpoon/lua",
         "/Users/pedram/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim/lua",
         "/Users/pedram/.local/share/nvim/site/pack/packer/start/LuaSnip/lua",
