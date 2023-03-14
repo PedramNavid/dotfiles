@@ -28,3 +28,5 @@ autocmd({"BufWritePre"}, {
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
+
+--vim.g.dbtpal_log_level =  "trace"

@@ -44,3 +44,7 @@ nnoremap { '<M-h>', '<c-w>h' }
 -- Terminal Remaps
 tnoremap { '<Esc>', '<C-\\><C-n>' }
 tnoremap { '<C-v><Esc>', '<Esc>' }
+
+
+-- Development Remaps
+nnoremap { '<LocalLeader>t', '<Plug>PlenaryTestFile'}
