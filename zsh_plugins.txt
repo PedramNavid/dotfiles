@@ -1,16 +1,28 @@
-# antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
-# https://getantibody.github.io/
-djui/alias-tips
-robbyrussell/oh-my-zsh
+mattmc3/zfunctions
+rupa/z
+
+romkatv/zsh-bench kind:path
+olets/zsh-abbr    kind:defer
+
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/magic-enter
 ohmyzsh/ohmyzsh path:plugins/common-aliases
-ohmyzsh/ohmyzsh path:plugins/docker
 ohmyzsh/ohmyzsh path:plugins/git
-ohmyzsh/ohmyzsh path:plugins/kubectl
-ohmyzsh/ohmyzsh path:plugins/rust
-ohmyzsh/ohmyzsh path:plugins/systemd
-ohmyzsh/ohmyzsh path:plugins/ubuntu
-ohmyzsh/ohmyzsh path:plugins/archlinux
-ohmyzsh/ohmyzsh path:plugins/pip
+
+belak/zsh-utils path:editor
+belak/zsh-utils path:history
+belak/zsh-utils path:prompt
+belak/zsh-utils path:utility
+belak/zsh-utils path:completion
+
+# prompts:
+#   with prompt plugins, remember to add this to your .zshrc:
+#   `autoload -Uz promptinit && promptinit && prompt pure`
+sindresorhus/pure     kind:fpath
+
+# popular fish-like plugins
 zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+zdharma-continuum/fast-syntax-highlighting
 zsh-users/zsh-completions
-zsh-users/zsh-syntax-highlighting

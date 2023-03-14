@@ -1,12 +1,15 @@
-zmodload zsh/zprof
-
-source ~/.zsh_plugins.sh
-
 [[ -f $HOME/.alias ]] && source $HOME/.alias
 [[ -f $HOME/.exports ]] && source $HOME/.exports
 [[ -f $HOME/alias.local ]] && source $HOME/alias.local
 [[ -f $HOME/exports.local ]] && source $HOME/exports.local
+[[ -f $HOME/exports.local ]] && source $HOME/exports.local
 
+# Antidote {{{
+autoload -U +X compinit && compinit
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load
+autoload -Uz promptinit && promptinit && prompt pure
+# }}}
 
 # Keyboard Shorcuts {{{
 autoload edit-command-line
@@ -20,8 +23,7 @@ bindkey -M vicmd v edit-command-line
 
 # Prompt and Settings {{{
 
-eval "$(starship init zsh)"
-autoload -U +X compinit && compinit
+# eval "$(starship init zsh)"
 # }}}
 
 
