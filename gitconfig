@@ -7,6 +7,8 @@
 	editor = nvim
 	excludesfile = ~/.gitignore
 	attributesFile = ~/.gitattributes
+[push]
+    autoSetupRemote = true
 [init]
 	defaultBranch = main
 [fetch]
