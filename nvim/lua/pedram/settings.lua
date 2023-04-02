@@ -31,7 +31,7 @@ vim.opt.updatetime = 50
 
 vim.opt.foldlevelstart = 3
 vim.opt.foldminlines = 2
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = "menu,menuone,noselect,preview,noinsert"
 
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 400
