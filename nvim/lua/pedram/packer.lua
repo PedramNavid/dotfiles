@@ -43,6 +43,8 @@ return require('packer').startup(function(use)
     use('github/copilot.vim')
     use("folke/neodev.nvim")
     use('milisims/nvim-luaref')
+    use('thalesmello/lkml.vim')
+    use('lewis6991/gitsigns.nvim')
 
     use("folke/zen-mode.nvim")
     use {
