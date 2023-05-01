@@ -5,4 +5,5 @@ export FZF_DEFAULT_COMMAND='rg --files'
 export PATH=$PATH:$HOME/bin:$HOME/repos/lua-language-server/bin:$HOME/go/bin:$HOME/.local/bin
 
 export AIRFLOW_HOME=~/projects/airflow
+export DAGSTER_HOME=~/projects/dagster
 export PATH=$PATH:/Applications/SnowSQL.app/Contents/MacOS/
