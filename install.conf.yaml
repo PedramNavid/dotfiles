@@ -22,3 +22,4 @@
     ~/.config/awesome: awesome
     ~/.config/picom.conf: picom.conf
     ~/.zsh_plugins.txt: zsh_plugins.txt
+    ~/.Xresources: Xresources
