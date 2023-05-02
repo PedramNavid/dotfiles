@@ -8,6 +8,18 @@ command_exists () {
 }
 
 # Zsh Options
+setopt autocd
+setopt hist_ignore_space
+setopt hist_ignore_dups
+
+# Up/down matches search
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
 setopt extended_glob
 zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/pedram/.zshrc'
@@ -31,7 +43,6 @@ zstyle :prompt:pure:git:stash show yes
 
 # }}}
 
-
 # Antidote
 if [[ -f /usr/share/zsh-antidote/antidote.zsh ]]; then
     source /usr/share/zsh-antidote/antidote.zsh
@@ -42,14 +53,8 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(luarocks path --bin)"
 
-# vim: set nospell foldmethod=marker foldlevel=0:
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/pedram/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pedram/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
 if [ -f '/Users/pedram/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pedram/google-cloud-sdk/completion.zsh.inc'; fi
 
-# The following lines were added by compinstall
-
-# End of lines added by compinstall
+# vim: set nospell foldmethod=marker foldlevel=0:
