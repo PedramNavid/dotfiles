@@ -9,12 +9,13 @@ ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/magic-enter
 ohmyzsh/ohmyzsh path:plugins/common-aliases
 ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/archlinux
 
-belak/zsh-utils path:editor
-belak/zsh-utils path:history
-belak/zsh-utils path:prompt
-belak/zsh-utils path:utility
-belak/zsh-utils path:completion
+# belak/zsh-utils path:editor
+# belak/zsh-utils path:history
+# belak/zsh-utils path:prompt
+# belak/zsh-utils path:utility
+# belak/zsh-utils path:completion
 
 # prompts:
 #   with prompt plugins, remember to add this to your .zshrc:

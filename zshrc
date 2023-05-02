@@ -2,14 +2,17 @@
 [[ -f $HOME/.exports ]] && source $HOME/.exports
 [[ -f $HOME/alias.local ]] && source $HOME/alias.local
 [[ -f $HOME/exports.local ]] && source $HOME/exports.local
-[[ -f $HOME/exports.local ]] && source $HOME/exports.local
 
-# Antidote {{{
-autoload -U +X compinit && compinit
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-antidote load
-autoload -Uz promptinit && promptinit && prompt pure
-# }}}
+command_exists () {
+    type "$1" &> /dev/null ;
+}
+
+# Zsh Options
+setopt extended_glob
+zstyle ':completion:*' completer _complete _ignored
+zstyle :compinstall filename '/home/pedram/.zshrc'
+autoload -Uz compinit
+compinit
 
 # Keyboard Shorcuts {{{
 autoload edit-command-line
@@ -22,10 +25,18 @@ bindkey -M vicmd v edit-command-line
 # }}}
 
 # Prompt and Settings {{{
+autoload -U promptinit; promptinit
+prompt pure
+zstyle :prompt:pure:git:stash show yes
 
-# eval "$(starship init zsh)"
 # }}}
 
+
+# Antidote
+if [[ -f /usr/share/zsh-antidote/antidote.zsh ]]; then
+    source /usr/share/zsh-antidote/antidote.zsh
+    antidote load
+fi
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -38,3 +49,7 @@ if [ -f '/Users/pedram/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pedram/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/pedram/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pedram/google-cloud-sdk/completion.zsh.inc'; fi
+
+# The following lines were added by compinstall
+
+# End of lines added by compinstall
