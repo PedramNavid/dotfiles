@@ -11,6 +11,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
+    ~/.config/conky: conky
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/starship.toml: starship.toml

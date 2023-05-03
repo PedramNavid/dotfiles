@@ -11,7 +11,10 @@ screen.connect_signal('request::wallpaper', function(s)
                 image = beautiful.wallpaper,
                 upscale = true,
                 downscale = true,
-                widget = wibox.widget.imagebox
+                widget = wibox.widget.imagebox,
+                horizontal_fit_policy = "fit",
+                vertical_fit_policy = "fit"
+
             },
             valign = 'center',
             halign = 'center',
