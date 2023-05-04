@@ -1,6 +1,6 @@
 mattmc3/zfunctions
 rupa/z
-
+djui/alias-tips
 romkatv/zsh-bench kind:path
 olets/zsh-abbr    kind:defer
 
@@ -10,6 +10,8 @@ ohmyzsh/ohmyzsh path:plugins/magic-enter
 ohmyzsh/ohmyzsh path:plugins/common-aliases
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/archlinux
+ohmyzsh/ohmyzsh path:plugins/systemd
+ohmyzsh/ohmyzsh path:plugins/pip
 
 # belak/zsh-utils path:editor
 # belak/zsh-utils path:history

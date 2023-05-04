@@ -3,33 +3,15 @@ local beautiful = require('beautiful')
 local wibox = require('wibox')
 local lain = require('lain')
 local gears = require('gears')
-local calendar_widget = require('awesome-wm-widgets.calendar-widget.calendar')
-local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local dpi = beautiful.xresources.apply_dpi
 local markup = lain.util.markup
-local menu = require('config.menu')
 local keys = require('config.keys')
+local widgets = require('config.widgets')
 
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
-local calwidget = calendar_widget({
-  placement = 'top_right',
-  radius = 8
-})
 
 -- Other widgets
-
-local temp = lain.widget.temp({
-  timeout = 10,
-  settings = function()
-    widget:set_markup(markup.fontfg(beautiful.font, "#f1af5f", coretemp_now .. "°C"))
-  end
-})
-local memory = lain.widget.mem({
-  settings = function()
-    widget:set_markup(markup.fontfg(beautiful.font, "#e0da37", mem_now.used .. "M "))
-  end
-})
 screen.connect_signal('request::desktop_decoration', function(s)
   local layout = awful.layout.suit
   awful.tag.add('1', {
@@ -151,38 +133,38 @@ screen.connect_signal('request::desktop_decoration', function(s)
     },
   }
 
-  -- @DOC_WIBAR@
   -- Create the wibox
   s.mywibox = awful.wibar {
     position = 'top',
     screen = s,
     width = 1000,
-    -- @DOC_SETUP_WIDGETS@
     widget = {
       layout = wibox.layout.align.horizontal,
       {
-              -- Left widgets
+        -- Left widgets
         layout = wibox.layout.fixed.horizontal,
         s.mytaglist,
         s.mypromptbox
       },
       s.mytasklist,       -- Middle widget
       {
-                          -- Right widgets
+        -- Right widgets
         layout = wibox.layout.fixed.horizontal,
-        temp,
-        memory,
-        volume_widget({
-          font = "Play 10"
-        }),
         wibox.widget.systray(),
+        widgets.netspeed,
+        widgets.cpuwidget,
+        widgets.memwidget,
+        widgets.fswidget,
+        widgets.pacman,
+        widgets.volume,
         mytextclock,
+        widgets.logout,
       }
     }
   }
 end)
 
 mytextclock:connect_signal('button::press', function(_, _, _, button)
-  if button == 1 then calwidget.toggle() end
+  if button == 1 then widgets.calwidget.toggle() end
 end)
 -- }}}
