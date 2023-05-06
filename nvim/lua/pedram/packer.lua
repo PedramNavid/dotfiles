@@ -16,13 +16,10 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make'
     }
-
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
+    use({'shaunsingh/nord.nvim',
+      config = function()
+        vim.cmd('colorscheme nord')
+      end
     })
 
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
@@ -34,7 +31,7 @@ return require('packer').startup(function(use)
     use('vimwiki/vimwiki')
     use('jose-elias-alvarez/null-ls.nvim')
     use {
-        '/Users/pedram/projects/neovim-plugins/dbtpal',
+        '~/projects/dbtpal',
         requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-telescope/telescope.nvim' } }
     }
 

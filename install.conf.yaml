@@ -11,6 +11,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
+    ~/.config/conky: conky
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/starship.toml: starship.toml
@@ -22,3 +23,4 @@
     ~/.config/awesome: awesome
     ~/.config/picom.conf: picom.conf
     ~/.zsh_plugins.txt: zsh_plugins.txt
+    ~/.Xresources: Xresources

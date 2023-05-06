@@ -9,7 +9,7 @@ local gfs = require('gears.filesystem')
 
 -- {{{ Main
 local theme = {}
-local wallpath = '/home/pedram/wallpaper'
+local wallpath = '/home/pedram/wallpapers'
 theme.wallpaper = gfs.get_random_file_from_dir(wallpath, {'jpg', 'png'}, true)
 -- }}
 
