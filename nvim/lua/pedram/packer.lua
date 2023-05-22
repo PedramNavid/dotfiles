@@ -42,7 +42,15 @@ return require('packer').startup(function(use)
     use('milisims/nvim-luaref')
     use('thalesmello/lkml.vim')
     use('lewis6991/gitsigns.nvim')
-
+		use {
+			'folke/trouble.nvim',
+			requires = 'kyazdani42/nvim-web-devicons',
+			config = function()
+				require('trouble').setup {
+					mode = "quickfix"
+				}
+			end
+		}
     use("folke/zen-mode.nvim")
     use {
       'VonHeikemen/lsp-zero.nvim',
