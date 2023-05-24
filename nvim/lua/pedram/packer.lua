@@ -1,66 +1,81 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
-vim.cmd.packadd('packer.nvim')
+vim.cmd.packadd("packer.nvim")
 
-return require('packer').startup(function(use)
+return require("packer").startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    use("wbthomason/packer.nvim")
 
-    use {
-        'nvim-telescope/telescope.nvim', branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
-
-    use {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'make'
-    }
-    use({'shaunsingh/nord.nvim',
-      config = function()
-        vim.cmd('colorscheme nord')
-      end
+    use({
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        requires = { { "nvim-lua/plenary.nvim" } },
     })
 
-    use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
-    use('nvim-treesitter/playground')
-    use('theprimeagen/harpoon')
-    use('mbbill/undotree')
-    use('tpope/vim-fugitive')
-    use('tpope/vim-unimpaired')
-    use('vimwiki/vimwiki')
-    use('jose-elias-alvarez/null-ls.nvim')
-    use {
-        '~/projects/dbtpal',
-        requires = { { 'nvim-lua/plenary.nvim' }, { 'nvim-telescope/telescope.nvim' } }
-    }
+    use({
+        "nvim-telescope/telescope-fzf-native.nvim",
+        run = "make",
+    })
+    use({
+        "shaunsingh/nord.nvim",
+        config = function()
+            vim.cmd("colorscheme nord")
+        end,
+    })
 
-    use('simrat39/rust-tools.nvim')
-    use('rust-lang/rust.vim')
-    use('github/copilot.vim')
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use("nvim-treesitter/playground")
+    use("theprimeagen/harpoon")
+    use("mbbill/undotree")
+    use("tpope/vim-fugitive")
+    use("tpope/vim-unimpaired")
+    use("vimwiki/vimwiki")
+    use("jose-elias-alvarez/null-ls.nvim")
+    use({
+        "~/projects/dbtpal",
+        requires = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope.nvim" } },
+    })
+
+    use("simrat39/rust-tools.nvim")
+    use("rust-lang/rust.vim")
+    use("github/copilot.vim")
     use("folke/neodev.nvim")
-    use('milisims/nvim-luaref')
-    use('thalesmello/lkml.vim')
-    use('lewis6991/gitsigns.nvim')
-
+    use("milisims/nvim-luaref")
+    use("thalesmello/lkml.vim")
+    use({
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup()
+        end,
+    })
+    use({
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("trouble").setup({
+            })
+        end,
+    })
     use("folke/zen-mode.nvim")
-    use {
-      'VonHeikemen/lsp-zero.nvim',
-      branch = 'v2.x',
-      requires = {
-        -- LSP Support
-        {'neovim/nvim-lspconfig'},             -- Required
-        {                                      -- Optional
-          'williamboman/mason.nvim',
-          run = function()
-            pcall(vim.cmd, 'MasonUpdate')
-          end,
-        },
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+    use({
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v2.x",
+        requires = {
+            -- LSP Support
+            { "neovim/nvim-lspconfig" }, -- Required
+            {
+                -- Optional
+                "williamboman/mason.nvim",
+                run = function()
+                    pcall(vim.cmd, "MasonUpdate")
+                end,
+            },
+            { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'L3MON4D3/LuaSnip'},     -- Required
-      }
-}
+            { "hrsh7th/nvim-cmp" }, -- Required
+            { "hrsh7th/cmp-nvim-lsp" }, -- Required
+            { "L3MON4D3/LuaSnip" }, -- Required
+        },
+    })
 end)

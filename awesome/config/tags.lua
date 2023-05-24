@@ -9,7 +9,6 @@ tag.connect_signal('request::default_layouts', function()
         awful.layout.suit.tile.left,
         awful.layout.suit.tile.bottom,
         awful.layout.suit.tile.top,
-        lain.layout.termfair,
         lain.layout.termfair.center,
         awful.layout.suit.max,
         awful.layout.suit.max.fullscreen,

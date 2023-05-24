@@ -48,3 +48,4 @@ tnoremap { '<C-v><Esc>', '<Esc>' }
 
 -- Development Remaps
 nnoremap { '<LocalLeader>t', '<Plug>PlenaryTestFile'}
+nnoremap { 'rr', function() require('plenary.reload').reload_module('dbtpal') end }
