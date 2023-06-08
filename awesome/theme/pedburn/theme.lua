@@ -46,8 +46,8 @@ theme.bg_systray = dracula.bg
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap = dpi(4)
-theme.border_width = dpi(3)
+theme.useless_gap = dpi(2)
+theme.border_width = dpi(2)
 theme.border_color_normal = dracula.bg
 theme.border_color_active = dracula.fg
 theme.border_color_marked = dracula.yellow

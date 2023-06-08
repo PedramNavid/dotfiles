@@ -64,6 +64,20 @@ ruled.client.connect_signal('request::rules', function()
         rule = { class = "Slack" },
         properties = { screen = 1, tag = "5" }
     }
+    ruled.client.append_rule {
+        rule = { class = "discord" },
+        properties = { screen = 1, tag = "5" }
+    }
+    ruled.client.append_rule {
+        rule = { class = "Spotify" },
+        properties = { screen = 1, tag = "4" }
+    }
+    ruled.client.append_rule {
+        rule = { class = "1Password" },
+        properties = { screen = 1, tag = "4" }
+    }
+
+
 end)
 
 -- }}}

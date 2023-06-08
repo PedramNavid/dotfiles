@@ -8,11 +8,12 @@ dbt.setup {
     protect_compiled_files = true
 }
 
-vim.keymap.set('n', '<leader>drf', dbt.run)
-vim.keymap.set('n', '<leader>drp', dbt.run_all)
-vim.keymap.set('n', '<leader>dtf', dbt.test)
+vim.keymap.set('n', '<leader>dr', dbt.run)
+vim.keymap.set('n', '<leader>dra', dbt.run_all)
+vim.keymap.set('n', '<leader>drc', dbt.run_children)
+vim.keymap.set('n', '<leader>db', dbt.build)
+vim.keymap.set('n', '<leader>dt', dbt.test)
 vim.keymap.set('n', '<leader>dm', require('dbtpal.telescope').dbt_picker)
 
 require 'telescope'.load_extension('dbtpal')
 
-vim.cmd [[nnoremap rr :call Reload()<CR>]]

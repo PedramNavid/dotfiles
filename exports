@@ -9,5 +9,5 @@ export PAGER='less -R'
 export DIFFPROG='nvim -d'
 
 
-export PATH=$PATH:$HOME/bin:$HOME/repos/lua-language-server/bin:$HOME/go/bin:$HOME/.local/bin
-export PATH=$PATH:/Applications/SnowSQL.app/Contents/MacOS/
+export PATH=$PATH:$HOME/bin:$HOME/repos/lua-language-server/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/.cargo/bin
+export PATH=$PATH:/Applications/SnowSQL.app/Contents/MacOS/:/usr/local/bin
