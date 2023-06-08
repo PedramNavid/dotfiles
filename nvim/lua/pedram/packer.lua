@@ -7,16 +7,29 @@ return require("packer").startup(function(use)
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
 
+    use("folke/neodev.nvim")
     use({
-        "nvim-telescope/telescope.nvim",
-        branch = "0.1.x",
-        requires = { { "nvim-lua/plenary.nvim" } },
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("trouble").setup({})
+        end,
     })
+    use("folke/zen-mode.nvim")
+    use("github/copilot.vim")
+    use("jose-elias-alvarez/null-ls.nvim")
+    use({
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup()
+        end,
+    })
+    use("mbbill/undotree")
+    use("milisims/nvim-luaref")
+    use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { { "nvim-lua/plenary.nvim" } } })
 
-    use({
-        "nvim-telescope/telescope-fzf-native.nvim",
-        run = "make",
-    })
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+
     use({
         "shaunsingh/nord.nvim",
         config = function()
@@ -24,36 +37,20 @@ return require("packer").startup(function(use)
         end,
     })
 
+    use("simrat39/rust-tools.nvim")
+    use("simrat39/symbols-outline.nvim")
+
+    use("nvim-lualine/lualine.nvim")
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-    use("nvim-treesitter/playground")
+    use("rust-lang/rust.vim")
+    use("thalesmello/lkml.vim")
     use("theprimeagen/harpoon")
-    use("mbbill/undotree")
     use("tpope/vim-fugitive")
     use("tpope/vim-unimpaired")
     use("vimwiki/vimwiki")
-    use("jose-elias-alvarez/null-ls.nvim")
-    use({
-        "~/projects/dbtpal",
-        requires = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope.nvim" } },
-    })
 
-    use("simrat39/rust-tools.nvim")
-    use("rust-lang/rust.vim")
-    use("github/copilot.vim")
-    use("folke/neodev.nvim")
-    use('lewis6991/gitsigns.nvim')
-		use {
-			'folke/trouble.nvim',
-			requires = 'kyazdani42/nvim-web-devicons',
-			config = function()
-				require('trouble').setup {
-					mode = "quickfix"
-				}
-			end
-		}
-    use("milisims/nvim-luaref")
-    use("thalesmello/lkml.vim")
-    use("folke/zen-mode.nvim")
+    use({ "~/projects/dbtpal", requires = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope.nvim" } } })
+
     use({
         "VonHeikemen/lsp-zero.nvim",
         branch = "v2.x",

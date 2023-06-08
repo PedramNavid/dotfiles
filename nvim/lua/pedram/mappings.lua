@@ -45,7 +45,9 @@ nnoremap { '<M-h>', '<c-w>h' }
 tnoremap { '<Esc>', '<C-\\><C-n>' }
 tnoremap { '<C-v><Esc>', '<Esc>' }
 
-
 -- Development Remaps
 nnoremap { '<LocalLeader>t', '<Plug>PlenaryTestFile'}
 nnoremap { 'rr', function() require('plenary.reload').reload_module('dbtpal') end }
+
+-- Config Editing
+nnoremap { '<LocalLeader>e', ':e ~/dotfiles/nvim/init.lua<CR>' }

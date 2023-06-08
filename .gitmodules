@@ -5,3 +5,6 @@
 [submodule "awesome/awesome-wm-widgets"]
 	path = awesome/awesome-wm-widgets
 	url = https://github.com/streetturtle/awesome-wm-widgets.git
+[submodule "awesome/nice"]
+	path = awesome/nice
+	url = https://github.com/mut-ex/awesome-wm-nice.git

@@ -11,6 +11,13 @@ local widgets = require("config.widgets")
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
 
+
+lain.layout.termfair.nmaster = 3
+lain.layout.termfair.ncol = 2
+lain.layout.termfair.center.nmaster = 3
+lain.layout.termfair.center.ncol = 2
+
+
 -- Other widgets
 screen.connect_signal("request::desktop_decoration", function(s)
     local layout = awful.layout.suit
@@ -23,12 +30,12 @@ screen.connect_signal("request::desktop_decoration", function(s)
     })
 
     awful.tag.add("2", {
-        layout = lain.layout.termfair.center,
+        layout = lain.layout.centerwork,
         screen = s,
     })
 
     awful.tag.add("3", {
-        layout = layout.tile,
+        layout = lain.layout.termfair.center,
         screen = s,
     })
     awful.tag.add("4", {
@@ -148,10 +155,10 @@ screen.connect_signal("request::desktop_decoration", function(s)
     })
 
     -- Create the wibox
+    local systray = wibox.widget.systray()
     s.mywibox = awful.wibar({
         position = "top",
         screen = s,
-        width = 1000,
         widget = {
             layout = wibox.layout.align.horizontal,
             {
@@ -164,13 +171,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
             {
                 -- Right widgets
                 layout = wibox.layout.fixed.horizontal,
-                wibox.widget.systray(),
-                widgets.netspeed,
-                widgets.cpuwidget,
-                widgets.memwidget,
-                widgets.fswidget,
-                widgets.pacman,
-                widgets.volume,
+                systray,
                 mytextclock,
                 widgets.logout,
             },

@@ -98,7 +98,7 @@ nls.setup({
     }),
     b.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces" } }),
     b.formatting.black.with({
-      command = "/Users/pedram/.pyenv/versions/neovim/bin/black",
+      command = vim.fn.expand("~/.pyenv/versions/neovim/bin/black"),
     }),
     b.formatting.ruff,
   },

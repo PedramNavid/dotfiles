@@ -43,6 +43,7 @@ theme.fg_urgent = dracula.orange
 theme.bg_urgent = dracula.bg
 
 theme.bg_systray = dracula.bg
+theme.systray_icon_spacing = 4
 -- }}}
 
 -- {{{ Borders
