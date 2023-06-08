@@ -38,6 +38,9 @@ bindkey -M vicmd v edit-command-line
 
 # Prompt and Settings {{{
 autoload -U promptinit; promptinit
+if [ "$(uname)" = "Darwin" ]; then
+  fpath+=("$(brew --prefix)/share/zsh/site-functions")
+fi
 prompt pure
 zstyle :prompt:pure:git:stash show yes
 
@@ -50,7 +53,6 @@ else
     source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 fi
 antidote load
-
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
