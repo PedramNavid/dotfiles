@@ -13,4 +13,5 @@ alias vrc="nvim $HOME/.config/nvim/init.lua"
 alias zrc="nvim $HOME/.zshrc"
 alias krc="nvim $HOME/.config/kitty/kitty.conf"
 
+alias gss="git status -s"
 alias luamake=/home/pedram/repos/lua-language-server/3rd/luamake/luamake

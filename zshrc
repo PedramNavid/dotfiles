@@ -46,8 +46,11 @@ zstyle :prompt:pure:git:stash show yes
 # Antidote
 if [[ -f /usr/share/zsh-antidote/antidote.zsh ]]; then
     source /usr/share/zsh-antidote/antidote.zsh
-    antidote load
+else
+    source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 fi
+antidote load
+
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
