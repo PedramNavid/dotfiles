@@ -3,7 +3,7 @@ require("telescope").setup({
         layout_config = {
             width = 0.75,
         },
-   },
+    },
     extensions = {
         fzf = {
             fuzzy = true, -- false will only do exact matching

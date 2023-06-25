@@ -14,7 +14,7 @@ local mytextclock = wibox.widget.textclock()
 
 lain.layout.termfair.nmaster = 3
 lain.layout.termfair.ncol = 2
-lain.layout.termfair.center.nmaster = 3
+lain.layout.termfair.center.nmaster = 2
 lain.layout.termfair.center.ncol = 2
 
 
@@ -22,7 +22,7 @@ lain.layout.termfair.center.ncol = 2
 screen.connect_signal("request::desktop_decoration", function(s)
     local layout = awful.layout.suit
     awful.tag.add("1", {
-        layout = layout.tile,
+        layout = lain.layout.termfair.center,
         master_fill_policy = "master_width_factor",
         gap_single_client = true,
         screen = s,

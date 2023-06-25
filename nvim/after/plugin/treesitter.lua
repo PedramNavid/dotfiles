@@ -1,6 +1,15 @@
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "sql", "lua", "rust", "yaml", "toml", "bash",
-                         "cmake", "json", "python" },
+    ensure_installed = {
+        "sql",
+        "lua",
+        "rust",
+        "yaml",
+        "toml",
+        "bash",
+        "cmake",
+        "json",
+        "python",
+    },
     sync_install = false,
     auto_install = false,
     incremental_selection = {
