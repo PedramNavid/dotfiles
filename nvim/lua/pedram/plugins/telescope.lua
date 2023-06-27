@@ -72,6 +72,10 @@ return {
         vim.api.nvim_create_user_command("Keymaps", function()
             builtins().keymaps()
         end, { desc = "Telescope picker: keymaps" })
+        vim.api.nvim_create_user_command("Oldfiles", function()
+            builtins().oldfiles()
+        end, { desc = "Telescope picker: oldfiles" })
+
         vim.api.nvim_create_user_command("Status", function()
             builtins().git_status()
         end, { desc = "Telescope picker: git status" })
@@ -178,5 +182,12 @@ return {
                 end
             end,
         })
+
+        vim.keymap.set("n", "<Leader>ff", "<cmd>Find<CR>")
+        vim.keymap.set("n", "<Leader>fb", "<cmd>Buffers<CR>")
+        vim.keymap.set("n", "<Leader>fc", "<cmd>Commits<CR>")
+        vim.keymap.set("n", "<Leader>fg", "<cmd>Grep<CR>")
+        vim.keymap.set("n", "<Leader>fh", "<cmd>Oldfiles<CR>")
+
     end,
 }

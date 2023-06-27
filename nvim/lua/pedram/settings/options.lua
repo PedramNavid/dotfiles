@@ -15,7 +15,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.clipboard = "unnamedplus"
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 2
 vim.opt.colorcolumn = "80"
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
