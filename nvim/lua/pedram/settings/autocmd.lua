@@ -5,3 +5,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "Buf
         vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
     end,
 })
+
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+    group = vim.api.nvim_create_augroup("StripTrailingWhitespace", {}),
+    callback = function()
+        vim.cmd([[ %s/\s\+$//e ]])
+    end,
+})
