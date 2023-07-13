@@ -11,8 +11,9 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
-    ~/.config/conky: conky
-    ~/.config/kitty: kitty
+    ~/.config/kitty: 
+      path: kitty
+      force: true
     ~/.config/nvim: nvim
     ~/.config/starship.toml: starship.toml
     ~/.tmux.conf: tmux.conf
