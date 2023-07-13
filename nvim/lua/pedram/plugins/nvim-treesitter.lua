@@ -4,6 +4,7 @@ return {
         -- not sure I get value from this plugin
         -- "nvim-treesitter/nvim-treesitter-context",
         "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+        "https://github.com/nvim-treesitter/playground",
     },
     build = function()
         vim.cmd.TSUpdate()
@@ -29,6 +30,9 @@ return {
                         ["if"] = "@function.inner",
                         ["ac"] = "@conditional.outer",
                         ["ic"] = "@conditional.inner",
+                        ["as"] = "@scope",
+                        ["aS"] = "@statement.outer",
+                        ["iS"] = "@statement.inner",
                     },
                 },
             },
