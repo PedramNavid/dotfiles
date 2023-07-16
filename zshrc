@@ -1,7 +1,7 @@
 [[ -f $HOME/.alias ]] && source $HOME/.alias
 [[ -f $HOME/.exports ]] && source $HOME/.exports
-[[ -f $HOME/alias.local ]] && source $HOME/alias.local
-[[ -f $HOME/exports.local ]] && source $HOME/exports.local
+[[ -f $HOME/.alias.local ]] && source $HOME/.alias.local
+[[ -f $HOME/.exports.local ]] && source $HOME/.exports.local
 
 command_exists () {
     type "$1" &> /dev/null ;
