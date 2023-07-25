@@ -1,7 +1,7 @@
 export HISTSIZE=100000
 
 export AIRFLOW_HOME=~/projects/airflow
-export DAGSTER_HOME=~/projects/dagster
+export DAGSTER_HOME=~/projects/dagster_home
 export FZF_DEFAULT_COMMAND='rg --files'
 
 export EDITOR=nvim

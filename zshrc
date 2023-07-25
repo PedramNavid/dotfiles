@@ -63,3 +63,5 @@ if [ -f '/Users/pedram/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pedram/g
 if [ -f '/Users/pedram/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pedram/google-cloud-sdk/completion.zsh.inc'; fi
 
 # vim: set nospell foldmethod=marker foldlevel=0:
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
