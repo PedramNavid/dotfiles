@@ -117,7 +117,7 @@ return {
                     vertical = {
                         prompt_position = "top",
                         mirror = true,
-                        preview_height = 0.75,
+                        preview_height = 0.45,
                     },
                 },
                 mappings = {
