@@ -56,3 +56,4 @@ nnoremap({
 
 -- Config Editing
 nnoremap({ "<LocalLeader>e", ":e ~/dotfiles/nvim/init.lua<CR>" })
+nnoremap({ "<LocalLeader>nd", vim.diagnostic.disable })

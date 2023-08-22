@@ -11,7 +11,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
-    ~/.config/kitty: 
+    ~/.config/kitty:
       path: kitty
       force: true
     ~/.config/nvim: nvim
@@ -25,3 +25,4 @@
     ~/.config/picom.conf: picom.conf
     ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.Xresources: Xresources
+    ~/.alacritty.yml: alacritty.yml
