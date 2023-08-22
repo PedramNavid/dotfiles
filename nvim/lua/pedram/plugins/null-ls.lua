@@ -4,7 +4,7 @@ return {
     config = function()
         local null_ls = require("null-ls")
         null_ls.setup({
-            debug = false,
+            debug = true,
             -- set root directory to cwd
             root_dir = function()
                 return nil
@@ -27,8 +27,9 @@ return {
                 }),
 
                 null_ls.builtins.formatting.beautysh,
-                null_ls.builtins.formatting.black,
-                null_ls.builtins.formatting.isort,
+                null_ls.builtins.formatting.black.with({
+                    command = vim.fn.expand("~/.pyenv/versions/daggy/bin/black"),
+                }),
                 null_ls.builtins.formatting.ruff,
                 null_ls.builtins.formatting.rustfmt,
             },

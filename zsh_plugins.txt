@@ -3,6 +3,7 @@ rupa/z
 djui/alias-tips
 romkatv/zsh-bench kind:path
 olets/zsh-abbr    kind:defer
+jeffreytse/zsh-vi-mode
 
 ohmyzsh/ohmyzsh path:lib
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages

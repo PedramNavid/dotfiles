@@ -8,3 +8,6 @@
 [submodule "awesome/nice"]
 	path = awesome/nice
 	url = https://github.com/mut-ex/awesome-wm-nice.git
+[submodule "tokyonight.nvim"]
+	path = tokyonight.nvim
+	url = https://github.com/folke/tokyonight.nvim.git

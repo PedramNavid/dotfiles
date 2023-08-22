@@ -22,11 +22,12 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 setopt extended_glob
 zstyle ':completion:*' completer _complete _ignored
-zstyle :compinstall filename '/home/pedram/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
 # Keyboard Shorcuts {{{
+export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 autoload edit-command-line
 bindkey -v
 bindkey '^R' history-incremental-search-backward
@@ -59,9 +60,9 @@ eval "$(pyenv virtualenv-init -)"
 eval "$(luarocks path --bin)"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/pedram/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pedram/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/Users/pedram/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pedram/google-cloud-sdk/completion.zsh.inc'; fi
-
-# vim: set nospell foldmethod=marker foldlevel=0:
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# vim: set nospell foldmethod=marker foldlevel=0:

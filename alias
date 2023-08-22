@@ -15,4 +15,8 @@ alias zrc="nvim $HOME/.zshrc"
 alias krc="nvim $HOME/.config/kitty/kitty.conf"
 
 alias gss="git status -s"
+alias pipu="pip install --upgrade"
+alias pipi="pip install"
 alias luamake=/home/pedram/repos/lua-language-server/3rd/luamake/luamake
+
+alias ll='ls -o  -Fh'
