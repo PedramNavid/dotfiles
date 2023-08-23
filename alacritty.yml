@@ -12,15 +12,15 @@ scrolling:
 
 font:
   normal:
-    family: FiraCode Nerd Font
+    family: Fira Code
     style: Regular
   bold:
-    family: FiraCode Nerd Font
-    style: Bold
+    family: Fira Code
+    style: Regular
   italic:
-    family: FiraCode Nerd Font
+    family: Fira Code
     style: Italic
-  size: 14
+  size: 15
 
 selection:
   save_to_clipboard: true
