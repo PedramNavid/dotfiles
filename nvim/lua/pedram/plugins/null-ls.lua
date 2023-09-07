@@ -15,6 +15,9 @@ return {
                 null_ls.builtins.diagnostics.checkmake,
                 null_ls.builtins.diagnostics.ruff,
                 null_ls.builtins.diagnostics.shellcheck,
+                null_ls.builtins.formatting.sqlfluff.with({
+                    extra_args = { "--config", vim.fn.expand("~/.sqlfluff") },
+                }),
                 null_ls.builtins.diagnostics.trail_space,
                 null_ls.builtins.diagnostics.yamllint.with({
                     extra_args = {},
@@ -30,6 +33,9 @@ return {
                 null_ls.builtins.formatting.beautysh,
                 null_ls.builtins.formatting.black.with({
                     command = vim.fn.expand("~/.pyenv/versions/daggy/bin/black"),
+                }),
+                null_ls.builtins.formatting.sqlfluff.with({
+                    extra_args = { "--config", vim.fn.expand("~/.sqlfluff") },
                 }),
                 null_ls.builtins.formatting.ruff,
                 null_ls.builtins.formatting.rustfmt,

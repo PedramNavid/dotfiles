@@ -5,7 +5,7 @@ return {
         vim.g.loaded_netrwPlugin = 1
         require('nvim-tree').setup()
 
-        vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeOpen<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
     end
 
 }
