@@ -12,6 +12,7 @@ ohmyzsh/ohmyzsh path:plugins/common-aliases
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/archlinux
 ohmyzsh/ohmyzsh path:plugins/systemd
+ohmyzsh/ohmyzsh path:plugins/kubectl
 
 # belak/zsh-utils path:editor
 # belak/zsh-utils path:history

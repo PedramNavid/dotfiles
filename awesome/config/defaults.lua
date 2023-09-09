@@ -2,7 +2,7 @@ local defaults = {}
 local editor = os.getenv('EDITOR') or 'nvim'
 
 -- Default Applications
-defaults.terminal = 'kitty'
+defaults.terminal = 'alacritty'
 defaults.editor_cmd = defaults.terminal .. ' -e ' .. editor
 defaults.browser = 'firefox'
 

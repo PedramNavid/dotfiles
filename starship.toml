@@ -25,8 +25,5 @@ threshold = 50
 [time]
 disabled = false
 
-[kubernetes]
-disabled = true
-
 [git_status]
 ignore_submodules = true

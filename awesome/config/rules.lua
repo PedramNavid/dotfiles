@@ -56,7 +56,7 @@ ruled.client.connect_signal('request::rules', function()
       id = "titlebars_hidden",
       rule_any = {
         type = { "normal", "dialog" },
-        class = { "kitty" },
+        class = { "alacritty" },
       },
       properties = { titlebars_enabled = false },
     }

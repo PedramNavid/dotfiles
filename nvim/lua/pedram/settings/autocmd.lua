@@ -6,6 +6,15 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "Buf
     end,
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
+    pattern = {"*.md", "*.txt"},
+    group = vim.api.nvim_create_augroup("SPELL_CHECK", {}),
+    callback = function()
+        vim.cmd([[ setlocal spell ]])
+    end,
+})
+
+
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
     group = vim.api.nvim_create_augroup("StripTrailingWhitespace", {}),
     callback = function()
