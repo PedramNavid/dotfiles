@@ -32,7 +32,7 @@ return {
 
                 null_ls.builtins.formatting.beautysh,
                 null_ls.builtins.formatting.black.with({
-                    command = vim.fn.expand("~/.pyenv/versions/daggy/bin/black"),
+                    command = vim.fn.expand("~/.pyenv/versions/neovim/bin/black"),
                 }),
                 null_ls.builtins.formatting.sqlfluff.with({
                     extra_args = { "--config", vim.fn.expand("~/.sqlfluff") },

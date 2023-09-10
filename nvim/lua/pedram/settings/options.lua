@@ -35,6 +35,8 @@ vim.opt.completeopt = "menu,menuone,noselect,preview,noinsert"
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 400
 
+vim.g.python3_host_prog = vim.fn.expand("$HOME/.pyenv/versions/neovim/bin/python")
+
 vim.cmd([[
 try
     colorscheme dracula
