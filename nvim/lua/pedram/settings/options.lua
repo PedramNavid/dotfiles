@@ -35,7 +35,7 @@ vim.opt.termguicolors = true
 vim.opt.timeoutlen = 400
 vim.opt.iskeyword:remove("_")
 
-vim.g.python3_host_prog = vim.fn.expand("$HOME/.pyenv/versions/neovim/bin/python")
+vim.g.python3_host_prog = vim.fn.expand("$HOME/.pyenv/shims/python")
 
 vim.cmd([[
 try

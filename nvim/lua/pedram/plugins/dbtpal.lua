@@ -1,6 +1,6 @@
 return {
   {
-    dir = "/Users/pedram/projects/dbtpal",
+    "https://github.com/PedramNavid/dbtpal",
     init = function()
       require("dbtpal").setup({
         -- Path to the dbt executable
