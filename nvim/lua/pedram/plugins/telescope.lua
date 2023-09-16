@@ -188,6 +188,9 @@ return {
         vim.keymap.set("n", "<Leader>fc", "<cmd>Commits<CR>")
         vim.keymap.set("n", "<Leader>fg", "<cmd>Grep<CR>")
         vim.keymap.set("n", "<Leader>fh", "<cmd>Oldfiles<CR>")
+        vim.keymap.set("n", "<Leader>fk", "<cmd>Keymaps<CR>")
+        vim.keymap.set("n", "<Leader>fd", "<cmd>Diags<CR>")
+        vim.keymap.set("n", "<Leader>fw", "<cmd>Diags all<CR>")
 
     end,
 }

@@ -1,88 +1,39 @@
 return {
     "https://github.com/lewis6991/gitsigns.nvim",
-    config = function()
-        local gitsigns = require("gitsigns")
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+        signs = {
+            add = { text = "▎" },
+            change = { text = "▎" },
+            delete = { text = "" },
+            topdelete = { text = "" },
+            changedelete = { text = "▎" },
+            untracked = { text = "▎" },
+        },
+        signcolumn = true,
+        numhl = false,
+        linehl = false,
+        on_attach = function(buffer)
+            local gs = package.loaded.gitsigns
 
-        vim.o.signcolumn = "yes:1"
-        gitsigns.setup({
-            on_attach = function(bufnr)
-                vim.keymap.set("n", "]h", function()
-                    if vim.wo.diff then
-                        return "]h"
-                    end
-                    vim.schedule(function()
-                        gitsigns.next_hunk()
-                    end)
-                    return "<Ignore>"
-                end, {
-                    buffer = bufnr,
-                    expr = true,
-                    desc = "gitsigns: go to next hunk",
-                })
-                vim.keymap.set("n", "[h", function()
-                    if vim.wo.diff then
-                        return "[h"
-                    end
-                    vim.schedule(function()
-                        gitsigns.prev_hunk()
-                    end)
-                    return "<Ignore>"
-                end, {
-                    buffer = bufnr,
-                    expr = true,
-                    desc = "gitsigns: go to previous hunk",
-                })
+            local function map(mode, l, r, desc)
+                vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+            end
 
-                local function hunk_range(stage, selection)
-                    if selection.range ~= 0 then
-                        if selection.line1 == 1 and selection.line2 == vim.fn.line("$") then
-                            stage.buffer()
-                        else
-                            stage.hunk({ selection.line1, selection.line2 })
-                        end
-                    else
-                        stage.hunk()
-                    end
-                end
-
-                vim.api.nvim_create_user_command(
-                    "Diff",
-                    gitsigns.preview_hunk_inline,
-                    { desc = "gitsigns: preview hunk diff" }
-                )
-                vim.api.nvim_create_user_command("Patch", function(t)
-                    local base = t.args ~= "" and t.args or nil
-                    gitsigns.diffthis(base)
-                end, {
-                    nargs = "?",
-                    desc = "gitsigns: diff whole buffer",
-                })
-                vim.api.nvim_create_user_command("Blame", function()
-                    gitsigns.blame_line({ full = true })
-                end, { desc = "gitsigns: blame current line" })
-                vim.api.nvim_create_user_command("Reset", function(selection)
-                    hunk_range({ hunk = gitsigns.reset_hunk, buffer = gitsigns.reset_buffer }, selection)
-                end, {
-                    range = true,
-                    desc = "gitsigns: reset",
-                })
-                vim.api.nvim_create_user_command("Stage", function(selection)
-                    hunk_range({ hunk = gitsigns.stage_hunk, buffer = gitsigns.stage_buffer }, selection)
-                end, {
-                    range = true,
-                    desc = "gitsigns: stage hunk",
-                })
-                vim.api.nvim_create_user_command("Unstage", function(selection)
-                    if selection.range == 0 then
-                        gitsigns.undo_stage_hunk()
-                    else
-                        gitsigns.reset_buffer_index()
-                    end
-                end, {
-                    range = true,
-                    desc = "gitsigns: unstage hunk",
-                })
-            end,
-        })
-    end,
+            -- stylua: ignore start
+            map("n", "]h", gs.next_hunk, "Next Hunk")
+            map("n", "[h", gs.prev_hunk, "Prev Hunk")
+            map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+            map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+            map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
+            map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
+            map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+            map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+            map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
+            map("n", "<leader>ghd", gs.diffthis, "Diff This")
+            map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+            map("n", "<leader>ghl", gs.toggle_linehl, "Git Sign Line Highlight")
+            map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+        end,
+    },
 }

@@ -3,44 +3,39 @@ return {
     branch = "v2.x",
     dependencies = {
         { "neovim/nvim-lspconfig" },
-
         { "L3MON4D3/LuaSnip" },
         { "hrsh7th/nvim-cmp" },
-
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-buffer" },
         { "hrsh7th/cmp-path" },
         { "saadparwaiz1/cmp_luasnip" },
-
         { "onsails/lspkind.nvim" },
     },
     config = function()
         local lsp = require("lsp-zero").preset("recommended")
 
         lsp.ensure_installed({
-            'lua_ls',
-            'pyright',
+            "lua_ls",
+            "pyright",
         })
-        lsp.on_attach(function(client, bufnr)
+        lsp.on_attach(function(_, bufnr)
             lsp.default_keymaps({ buffer = bufnr })
         end)
 
-        -- (optional) configure lua language server for neovim
         require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
         lsp.setup()
-
         local cmp = require("cmp")
         local cmp_action = require("lsp-zero").cmp_action()
         local cmp_buffer = require("cmp_buffer")
         local lspkind = require("lspkind")
-
+        vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
         cmp.setup({
             sources = {
                 { name = "buffer",  option = { keyword_length = 3 } },
                 { name = "copilot" },
                 { name = "luasnip" },
-                { name = "cmp-path" },
+                { name = "path" },
                 { name = "nvim_lsp" },
             },
             sorting = {
@@ -63,11 +58,12 @@ return {
             },
             mapping = {
                 ["<cr>"] = cmp.mapping.confirm({ select = false }),
-
+                ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<c-f>"] = cmp.mapping.scroll_docs(4),
+                ["<c-b>"] = cmp.mapping.scroll_docs(-4),
                 ["<c-space>"] = cmp.mapping.complete(),
-
-                ["<c-f>"] = cmp_action.luasnip_jump_forward(),
-                ["<c-b>"] = cmp_action.luasnip_jump_backward(),
+                ["<c-e>"] = cmp.mapping.abort(),
 
                 ["Tab"] = cmp_action.tab_complete(),
                 --[[
@@ -78,15 +74,21 @@ return {
                         fallback()
                     end
                 end),
-                ]] --
+                ]]
+                --
             },
             formatting = {
                 format = lspkind.cmp_format({
                     mode = "symbol_text",
                     max_width = 90,
-                    symbol_map = { Copilot = "" }
-                })
-            }
+                    symbol_map = { Copilot = "" },
+                }),
+            },
+            experimental = {
+                ghost_text = {
+                    hl_group = "CmpGhostText",
+                },
+            },
         })
     end,
 }
