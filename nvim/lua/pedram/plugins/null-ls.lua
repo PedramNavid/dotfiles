@@ -13,6 +13,7 @@ return {
                 null_ls.builtins.code_actions.gitsigns,
                 null_ls.builtins.diagnostics.actionlint,
                 null_ls.builtins.diagnostics.checkmake,
+                null_ls.builtins.diagnostics.mypy,
                 null_ls.builtins.diagnostics.ruff,
                 null_ls.builtins.diagnostics.shellcheck,
                 null_ls.builtins.formatting.sqlfluff.with({

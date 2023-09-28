@@ -2,6 +2,7 @@ alias cdc="cd ~/projects/clients/"
 alias cdd="cd $HOME/dotfiles"
 alias cdp="cd $HOME/projects"
 alias cdpp="cd $HOME/projects/internal/python_modules/purina"
+alias cdpd="cd $HOME/projects/internal/python_modules/purina/purina_dbt/"
 alias cdnv="cd $HOME/.config/nvim/"
 
 alias scrcap="scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
