@@ -26,7 +26,6 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.inccommand = "nosplit"
 vim.opt.incsearch = true
-vim.opt.iskeyword:remove("_")
 vim.opt.list = true
 vim.opt.listchars = "tab:▸\\ ,trail:·"
 vim.opt.mouse = "nv"
