@@ -4,8 +4,11 @@ return {
         local notify = require("notify")
         notify.setup({
             render = "minimal",
-            minimum_width = 0,
             timeout = 1000,
+            animation_style = "fade",
+            max_width = function()
+                return math.floor(vim.o.columns * 0.65)
+            end,
         })
 
         vim.notify = notify
