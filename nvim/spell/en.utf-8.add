@@ -16,3 +16,7 @@ docstrings
 Dagster's
 JSX
 callsites
+ELT
+PyObject
+elt
+SlingResource
