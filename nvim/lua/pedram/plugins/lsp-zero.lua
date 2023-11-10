@@ -13,6 +13,7 @@ return {
     },
     config = function()
         local lsp = require("lsp-zero")
+        local configs = require 'lspconfig.configs'
 
         lsp.ensure_installed({
             "lua_ls",
@@ -22,9 +23,9 @@ return {
             lsp.default_keymaps({ buffer = bufnr })
         end)
 
-        require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+        configs.lua_ls.setup(lsp.nvim_lua_ls())
 
-        require("lspconfig").pyright.setup({
+        configs.pyright.setup({
             on_attach = function(client, bufnr) end,
             settings = {
                 pyright = { autoImportCompletion = true },
@@ -38,11 +39,33 @@ return {
             },
         })
 
+        -- Configure `ruff-lsp`.
+        if not configs.ruff_lsp then
+            configs.ruff_lsp = {
+                default_config = {
+                    cmd = { 'ruff-lsp' },
+                    filetypes = { 'python' },
+                    root_dir = require('lspconfig').util.find_git_ancestor,
+                    init_options = {
+                        settings = {
+                            args = {}
+                        }
+                    }
+                }
+            }
+        end
+
+        require('lspconfig').ruff_lsp.setup {
+            on_attach = on_attach,
+        }
+
         lsp.setup()
+
         local cmp = require("cmp")
         local cmp_action = require("lsp-zero").cmp_action()
         local cmp_buffer = require("cmp_buffer")
         local lspkind = require("lspkind")
+
         vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 
         local has_words_before = function()
