@@ -4,7 +4,6 @@ return {
     config = function()
         local null_ls = require("null-ls")
         null_ls.setup({
-            debug = true,
             -- set root directory to cwd
             root_dir = function()
                 return nil
@@ -27,7 +26,7 @@ return {
                 null_ls.builtins.formatting.sqlfluff.with({
                     extra_args = { "--config", vim.fn.expand("~/.sqlfluff") },
                 }),
-                null_ls.builtins.formatting.rustfmt,
+                null_ls.builtins.formatting.black,
             },
         })
     end,

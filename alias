@@ -22,3 +22,5 @@ alias pipi="pip install"
 alias luamake=/home/pedram/repos/lua-language-server/3rd/luamake/luamake
 
 alias ll='ls -o  -Fh'
+
+alias dagup='pip install --upgrade dagster dagster-cloud dagster-webserver dagster-graphql'

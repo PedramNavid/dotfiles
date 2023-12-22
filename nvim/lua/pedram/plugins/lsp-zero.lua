@@ -3,17 +3,15 @@ return {
     branch = "v2.x",
     dependencies = {
         { "neovim/nvim-lspconfig" },
-        { "L3MON4D3/LuaSnip" },
         { "hrsh7th/nvim-cmp" },
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-buffer" },
         { "hrsh7th/cmp-path" },
-        { "saadparwaiz1/cmp_luasnip" },
         { "onsails/lspkind.nvim" },
     },
     config = function()
         local lsp = require("lsp-zero")
-        local configs = require 'lspconfig.configs'
+        local configs = require("lspconfig.configs")
 
         lsp.ensure_installed({
             "lua_ls",
@@ -23,41 +21,46 @@ return {
             lsp.default_keymaps({ buffer = bufnr })
         end)
 
-        configs.lua_ls.setup(lsp.nvim_lua_ls())
+        require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
-        configs.pyright.setup({
-            on_attach = function(client, bufnr) end,
+        require("lspconfig").pyright.setup({
+            on_attach = function(_, _) end,
             settings = {
                 pyright = { autoImportCompletion = true },
                 python = {
                     analysis = {
+                        autoImportCompletions = true,
+                        autoImportUserSymbols = true,
+                        indexing = true,
+                        inlayHints = {
+                            typeHints = true,
+                            parameterHints = true,
+                            chainingHints = true,
+                            variableTypes = true,
+                            functionReturnTypes = true,
+                        },
+
                         autoSearchPaths = true,
                         useLibraryCodeForTypes = true,
-                        typeCheckingMode = "off",
+                        typeCheckingMode = "basic",
                     },
                 },
             },
         })
 
         -- Configure `ruff-lsp`.
-        if not configs.ruff_lsp then
-            configs.ruff_lsp = {
-                default_config = {
-                    cmd = { 'ruff-lsp' },
-                    filetypes = { 'python' },
-                    root_dir = require('lspconfig').util.find_git_ancestor,
-                    init_options = {
-                        settings = {
-                            args = {}
-                        }
-                    }
-                }
-            }
-        end
-
-        require('lspconfig').ruff_lsp.setup {
-            on_attach = on_attach,
-        }
+        require("lspconfig").ruff_lsp.setup({
+            default_config = {
+                cmd = { "ruff-lsp" },
+                filetypes = { "python" },
+                root_dir = require("lspconfig").util.find_git_ancestor,
+                init_options = {
+                    settings = {
+                        args = {},
+                    },
+                },
+            },
+        })
 
         lsp.setup()
 
