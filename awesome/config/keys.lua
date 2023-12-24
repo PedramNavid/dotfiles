@@ -1,4 +1,4 @@
-local defaults = require('config.defaults')
+local defaults = require("config.defaults")
 
 local keys = {}
 

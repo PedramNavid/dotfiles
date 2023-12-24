@@ -2,19 +2,19 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 local nnoremap = function(keys, desc)
-    vim.keymap.set("n", keys[1], keys[2], { noremap = true, desc = desc })
+	vim.keymap.set("n", keys[1], keys[2], { noremap = true, desc = desc })
 end
 
 local tnoremap = function(keys, desc)
-    vim.keymap.set("t", keys[1], keys[2], { noremap = true, desc = desc })
+	vim.keymap.set("t", keys[1], keys[2], { noremap = true, desc = desc })
 end
 
 local vnoremap = function(keys, desc)
-    vim.keymap.set("v", keys[1], keys[2], { noremap = true, desc = desc })
+	vim.keymap.set("v", keys[1], keys[2], { noremap = true, desc = desc })
 end
 
 -- General Shortcuts
-nnoremap({ "<Leader>s", ":write<CR>"},"Save file")
+nnoremap({ "<Leader>s", ":write<CR>" }, "Save file")
 nnoremap({ "<Leader>cw", ":bd<CR>" }, "Close buffer")
 
 -- Visual move blocks
@@ -32,8 +32,8 @@ nnoremap({ "<Leader>so", ":source<CR>" })
 
 nnoremap({ "<C-k>", "<cmd>cnext<CR>zz" })
 nnoremap({ "<C-j>", "<cmd>cprev<CR>zz" })
-vnoremap({"<", "<gv"})
-vnoremap({">", ">gv"})
+vnoremap({ "<", "<gv" })
+vnoremap({ ">", ">gv" })
 
 -- Window Movements
 nnoremap({ "<M-j>", "<c-w>j" })
@@ -52,10 +52,10 @@ tnoremap({ "<C-v><Esc>", "<Esc>" })
 -- Development Remaps
 nnoremap({ "<LocalLeader>t", "<Plug>PlenaryTestFile" })
 nnoremap({
-    "<LocalLeader>rr",
-    function()
-        require("plenary.reload").reload_module("dbtpal")
-    end,
+	"<LocalLeader>rr",
+	function()
+		require("plenary.reload").reload_module("dbtpal")
+	end,
 })
 
 -- Config Editing

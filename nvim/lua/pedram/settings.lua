@@ -6,7 +6,7 @@ o.shiftwidth = 4
 o.expandtab = true
 o.undofile = true
 
-o.clipboard = 'unnamedplus'
+o.clipboard = "unnamedplus"
 o.cmdheight = 2
 
 o.hlsearch = true

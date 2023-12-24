@@ -1,24 +1,24 @@
 return {
-    "https://github.com/lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-        signs = {
-            add = { text = "▎" },
-            change = { text = "▎" },
-            delete = { text = "" },
-            topdelete = { text = "" },
-            changedelete = { text = "▎" },
-            untracked = { text = "▎" },
-        },
-        signcolumn = true,
-        numhl = false,
-        linehl = false,
-        on_attach = function(buffer)
-            local gs = package.loaded.gitsigns
+	"https://github.com/lewis6991/gitsigns.nvim",
+	event = { "BufReadPre", "BufNewFile" },
+	opts = {
+		signs = {
+			add = { text = "▎" },
+			change = { text = "▎" },
+			delete = { text = "" },
+			topdelete = { text = "" },
+			changedelete = { text = "▎" },
+			untracked = { text = "▎" },
+		},
+		signcolumn = true,
+		numhl = false,
+		linehl = false,
+		on_attach = function(buffer)
+			local gs = package.loaded.gitsigns
 
-            local function map(mode, l, r, desc)
-                vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
-            end
+			local function map(mode, l, r, desc)
+				vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+			end
 
             -- stylua: ignore start
             map("n", "]h", gs.next_hunk, "Next Hunk")
@@ -34,6 +34,6 @@ return {
             map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
             map("n", "<leader>ghl", gs.toggle_linehl, "Git Sign Line Highlight")
             map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
-        end,
-    },
+		end,
+	},
 }

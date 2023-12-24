@@ -5,7 +5,7 @@
 
 # This line loads the compinit module to enable command line completion in the Zsh shell.
 # See: https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2308206
-autoload -Uz compinit 
+autoload -Uz compinit
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
 	compinit;
 else
@@ -47,7 +47,7 @@ bindkey '^P' up-line-or-search
 bindkey '^N' down-line-or-search
 bindkey -M vicmd v edit-command-line
 
-# Prompt 
+# Prompt
 autoload -U promptinit; promptinit
 if [ "$(uname)" = "Darwin" ]; then
   fpath+=("$(brew --prefix)/share/zsh/site-functions")

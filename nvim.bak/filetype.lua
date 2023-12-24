@@ -1,8 +1,8 @@
 vim.filetype.add({
-    extension = {
-        mdx = 'mdx'
-    }
+	extension = {
+		mdx = "mdx",
+	},
 })
 
-local reg = require('vim.treesitter.language').register
-reg('markdown', 'mdx')
+local reg = require("vim.treesitter.language").register
+reg("markdown", "mdx")
