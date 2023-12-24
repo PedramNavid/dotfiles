@@ -33,3 +33,5 @@
 	clean = git-lfs clean -- %f
 [pull]
 	rebase = true
+[rebase]
+	autoStash = true
