@@ -15,7 +15,6 @@
       path: kitty
       force: true
     ~/.config/nvim: nvim
-    ~/.config/starship.toml: starship.toml
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
     ~/.exports: exports
@@ -26,3 +25,4 @@
     ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.Xresources: Xresources
     ~/.alacritty.yml: alacritty.yml
+    ~/.fzf.zsh: fzf.zsh

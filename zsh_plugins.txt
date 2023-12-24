@@ -1,32 +1,14 @@
-mattmc3/zfunctions
-rupa/z
 djui/alias-tips
 romkatv/zsh-bench kind:path
-olets/zsh-abbr    kind:defer
-jeffreytse/zsh-vi-mode
 
 ohmyzsh/ohmyzsh path:lib
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
-ohmyzsh/ohmyzsh path:plugins/magic-enter
 ohmyzsh/ohmyzsh path:plugins/common-aliases
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/archlinux
 ohmyzsh/ohmyzsh path:plugins/systemd
-ohmyzsh/ohmyzsh path:plugins/kubectl
 
-# belak/zsh-utils path:editor
-# belak/zsh-utils path:history
-# belak/zsh-utils path:prompt
-# belak/zsh-utils path:utility
-# belak/zsh-utils path:completion
-
-# prompts:
-#   with prompt plugins, remember to add this to your .zshrc:
-#   `autoload -Uz promptinit && promptinit && prompt pure`
-sindresorhus/pure     kind:fpath
-
-# popular fish-like plugins
-zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 zdharma-continuum/fast-syntax-highlighting
 zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
