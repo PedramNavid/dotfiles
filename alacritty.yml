@@ -12,15 +12,18 @@ scrolling:
 
 font:
   normal:
-    family: Hack Nerd Font Mono
+    family: FiraCode Nerd Font
     style: Regular
   bold:
-    family: Hack Nerd Font Mono
-    style: Bold
+    family: Firacode Nerd Font
+    style: Retina
   italic:
-    family: Hack Nerd Font Mono
+    family: Firacode Nerd Font
     style: Italic
-  size: 15
+  bold_italic:
+    family: Firacode Nerd Font
+    style: Bold Italic
+  size: 13
 
 selection:
   save_to_clipboard: true
