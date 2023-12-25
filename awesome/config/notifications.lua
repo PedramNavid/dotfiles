@@ -1,8 +1,8 @@
-local awful = require("awful")
-local naughty = require("naughty")
-local ruled = require("ruled")
+local awful = require('awful')
+local naughty = require('naughty')
+local ruled = require('ruled')
 -- {{{ Notifications
-ruled.notification.connect_signal("request::rules", function()
+ruled.notification.connect_signal('request::rules', function()
 	-- All notifications will match this rule.
 	ruled.notification.append_rule({
 		rule = {},
@@ -13,7 +13,7 @@ ruled.notification.connect_signal("request::rules", function()
 	})
 end)
 
-naughty.connect_signal("request::display", function(n)
+naughty.connect_signal('request::display', function(n)
 	naughty.layout.box({
 		notification = n,
 	})

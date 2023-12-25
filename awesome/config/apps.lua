@@ -1,5 +1,5 @@
 local apps = {}
-local defaults = require("config.defaults")
+local defaults = require('config.defaults')
 
 apps.terminal = defaults.terminal
 apps.editor_cmd = defaults.editor_cmd

@@ -1,19 +1,19 @@
-local beautiful = require("beautiful")
+local beautiful = require('beautiful')
 local widgets = {}
 
-local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
-local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
-local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
-local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
-local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
-local pacman_widget = require("awesome-wm-widgets.pacman-widget.pacman")
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+local calendar_widget = require('awesome-wm-widgets.calendar-widget.calendar')
+local cpu_widget = require('awesome-wm-widgets.cpu-widget.cpu-widget')
+local fs_widget = require('awesome-wm-widgets.fs-widget.fs-widget')
+local ram_widget = require('awesome-wm-widgets.ram-widget.ram-widget')
+local logout_menu_widget = require('awesome-wm-widgets.logout-menu-widget.logout-menu')
+local net_speed_widget = require('awesome-wm-widgets.net-speed-widget.net-speed')
+local pacman_widget = require('awesome-wm-widgets.pacman-widget.pacman')
+local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 
 widgets.calwidget = calendar_widget({
-	placement = "top_center",
+	placement = 'top_center',
 	radius = 8,
-	theme = "nord",
+	theme = 'nord',
 })
 
 widgets.cpuwidget = cpu_widget({
@@ -26,12 +26,12 @@ widgets.cpuwidget = cpu_widget({
 })
 
 widgets.fswidget = fs_widget({
-	mounts = { "/" },
+	mounts = { '/' },
 })
 
 widgets.memwidget = ram_widget()
 widgets.logout = logout_menu_widget({
-	font = "Play 10",
+	font = 'Play 10',
 })
 
 widgets.netspeed = net_speed_widget()

@@ -1,25 +1,23 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	build = function()
-		vim.cmd.TSUpdate()
-	end,
+	'nvim-treesitter/nvim-treesitter',
+	build = function() vim.cmd.TSUpdate() end,
 	config = function()
-		require("nvim-treesitter.configs").setup({
+		require('nvim-treesitter.configs').setup({
 			ensure_installed = {
-				"c",
-				"lua",
-				"vim",
-				"vimdoc",
-				"query",
-				"python",
-				"bash",
-				"dockerfile",
-				"json",
-				"html",
-				"make",
-				"typescript",
-				"sql",
-				"yaml",
+				'c',
+				'lua',
+				'vim',
+				'vimdoc',
+				'query',
+				'python',
+				'bash',
+				'dockerfile',
+				'json',
+				'html',
+				'make',
+				'typescript',
+				'sql',
+				'yaml',
 			},
 			ignore_install = {},
 			sync_install = false,

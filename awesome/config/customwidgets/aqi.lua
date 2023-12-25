@@ -8,13 +8,9 @@ local function calc_aqi(Cp, lh, ll, BPh, BPI)
 end
 
 aqi.aqi_from_pm = function(pm)
-	if pm < 0 or pm > 1000 then
-		return "-"
-	end
+	if pm < 0 or pm > 1000 then return '-' end
 
-	if pm == nil then
-		return "-"
-	end
+	if pm == nil then return '-' end
 
 	if pm > 350.5 then
 		return calc_aqi(pm, 500, 401, 500, 350.5)
@@ -37,19 +33,19 @@ end
 
 aqi.get_aqi_description = function(aq)
 	if aq >= 401 then
-		return "Hazardous"
+		return 'Hazardous'
 	elseif aq >= 301 then
-		return "Hazardous"
+		return 'Hazardous'
 	elseif aq >= 201 then
-		return "Very Unhealthy"
+		return 'Very Unhealthy'
 	elseif aq >= 151 then
-		return "Unhealthy"
+		return 'Unhealthy'
 	elseif aq >= 101 then
-		return "Unhealthy for Sensitive Groups"
+		return 'Unhealthy for Sensitive Groups'
 	elseif aq >= 51 then
-		return "Moderate"
+		return 'Moderate'
 	elseif aq >= 0 then
-		return "Good"
+		return 'Good'
 	end
 
 	return nil

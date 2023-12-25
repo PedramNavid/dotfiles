@@ -1,2 +1,2 @@
-require("pedram")
-print("loaded")
+require('pedram')
+print('loaded')
