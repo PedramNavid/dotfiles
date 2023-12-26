@@ -15,6 +15,7 @@ return {
 		event = { 'BufReadPre', 'BufNewFile' },
 		lazy = false,
 		config = function()
+			require('neoconf').setup({})
 			require('neodev').setup({})
 			local lsp_zero = require('lsp-zero')
 
