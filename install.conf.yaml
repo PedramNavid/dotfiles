@@ -15,6 +15,7 @@
       path: kitty
       force: true
     ~/.config/nvim: nvim
+    ~/.config/polybar: polybar
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
     ~/.exports: exports
