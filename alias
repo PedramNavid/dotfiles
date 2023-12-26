@@ -4,6 +4,7 @@ alias cdp="cd $HOME/projects"
 alias cdpp="cd $HOME/projects/internal/python_modules/purina"
 alias cdpd="cd $HOME/projects/internal/python_modules/purina/purina_dbt/"
 alias cdnv="cd $HOME/.config/nvim/"
+alias cdnvp="cd $HOME/.config/nvim/lua/pedram/plugins/"
 
 alias scrcap="scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 alias swaprm="rm -rf ~/.local/share/nvim/swap"
