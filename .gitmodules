@@ -2,12 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "awesome/awesome-wm-widgets"]
-	path = awesome/awesome-wm-widgets
-	url = https://github.com/streetturtle/awesome-wm-widgets.git
-[submodule "awesome/nice"]
-	path = awesome/nice
-	url = https://github.com/mut-ex/awesome-wm-nice.git
 [submodule "tokyonight.nvim"]
 	path = tokyonight.nvim
 	url = https://github.com/folke/tokyonight.nvim.git
