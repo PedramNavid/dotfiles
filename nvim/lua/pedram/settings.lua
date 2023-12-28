@@ -12,3 +12,6 @@ o.cmdheight = 2
 o.hlsearch = true
 o.number = true
 o.relativenumber = true
+
+o.foldmethod = 'expr'
+o.foldexpr = 'nvim_treesitter#foldexpr()'
