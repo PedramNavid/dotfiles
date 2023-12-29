@@ -10,7 +10,7 @@
 
 - link:
     ~/.Xresources: Xresources
-    ~/.alacritty.yml: alacritty.yml
+    ~/.alacritty.toml: alacritty.toml
     ~/.alias: alias
     ~/.config/awesome: awesome
     ~/.config/compfy.conf: compfy.conf

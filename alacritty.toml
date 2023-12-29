@@ -1,0 +1,41 @@
+import = ["/home/pedram/dotfiles/alacritty-themes/tokyonight_moon.toml"]
+
+[font]
+size = 13
+
+[font.bold]
+family = "Firacode Nerd Font"
+style = "Retina"
+
+[font.bold_italic]
+family = "Firacode Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "Firacode Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[scrolling]
+history = 30000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+dynamic_padding = true
+opacity = 1
+
+[window.padding]
+x = 0
+y = 0
