@@ -9,21 +9,22 @@
     - ~/bin
 
 - link:
-    ~/.gitconfig: gitconfig
-    ~/.gitignore: gitignore
-    ~/.config/kitty:
-      path: kitty
-      force: true
-    ~/.config/nvim: nvim
-    ~/.config/polybar: polybar
-    ~/.tmux.conf: tmux.conf
-    ~/.zshrc: zshrc
-    ~/.exports: exports
-    ~/.alias: alias
-    ~/bin/tmux_session:  bin/tmux_session
-    ~/.config/awesome: awesome
-    ~/.config/picom.conf: picom.conf
-    ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.Xresources: Xresources
     ~/.alacritty.yml: alacritty.yml
+    ~/.alias: alias
+    ~/.config/awesome: awesome
+    ~/.config/compfy.conf: compfy.conf
+    ~/.config/kitty:
+      force: true
+      path: kitty
+    ~/.config/nvim: nvim
+    ~/.config/picom.conf: picom.conf
+    ~/.config/polybar: polybar
+    ~/.exports: exports
     ~/.fzf.zsh: fzf.zsh
+    ~/.gitconfig: gitconfig
+    ~/.gitignore: gitignore
+    ~/.tmux.conf: tmux.conf
+    ~/.zsh_plugins.txt: zsh_plugins.txt
+    ~/.zshrc: zshrc
+    ~/bin/tmux_session:  bin/tmux_session
