@@ -33,35 +33,6 @@ local terminal = 'alacritty'
 local modkey = 'Mod4'
 -- }}}
 
--- {{{ Menu
-local polybar = {
-    { 'Kill bar',  function() awful.spawn.with_shell('sh ~/.config/awesome/kpolybar.sh') end },
-    { 'Spawn bar', function() awful.spawn.with_shell('sh ~/.config/awesome/spolybar.sh') end },
-}
-
-local mymainmenu = awful.menu({
-    items = {
-        {
-            'Apps',
-            function() awful.spawn.with_shell('sleep 0.5s && sh ~/.config/rofi/launchers/type-6/launcher.sh') end,
-        },
-        { 'Scrshot',  function() awful.spawn.with_shell('sleep 0.5s && flameshot full') end },
-        { 'Terminal', terminal },
-        {
-            'Polybar',
-            polybar,
-            beautiful.menu_submenu_icon,
-        },
-        { 'hotkeys', function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-        { 'restart', awesome.restart },
-        { 'quit',    function() awesome.quit() end },
-    },
-})
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
-
 -- {{{ Tag layout
 -- Table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal(
@@ -118,7 +89,6 @@ end)
 
 -- {{{ Mouse bindings
 awful.mouse.append_global_mousebindings({
-    awful.button({}, 3, function() mymainmenu:toggle() end),
     awful.button({}, 4, awful.tag.viewprev),
     awful.button({}, 5, awful.tag.viewnext),
 })
@@ -405,77 +375,7 @@ end)
 
 -- {{{ Rules
 -- Rules to apply to new clients.
-ruled.client.connect_signal('request::rules', function()
-    -- All clients will match this rule.
-    ruled.client.append_rule({
-        id = 'global',
-        rule = {},
-        properties = {
-            focus = awful.client.focus.filter,
-            raise = true,
-            screen = awful.screen.preferred,
-            placement = awful.placement.no_overlap + awful.placement.no_offscreen,
-        },
-    })
-
-    -- Floating clients.
-    ruled.client.append_rule({
-        id = 'floating',
-        rule_any = {
-            instance = { 'copyq', 'pinentry' },
-            class = {
-                'Arandr',
-                'Blueman-manager',
-                'Gpick',
-                'Kruler',
-                'Sxiv',
-                'Tor Browser',
-                'Wpa_gui',
-                'veromix',
-                'xtightvncviewer',
-            },
-            -- Note that the name property shown in xprop might be set slightly after creation of the client
-            -- and the name shown there might not match defined rules here.
-            name = {
-                'Event Tester', -- xev.
-            },
-            role = {
-                'AlarmWindow', -- Thunderbird's calendar.
-                'ConfigManager', -- Thunderbird's about:config.
-                'pop-up', -- e.g. Google Chrome's (detached) Developer Tools.
-            },
-        },
-        properties = { floating = true },
-    })
-
-    -- Add titlebars to normal clients and dialogs
-    ruled.client.append_rule({
-        id = 'titlebars',
-        rule_any = { type = { 'normal', 'dialog' } },
-        properties = { titlebars_enabled = true },
-    })
-    ruled.client.append_rule({
-        rule = { instance = 'chromium' },
-        properties = { screen = 1, tag = '1', floating = false },
-    })
-    ruled.client.append_rule({
-        rule = { instance = 'discord' },
-        properties = { screen = 1, tag = '4' },
-    })
-    ruled.client.append_rule({
-        rule = { instance = 'feh' },
-        properties = { floating = true },
-    })
-    ruled.client.append_rule({
-        rule = { instance = 'polybar' },
-        properties = { border_width = 0 },
-    })
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- ruled.client.append_rule {
-    --     rule       = { class = "Firefox"     },
-    --     properties = { screen = 1, tag = "2" }
-    -- }
-end)
+require('rules')
 -- }}}
 
 -- {{{ Titlebars
@@ -501,14 +401,6 @@ client.connect_signal('request::titlebars', function(c)
             buttons = buttons,
             layout = wibox.layout.flex.horizontal,
         },
-        { -- Right
-            awful.titlebar.widget.floatingbutton(c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton(c),
-            awful.titlebar.widget.ontopbutton(c),
-            awful.titlebar.widget.closebutton(c),
-            layout = wibox.layout.fixed.horizontal(),
-        },
         layout = wibox.layout.align.horizontal,
     }
 end)
@@ -533,5 +425,8 @@ naughty.connect_signal('request::display', function(n) naughty.layout.box({ noti
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal('mouse::enter', function(c) c:activate({ context = 'mouse_enter', raise = false }) end)
+
+-- Autorun:
+awful.spawn.with_shell('~/.config/awesome/autorun.sh')
 
 -- vim: set foldlevel=1:
