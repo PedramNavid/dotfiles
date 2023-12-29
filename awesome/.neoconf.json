@@ -17,6 +17,9 @@
     },
     "lspconfig": {
         "lua_ls": {
+            "Lua.workspace.library": [
+                "/home/pedram/projects/awesome-code-doc"
+            ],
             "Lua.completion.callSnippet": "Replace",
             "Lua.diagnostics.globals": [
                 "awesome",

@@ -8,7 +8,6 @@ run() {
 }
 
 run "compfy"
-run "polybar"
 run "spotify"
 run "discord"
 run "slack"
