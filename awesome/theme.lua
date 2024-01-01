@@ -5,6 +5,13 @@ local dpi = require('beautiful.xresources').apply_dpi
 -- {{{ Main
 local theme = {}
 theme.wallpaper = '/home/pedram/wallpapers/nord-forest.png'
+theme.lain_icons = os.getenv('HOME') .. '/.config/awesome/lain/icons/layout/zenburn/'
+theme.layout_termfair = theme.lain_icons .. 'termfair.png'
+theme.layout_centerfair = theme.lain_icons .. 'centerfair.png' -- termfair.center
+theme.layout_cascade = theme.lain_icons .. 'cascade.png'
+theme.layout_cascadetile = theme.lain_icons .. 'cascadetile.png' -- cascade.tile
+theme.layout_centerwork = theme.lain_icons .. 'centerwork.png'
+theme.layout_centerworkh = theme.lain_icons .. 'centerworkh.png' -- centerwork.horizontal
 -- }}}
 
 -- {{{ Styles
@@ -42,13 +49,16 @@ theme.fg_focus = theme.fg_normal
 theme.fg_urgent = theme.fg_normal
 theme.fg_minimize = theme.fg_normal
 theme.backround = theme.nord0
+theme.hotkeys_fg = theme.fg_normal
+theme.hotkeys_modifiers_fg = theme.nord9
 
 -- }}}
 
 -- {{{ Borders
+theme.master_width_factor = 0.4
 theme.bar_height = dpi(10)
-theme.useless_gap = dpi(10)
-theme.border_width = dpi(2)
+theme.useless_gap = dpi(8)
+theme.border_width = dpi(1)
 
 theme.border_normal = theme.nord9
 theme.border_marked = theme.nord11
@@ -86,7 +96,7 @@ theme.menu_width = dpi(200)
 
 --- {{{ Systray
 theme.systray_icon_spacing = dpi(12)
-theme.systray_max_rows = 7
+--theme.systray_max_rows = 7
 -- }}}
 -- {{{ Icons
 -- {{{ Taglist

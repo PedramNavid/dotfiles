@@ -5,3 +5,12 @@
 [submodule "tokyonight.nvim"]
 	path = tokyonight.nvim
 	url = https://github.com/folke/tokyonight.nvim.git
+[submodule "awesome/lain"]
+	path = awesome/lain
+	url = git@github.com:lcpz/lain.git
+[submodule "awesome/awesome-wm-widgets"]
+	path = awesome/awesome-wm-widgets
+	url = git@github.com:streetturtle/awesome-wm-widgets.git
+[submodule "awesome/vicious"]
+	path = awesome/vicious
+	url = https://github.com/vicious-widgets/vicious.git

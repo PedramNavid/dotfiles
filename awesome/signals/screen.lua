@@ -26,11 +26,12 @@ screen.connect_signal(
 
 screen.connect_signal('request::desktop_decoration', function(s)
 	local names = vars.tags
-	local layouts = vars.layouts
+	local layouts = vars.tag_layouts
 	awful.tag(names, s, layouts)
 	s.promptbox = widgets.create_promptbox()
 	s.layoutbox = widgets.create_layoutbox(s)
 	s.taglist = widgets.create_taglist(s)
 	s.tasklist = widgets.create_tasklist(s)
 	s.wibox = widgets.create_wibox(s)
+	s.layoutbox = widgets.create_layoutbox(s)
 end)
