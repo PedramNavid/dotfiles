@@ -1,11 +1,11 @@
 import = ["/home/pedram/dotfiles/alacritty-themes/tokyonight_moon.toml"]
 
 [font]
-size = 13
+size = 12
 
 [font.bold]
 family = "Firacode Nerd Font"
-style = "Retina"
+style = "Bold"
 
 [font.bold_italic]
 family = "Firacode Nerd Font"
