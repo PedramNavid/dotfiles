@@ -8,14 +8,14 @@ return {
 			debug = true,
 			sources = {
 				null_ls.builtins.diagnostics.ruff.with({
-					command = '/home/pedram/.pyenv/shims/ruff',
+					command = vim.fn.expand('$HOME/.pyenv/shims/ruff'),
 				}),
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.ruff.with({
-					command = '/home/pedram/.pyenv/shims/ruff',
+					command = '$HOME/.pyenv/shims/ruff',
 				}),
 				null_ls.builtins.formatting.ruff_format.with({
-					command = '/home/pedram/.pyenv/shims/ruff',
+					command = '$HOME/.pyenv/shims/ruff',
 				}),
 			},
 		})
