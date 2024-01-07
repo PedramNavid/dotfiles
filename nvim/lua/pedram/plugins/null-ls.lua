@@ -12,10 +12,10 @@ return {
 				}),
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.ruff.with({
-					command = '$HOME/.pyenv/shims/ruff',
+					command = vim.fn.expand('$HOME/.pyenv/shims/ruff'),
 				}),
 				null_ls.builtins.formatting.ruff_format.with({
-					command = '$HOME/.pyenv/shims/ruff',
+					command = vim.fn.expand('$HOME/.pyenv/shims/ruff'),
 				}),
 			},
 		})
