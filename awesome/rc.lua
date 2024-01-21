@@ -6,9 +6,10 @@ pcall(require, 'luarocks.loader')
 -- load theme
 local beautiful = require('beautiful')
 local gears = require('gears')
-local awful = require('awful')
 beautiful.init(gears.filesystem.get_xdg_config_home() .. 'awesome/theme.lua')
+--
 -- load key and mouse bindings
+local awful = require('awful')
 require('bindings')
 
 -- load rules
