@@ -24,6 +24,9 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
+bindkey "^A" vi-beginning-of-line
+bindkey "^P" up-line-or-search
+
 # Completion Style
 
 zstyle ':completion:*' completer _complete _ignored _correct _approximate

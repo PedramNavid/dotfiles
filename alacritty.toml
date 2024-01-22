@@ -1,22 +1,22 @@
-import = ["/home/pedram/dotfiles/alacritty-themes/tokyonight_moon.toml"]
+import = ["~/dotfiles/alacritty-themes/tokyonight_moon.toml"]
 
 [font]
-size = 12
+size = 13
 
 [font.bold]
-family = "Firacode Nerd Font"
-style = "Bold"
+family = "Hack Nerd Font"
+style = "Regular"
 
 [font.bold_italic]
-family = "Firacode Nerd Font"
+family = "Hack Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Firacode Nerd Font"
+family = "Hack Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "FiraCode Nerd Font"
+family = "Hack Nerd Font"
 style = "Regular"
 
 [[keyboard.bindings]]
@@ -34,8 +34,10 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [window]
 dynamic_padding = true
-opacity = 1
+opacity = 0.95
+blur = true
+
 
 [window.padding]
-x = 0
-y = 0
+x = 6
+y = 6

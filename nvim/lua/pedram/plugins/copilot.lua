@@ -28,6 +28,7 @@ return {
 					markdown = false,
 					help = false,
 					gitcommit = true,
+					plaintext = false,
 				},
 			})
 		end,

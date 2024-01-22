@@ -20,6 +20,12 @@ return {
 			local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 			return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match('^%s*$') == nil
 		end
+		lspkind.init({
+			symbol_map = {
+				Copilot = '',
+			},
+		})
+		vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', { fg = '#6CC334' })
 		cmp.setup({
 			sources = {
 				{ name = 'buffer', option = { keyword_length = 3 } },
@@ -59,18 +65,6 @@ return {
 						fallback()
 					end
 				end),
-			},
-			formatting = {
-				format = lspkind.cmp_format({
-					mode = 'symbol_text',
-					max_width = 90,
-					symbol_map = { Copilot = '' },
-				}),
-			},
-			experimental = {
-				ghost_text = {
-					hl_group = 'CmpGhostText',
-				},
 			},
 		})
 	end,
