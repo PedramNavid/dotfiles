@@ -1,6 +1,7 @@
 require('pedram.mappings')
 require('pedram.settings')
 require('pedram.mdx')
+require('pedram.augroups')
 
 -- Bootstrap Lazy Plugin Manager
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
