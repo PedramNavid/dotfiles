@@ -71,6 +71,7 @@ antidote load
 eval "$(pyenv init - --no-rehash zsh)"
 eval "$(pyenv virtualenv-init - zsh)"
 eval "$(luarocks path --bin)"
+eval "$(zoxide init zsh)"
 
 # Needs to run after antidote
 bindkey -v
