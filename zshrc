@@ -16,17 +16,6 @@ setopt autocd
 setopt hist_ignore_space
 setopt hist_ignore_dups
 
-# Up/down matches search
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
-
-bindkey "^A" vi-beginning-of-line
-bindkey "^P" up-line-or-search
-
 # Completion Style
 
 zstyle ':completion:*' completer _complete _ignored _correct _approximate
@@ -76,5 +65,15 @@ eval "$(zoxide init zsh)"
 # Needs to run after antidote
 bindkey -v
 bindkey '^j' autosuggest-accept
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+bindkey "^A" vi-beginning-of-line
+bindkey "^P" up-line-or-search
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

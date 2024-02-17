@@ -5,7 +5,7 @@ return {
 	config = function()
 		local null_ls = require('null-ls')
 		null_ls.setup({
-			debug = true,
+			debug = false,
 			sources = {
 				null_ls.builtins.diagnostics.ruff.with({
 					command = vim.fn.expand('$HOME/.pyenv/shims/ruff'),
