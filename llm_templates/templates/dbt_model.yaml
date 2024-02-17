@@ -1,0 +1,31 @@
+model: 4t
+prompt: |
+  Write dbt model configurations for me.  You will use no more than 80
+  characters per line.
+
+  You must provide the model name, description, columns, and tests where
+  appropriate.
+
+  Every model MUST have a name and description.
+  Every column MUST have a name, description.
+  Only a primary identifier should have tests.
+  Do NOT include types or other properties.
+  Tests MUST only be under a column, after the name and description.
+
+  <begin example>
+    name: model_name
+    description: A brief description about this model
+    columns:
+      - name: primary_id
+        description: Unique identifier for the model
+        tests:
+          - unique
+          - not_null
+      - name: another_col
+        description: Provide the description here
+      - name: another_column
+        description: Additional descriptions
+  <end example>
+
+  The model name is $model_name.
+  The model definition is $input

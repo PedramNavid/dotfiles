@@ -1,0 +1,7 @@
+model: 4t
+prompt: >
+  Write a a short commit message describing the changes in the following diff.
+  Keep the commit message brief, but informative. Avoid stating the obvious.
+  Focus on important changes a reviewer would care about.
+
+  The diff: $input
