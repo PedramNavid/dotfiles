@@ -7,6 +7,7 @@
 - create:
     - ~/.zsh
     - ~/bin
+    - ~/.config/hypr
 
 - link:
     ~/.Xresources: Xresources
@@ -18,8 +19,6 @@
       force: true
       path: kitty
     ~/.config/nvim: nvim
-    ~/.config/picom.conf: picom.conf
-    ~/.config/polybar: polybar
     ~/.exports: exports
     ~/.fzf.zsh: fzf.zsh
     ~/.gitconfig: gitconfig
@@ -28,3 +27,4 @@
     ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.zshrc: zshrc
     ~/bin/tmux_session:  bin/tmux_session
+    ~/.config/hypr/hyprland.conf: hyprland.conf

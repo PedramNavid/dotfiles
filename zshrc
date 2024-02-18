@@ -44,6 +44,7 @@ autoload -U promptinit; promptinit
 if [ "$(uname)" = "Darwin" ]; then
   fpath+=("$(brew --prefix)/share/zsh/site-functions")
 fi
+fpath+=($HOME/.zsh/pure)
 zstyle :prompt:pure:git:stash show yes
 
 prompt pure
@@ -51,7 +52,13 @@ prompt pure
 # Antidote
 if [[ -f /usr/share/zsh-antidote/antidote.zsh ]]; then
     source /usr/share/zsh-antidote/antidote.zsh
-else
+fi
+
+if [[ -f ${ZDOTDIR:-~}/.antidote/antidote.zsh ]]; then
+    source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+fi
+
+if [ "$(uname)" = "Darwin" ]; then
     source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 fi
 antidote load
