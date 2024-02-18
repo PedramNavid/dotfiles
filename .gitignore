@@ -1,3 +1,4 @@
+logs*.db
 *.local
 *.log
 nvim/.config/nvim/pack/minpac/*
