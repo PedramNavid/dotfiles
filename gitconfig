@@ -15,10 +15,9 @@
 	prune = true
 [diff]
 	colorMoved = zebra
-    tool = kitty
-    guitool = kitty.gui
+    tool = nvimdiff
 [difftool]
-    prompt = false
+    prompt = true
     trustExitCode = true
 [difftool "kitty"]
     cmd = kitty +kitten diff $LOCAL $REMOTE
@@ -35,3 +34,9 @@
 	rebase = true
 [rebase]
 	autoStash = true
+[alias]
+	staash = stash --all
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[mergetool "nvim"]
+	cmd = nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
