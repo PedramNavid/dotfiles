@@ -96,4 +96,3 @@ for i in tmp:
         temp += i
 
 print(wcode, temp+"°C")
-
