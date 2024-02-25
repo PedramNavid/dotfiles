@@ -25,10 +25,14 @@ alias luamake=/home/pedram/repos/lua-language-server/3rd/luamake/luamake
 alias ll='ls -o  -Fh'
 
 alias dagup='pip install --upgrade dagster dagster-cloud dagster-webserver dagster-graphql'
-alias gcllm='
-    echo "--- DELETE THIS LINE TO SAVE ---" > $(git rev-parse --git-dir)/COMMIT_EDITMSG_TEMPLATE && \
-    git diff --minimal --cached | \
-    llm -t gitcommit >> $(git rev-parse --git-dir)/COMMIT_EDITMSG_TEMPLATE && \
-    git commit --verbose --template=$(git rev-parse --git-dir)/COMMIT_EDITMSG_TEMPLATE'
+
+gcllm() {
+  GIT_DIR="$(git rev-parse --git-dir)"
+  TEMPLATE="$GIT_DIR/COMMIT_EDITMSG_TEMPLATE"
+  echo '--- DELETE THIS LINE TO SAVE ---' > "$TEMPLATE"
+  git diff --cached -U1 --minimal -B --compact-summary --find-copies-harder -w  | head -n 1000 | llm -t gitcommit >> "$TEMPLATE"
+
+  git commit --verbose --template="$TEMPLATE"
+}
 
 alias upi='uv pip install'

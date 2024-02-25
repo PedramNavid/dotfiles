@@ -9,7 +9,7 @@ theme.lain_icons = os.getenv('HOME') .. '/.config/awesome/lain/icons/layout/zenb
 theme.widgets_icons = os.getenv('HOME') .. '/.config/awesome/awesome-wm-widgets/'
 theme.volume_icon = theme.widgets_icons .. 'volume-widget/icons/audio-volume-low-symbolic.svg'
 theme.layout_termfair = theme.lain_icons .. 'termfair.png'
-theme.layout_centerfair = theme.lain_icons .. 'centerfair.png'   -- termfair.center
+theme.layout_centerfair = theme.lain_icons .. 'centerfair.png' -- termfair.center
 theme.layout_cascade = theme.lain_icons .. 'cascade.png'
 theme.layout_cascadetile = theme.lain_icons .. 'cascadetile.png' -- cascade.tile
 theme.layout_centerwork = theme.lain_icons .. 'centerwork.png'
@@ -163,13 +163,13 @@ theme.titlebar_maximized_button_normal_inactive = themes_path .. 'zenburn/titleb
 
 -- Set different colors for urgent notifications.
 rnotification.connect_signal(
-    'request::rules',
-    function()
-        rnotification.append_rule({
-            rule = { urgency = 'critical' },
-            properties = { bg = '#ff0000', fg = '#ffffff' },
-        })
-    end
+	'request::rules',
+	function()
+		rnotification.append_rule({
+			rule = { urgency = 'critical' },
+			properties = { bg = '#ff0000', fg = '#ffffff' },
+		})
+	end
 )
 
 return theme
