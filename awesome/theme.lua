@@ -1,12 +1,12 @@
 local themes_path = require('gears.filesystem').get_themes_dir()
-local rnotification = require('ruled.notification')
+local rnotification = require 'ruled.notification'
 local dpi = require('beautiful.xresources').apply_dpi
 
 -- {{{ Main
 local theme = {}
 theme.wallpaper = '/home/pedram/wallpapers/nord-forest.png'
-theme.lain_icons = os.getenv('HOME') .. '/.config/awesome/lain/icons/layout/zenburn/'
-theme.widgets_icons = os.getenv('HOME') .. '/.config/awesome/awesome-wm-widgets/'
+theme.lain_icons = os.getenv 'HOME' .. '/.config/awesome/lain/icons/layout/zenburn/'
+theme.widgets_icons = os.getenv 'HOME' .. '/.config/awesome/awesome-wm-widgets/'
 theme.volume_icon = theme.widgets_icons .. 'volume-widget/icons/audio-volume-low-symbolic.svg'
 theme.layout_termfair = theme.lain_icons .. 'termfair.png'
 theme.layout_centerfair = theme.lain_icons .. 'centerfair.png' -- termfair.center
@@ -163,13 +163,13 @@ theme.titlebar_maximized_button_normal_inactive = themes_path .. 'zenburn/titleb
 
 -- Set different colors for urgent notifications.
 rnotification.connect_signal(
-	'request::rules',
-	function()
-		rnotification.append_rule({
-			rule = { urgency = 'critical' },
-			properties = { bg = '#ff0000', fg = '#ffffff' },
-		})
-	end
+  'request::rules',
+  function()
+    rnotification.append_rule {
+      rule = { urgency = 'critical' },
+      properties = { bg = '#ff0000', fg = '#ffffff' },
+    }
+  end
 )
 
 return theme

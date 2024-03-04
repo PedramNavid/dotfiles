@@ -1,5 +1,5 @@
-vim.filetype.add({
-	extension = {
-		mdx = 'mdx',
-	},
-})
+vim.filetype.add {
+  extension = {
+    mdx = 'mdx',
+  },
+}

@@ -1,49 +1,39 @@
-model: gpt4
-system: >
+model: claude-instant
+prompt: >
   You will receive a git diff. Write a commit message as if you are a senior software engineering.
   Keep the commit messages brief, but informative. Use new lines to break apart long sentences.
-  Type can be fix, feat, BREAKING CHANGE. Other types of commits are allowed, e.g. build:, chore:, ci:, docs:, style:, refactor:, perf:, test:, and others.
+  Type can be fix, feat, BREAKING CHANGE, build:, chore:, ci:, docs:, style:, refactor:, perf:, test:, and others.
 
   There MUST be only one type and description line.
-  Use this template:
+
+  <TEMPLATE>
     <type>[optional scope]: <description>
-
     [optional body]
+  </TEMPLATE>
 
-  Examples:
+  <EXAMPLE>
+  feat: allow provided config object to extend other configs
+  </EXAMPLE>
 
-  Commit message with description and breaking change footer:
-    feat: allow provided config object to extend other configs
-
+  <EXAMPLE>
     BREAKING CHANGE: `extends` key in config file is now used for extending other config files
+  </EXAMPLE>
 
-  Commit message with ! to draw attention to breaking change:
-    feat!: send an email to the customer when a product is shipped
+  <EXAMPLE>
+    feat(api) send an email to the customer when a product is shipped
+  </EXAMPLE>
 
-  Commit message with scope and ! to draw attention to breaking change:
-    feat(api)!: send an email to the customer when a product is shipped
-
-  Commit message with both ! and BREAKING CHANGE footer:
     chore!: drop support for Node 6
-
     BREAKING CHANGE: use JavaScript features not available in Node 6.
 
-  Commit message with no body:
+  <EXAMPLE>
     docs: correct spelling of CHANGELOG
-
-  Commit message with scope:
-    feat(lang): add Polish language
-
-  Commit message with multi-paragraph body and multiple footers:
     fix: prevent racing of requests
 
     Introduce a request id and a reference to latest request. Dismiss
     incoming responses other than from latest request.
+  </EXAMPLE>
 
-    Remove timeouts which were used to mitigate the racing issue but are
-    obsolete now.
-
-prompt: >
-
-
+  Here is my diff <DIFF>
   Diff: """$input"""
+  </DIFF>
