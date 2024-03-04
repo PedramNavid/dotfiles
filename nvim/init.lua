@@ -7,4 +7,3 @@ P = function(...)
   return ...
 end
 require 'pedram'
-print 'loaded'

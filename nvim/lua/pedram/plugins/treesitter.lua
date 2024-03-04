@@ -9,7 +9,6 @@ return {
           'lua',
           'vim',
           'vimdoc',
-          'query',
           'python',
           'bash',
           'dockerfile',

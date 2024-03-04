@@ -20,9 +20,25 @@ return {
     require('telescope').load_extension 'dbtpal'
   end,
   keys = {
-    { 'n', '<LocalLeader>drf', function() require('dbtpal').run() end },
-    { 'n', '<LocalLeader>drp', function() require('dbtpal').run_all() end },
-    { 'n', '<LocalLeader>dtf', function() require('dbtpal').test() end },
-    { 'n', '<LocalLeader>dm', function() require('dbtpal.telescope').dbt_picker() end },
+    {
+      'n',
+      '<LocalLeader>drf',
+      function() require('dbtpal').run() end,
+    },
+    {
+      'n',
+      '<LocalLeader>drp',
+      function() require('dbtpal').run_all() end,
+    },
+    {
+      'n',
+      '<LocalLeader>dtf',
+      function() require('dbtpal').test() end,
+    },
+    {
+      'n',
+      '<LocalLeader>dm',
+      function() require('dbtpal.telescope').dbt_picker() end,
+    },
   },
 }

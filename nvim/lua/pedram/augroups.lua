@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local api = vim.api
 
 -- Highlight on yank

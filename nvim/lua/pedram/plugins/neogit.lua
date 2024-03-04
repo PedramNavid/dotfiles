@@ -11,6 +11,9 @@ return {
   keys = {
     { '<leader>gg', '<cmd>Neogit<cr>' },
     { '<leader>gc', '<cmd>Neogit commit<cr>' },
-    { '<leader>gs', function() require('neogit').open { kind = 'split' } end },
+    {
+      '<leader>gs',
+      function() require('neogit').open { kind = 'split' } end,
+    },
   },
 }
