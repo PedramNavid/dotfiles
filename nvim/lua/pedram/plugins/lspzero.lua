@@ -37,7 +37,15 @@ return {
               settings = {},
             }
           end,
-          ruff_lsp = function() require('lspconfig').ruff_lsp.setup {} end,
+          ruff_lsp = function()
+            require('lspconfig').ruff_lsp.setup {
+              init_options = {
+                settings = {
+                  path = { vim.fn.expand '~/.pyenv/shims/ruff' },
+                },
+              },
+            }
+          end,
           pyright = function()
             require('lspconfig').pyright.setup {
               settings = {

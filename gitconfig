@@ -40,3 +40,6 @@
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [mergetool "nvim"]
 	cmd = nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+[maintenance]
+	repo = /Users/pedram/projects/internal
+	repo = /Users/pedram/projects/dagster
