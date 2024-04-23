@@ -15,6 +15,7 @@ o.relativenumber = true
 
 o.foldmethod = 'expr'
 o.foldexpr = 'nvim_treesitter#foldexpr()'
+o.foldlevel = 99
 
 o.termguicolors = true
 

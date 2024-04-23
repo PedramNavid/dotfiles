@@ -1,7 +1,7 @@
 import = ["~/dotfiles/alacritty-themes/tokyonight_moon.toml"]
 
 [font]
-size = 13
+size = 11
 
 [font.bold]
 family = "Hack Nerd Font"

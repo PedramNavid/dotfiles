@@ -59,7 +59,7 @@ theme.hotkeys_modifiers_fg = theme.nord9
 -- {{{ Borders
 theme.master_width_factor = 0.4
 theme.bar_height = dpi(10)
-theme.useless_gap = dpi(8)
+theme.useless_gap = dpi(4)
 theme.border_width = dpi(1)
 
 theme.border_normal = theme.nord9
