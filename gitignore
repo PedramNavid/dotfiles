@@ -1,4 +1,5 @@
 *.orig
+.cursorignore
 node_modules/
 pyrightconfig.json
 .python-version

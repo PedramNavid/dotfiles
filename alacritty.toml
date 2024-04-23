@@ -24,6 +24,8 @@ action = "SpawnNewInstance"
 key = "Return"
 mods = "Control|Shift"
 
+
+
 [scrolling]
 history = 30000
 multiplier = 3
@@ -36,6 +38,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 dynamic_padding = true
 opacity = 0.95
 blur = true
+option_as_alt = 'both'
 
 
 [window.padding]

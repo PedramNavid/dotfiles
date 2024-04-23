@@ -1,4 +1,4 @@
-model: claude-instant
+model: sonnet
 prompt: >
   You will receive a git diff. Write a commit message as if you are a senior software engineering.
   Keep the commit messages brief, but informative. Use new lines to break apart long sentences.
@@ -37,3 +37,6 @@ prompt: >
   Here is my diff <DIFF>
   Diff: """$input"""
   </DIFF>
+
+  Provide the git commit message below. Keep it brief. Provide only
+  the git commit, no preambles.

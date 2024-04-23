@@ -27,9 +27,15 @@ return {
     }
     vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', { fg = '#6CC334' })
     cmp.setup {
+      formatting = {
+        format = lspkind.cmp_format {
+          mode = 'symbol',
+          maxwidth = 50,
+        },
+      },
       sources = {
-        { name = 'buffer', option = { keyword_length = 3 } },
         { name = 'copilot' },
+        { name = 'buffer', option = { keyword_length = 3 } },
         { name = 'luasnip' },
         { name = 'path' },
         { name = 'nvim_lsp' },

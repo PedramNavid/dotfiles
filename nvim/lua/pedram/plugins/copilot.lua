@@ -10,7 +10,7 @@ return {
     config = function()
       require('copilot').setup {
         suggestion = {
-          enabled = false,
+          enabled = true,
           auto_trigger = false,
           debounce = 75,
           keymap = {
@@ -22,7 +22,7 @@ return {
             dismiss = '<C-]>',
           },
         },
-        panel = { enabled = false },
+        panel = { enabled = true },
         filetypes = {
           yaml = true,
           markdown = false,
