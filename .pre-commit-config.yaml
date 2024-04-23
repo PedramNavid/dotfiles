@@ -2,18 +2,18 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.6.0
     hooks:
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
-    -   id: check-yaml
     -   id: check-added-large-files
-    -   id: check-merge-conflict
-    -   id: detect-private-key
     -   id: check-executables-have-shebangs
+    -   id: check-merge-conflict
     -   id: check-shebang-scripts-are-executable
     -   id: check-symlinks
+    -   id: check-yaml
+    -   id: detect-private-key
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
 - repo: https://github.com/JohnnyMorganz/StyLua
-  rev: v0.19.1
+  rev: v0.20.0
   hooks:
-    - id: stylua # or stylua-system / stylua-github
+    - id: stylua-system
