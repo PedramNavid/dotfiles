@@ -3,22 +3,25 @@ return {
   dependencies = {
     'nvimtools/none-ls-extras.nvim',
   },
-  lazy = true,
+  lazy = false,
   config = function()
     local null_ls = require 'null-ls'
     null_ls.setup {
       sources = {
         null_ls.builtins.formatting.stylua,
+        null_ls.builtins.diagnostics.vale.with {
+          filetypes = { 'markdown', 'mdx', 'rst', 'tex' },
+        },
 
-        require('null_ls.builtins.formatting.ruff').with {
+        require('none-ls.formatting.ruff').with {
           command = vim.fn.expand '$HOME/.pyenv/shims/ruff',
         },
 
-        require('null_ls.builtins.formatting.ruff_format').with {
+        require('none-ls.formatting.ruff_format').with {
           command = vim.fn.expand '$HOME/.pyenv/shims/ruff',
         },
 
-        require('null_ls.builtins.formatting.prettier').with {
+        null_ls.builtins.formatting.prettier.with {
           only_local = 'node_modules/.bin',
           filetypes = {
             'javascript',
