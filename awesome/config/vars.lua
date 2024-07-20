@@ -2,6 +2,7 @@ local _M = {}
 
 local awful = require 'awful'
 local lain = require 'lain'
+local bling = require 'bling'
 
 _M.layouts = {
   awful.layout.suit.tile,
@@ -16,10 +17,15 @@ _M.layouts = {
   lain.layout.centerwork,
   lain.layout.termfair,
   lain.layout.termfair.center,
+  bling.layout.centered,
+  bling.layout.equalarea,
 }
+
 local l = awful.layout.suit
 local ll = lain.layout
+local lb = bling.layout
+
 _M.tags = { 'main', 'code', 'web', 'chat', 'notes', 'media' }
-_M.tag_layouts = { ll.centerwork, ll.termfair.center, l.tile, l.tile, ll.centerwork, l.tile }
+_M.tag_layouts = { lb.centered, lb.equalarea, l.tile, l.tile, ll.centerwork, l.tile }
 
 return _M

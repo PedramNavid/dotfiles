@@ -52,7 +52,7 @@ ruled.client.connect_signal('request::rules', function()
   }
   ruled.client.append_rule {
     rule = { class = '1Password' },
-    properties = { screen = 1, tag = 'media' },
+    properties = { screen = 1, tag = 'media', sticky = true },
   }
 
   ruled.client.append_rule {

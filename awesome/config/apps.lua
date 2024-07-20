@@ -1,6 +1,7 @@
 local _M = {
   terminal = os.getenv 'TERMINAL' or 'alacritty',
   editor = os.getenv 'EDITOR' or 'vim',
+  browser = 'firefox',
 }
 
 _M.editor_cmd = _M.terminal .. ' -e ' .. _M.editor

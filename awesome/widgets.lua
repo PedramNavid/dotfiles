@@ -191,8 +191,8 @@ function _M.create_wibox(s)
           {
             layout = wibox.layout.fixed.horizontal,
             spacing = dpi(6),
-            pedram.cpuwidget,
-            pedram.memwidget,
+            --            pedram.cpuwidget,
+            --           pedram.memwidget,
             pedram.datewidget,
             wibox.widget.systray(),
 

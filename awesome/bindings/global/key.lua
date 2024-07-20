@@ -69,29 +69,29 @@ awful.keyboard.append_global_keybindings {
   awful.key(
     { mod.super },
     'b',
-    function() awful.spawn.with_shell('google-chrome-stable', false) end,
-    { description = 'Chrome', group = 'net' }
+    function() awful.spawn.with_shell(apps.browser, false) end,
+    { description = 'Browser', group = 'net' }
   ),
 
   -- Prompt
   awful.key(
     { mod.super },
     'a',
-    function() awful.spawn.with_shell 'sh ~/.config/rofi/launchers/type-6/launcher.sh' end,
+    function() awful.spawn.with_shell 'rofi -show drun -show-icons' end,
     { description = 'run rofi apps', group = 'launcher' }
   ),
 
   awful.key(
     { mod.super },
     'r',
-    function() awful.spawn.with_shell 'sh ~/.config/rofi/launchers/type-6/launcher2.sh' end,
+    function() awful.spawn.with_shell 'rofi -show combi -modes combi -combi-modes "window,drun,run"' end,
     { description = 'run rofi programs', group = 'launcher' }
   ),
 
   awful.key(
     { mod.super },
     'w',
-    function() awful.spawn.with_shell 'sh ~/.config/rofi/launchers/type-6/launcher1.sh' end,
+    function() awful.spawn.with_shell 'rofi -show window' end,
     { description = 'run rofi windows', group = 'launcher' }
   ),
   awful.key(

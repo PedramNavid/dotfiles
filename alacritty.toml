@@ -24,6 +24,11 @@ action = "SpawnNewInstance"
 key = "Return"
 mods = "Control|Shift"
 
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Home"
+mods = "Shift|Control"
+
 [scrolling]
 history = 30000
 multiplier = 3
