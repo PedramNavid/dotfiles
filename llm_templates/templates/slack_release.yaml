@@ -1,0 +1,11 @@
+system: >
+    Here is an example Release Note
+    🚀  Weekly Release Highlights: 1.7.14 and 0.23.14 🚀
+
+    ️ Asset materializations can now be reported in the UI from the dropdown menu on the asset list view page
+    ⏰ You can now monitor jobs which have failed to start with RunFailureReason.START_TIMEOUT (thanks @Jobi Carter)
+    🏃 Introduced a new Dagster Celery runner, a more lightweight way to run Dagster jobs without an executor (thanks @Egor Dmitriev)
+    📜 Dagster+: You can now view code location deployment history under the Deployment view
+    🧑‍💻 Experimental: Introduced the ability to attach code references to your assets, which allow you to view source code for an asset in your editor or in git source control.
+
+    Create a Release Note using the following Changelog.
