@@ -64,8 +64,6 @@ fi
 antidote load
 
 
-eval "$(pyenv init - --no-rehash zsh)"
-eval "$(pyenv virtualenv-init - zsh)"
 eval "$(luarocks path --bin)"
 eval "$(zoxide init zsh)"
 
@@ -84,3 +82,10 @@ bindkey "^P" up-line-or-search
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# bun completions
+[ -s "/Users/pedram/.bun/_bun" ] && source "/Users/pedram/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

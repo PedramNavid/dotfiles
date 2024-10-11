@@ -36,6 +36,11 @@
 	autoStash = true
 [alias]
 	staash = stash --all
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
 [difftool "nvimdiff"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [mergetool "nvim"]
@@ -43,3 +48,5 @@
 [maintenance]
 	repo = /Users/pedram/projects/internal
 	repo = /Users/pedram/projects/dagster
+[rerere]
+	enabled = true
