@@ -2,6 +2,7 @@ return {
   'PedramNavid/dbtpal',
   dependencies = 'https://github.com/nvim-lua/plenary.nvim',
   dev = true,
+  enable = true,
   ft = { 'sql', 'yaml', 'markdown' },
   config = function()
     local dbt = require 'dbtpal'
@@ -11,6 +12,7 @@ return {
       path_to_dbt_project = '',
 
       -- Search for ref/source files in macros and models folders
+      custom_dbt_syntax_enabled = true,
       extended_path_search = true,
 
       -- Prevent modifying sql files in target/(compiled|run) folders

@@ -248,4 +248,6 @@ local function worker(user_args)
   return calendar_widget
 end
 
-return setmetatable(calendar_widget, { __call = function(_, ...) return worker(...) end })
+return setmetatable(calendar_widget, {
+  __call = function(_, ...) return worker(...) end,
+})

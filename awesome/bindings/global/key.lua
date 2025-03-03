@@ -42,18 +42,32 @@ awful.keyboard.append_global_keybindings {
   awful.key({}, 'XF86AudioRaiseVolume', function()
     awful.util.spawn('pactl set-sink-volume @DEFAULT_SINK@ +2.5%', false)
     inc()
-  end),
+  end, { description = 'volume up', group = 'hotkeys' }),
   awful.key({}, 'XF86AudioLowerVolume', function()
     awful.util.spawn('pactl set-sink-volume @DEFAULT_SINK@ -5%', false)
     inc()
-  end),
+  end, { description = 'volume down', group = 'hotkeys' }),
   awful.key({}, 'XF86AudioPlay', function() awful.util.spawn('playerctl play-pause', false) end),
 
-  awful.key({}, 'XF86AudioNext', function() awful.util.spawn('playerctl next', false) end),
+  awful.key(
+    {},
+    'XF86AudioNext',
+    function() awful.util.spawn('playerctl next', false) end,
+    { description = 'next track', group = 'hotkeys' }
+  ),
 
-  awful.key({}, 'XF86AudioPrev', function() awful.util.spawn('playerctl previous', false) end),
+  awful.key(
+    {},
+    'XF86AudioPrev',
+    function() awful.util.spawn('playerctl previous', false) end,
+    { description = 'previous track', group = 'hotkeys' }
+  ),
 
-  awful.key({}, 'XF86AudioMute', function() volume_widget:toggle() end),
+  awful.key({}, 'XF86AudioMute', function()
+    awful.spawn('amixer -D pulse set Master 1+ toggle', false)
+    awesome.emit_signal 'volume_change'
+  end, { description = 'toggle mute', group = 'hotkeys' }),
+
   awful.key(
     { mod.super },
     'Return',
@@ -71,6 +85,12 @@ awful.keyboard.append_global_keybindings {
     'b',
     function() awful.spawn.with_shell(apps.browser, false) end,
     { description = 'Browser', group = 'net' }
+  ),
+  awful.key(
+    {},
+    '#202',
+    function() awful.spawn(apps.screenshot, false) end,
+    { description = 'Take screenshot', group = 'utilities' }
   ),
 
   -- Prompt
@@ -160,42 +180,49 @@ awful.keyboard.append_global_keybindings {
     function() awful.tag.incmwfact(0.02) end,
     { description = 'increase master width factor', group = 'layout' }
   ),
+
   awful.key(
     { mod.super },
     'h',
     function() awful.tag.incmwfact(-0.02) end,
     { description = 'decrease master width factor', group = 'layout' }
   ),
+
   awful.key(
     { mod.super, 'Shift' },
     'h',
     function() awful.tag.incnmaster(1, nil, true) end,
     { description = 'increase the number of master clients', group = 'layout' }
   ),
+
   awful.key(
     { mod.super, 'Shift' },
     'l',
     function() awful.tag.incnmaster(-1, nil, true) end,
     { description = 'decrease the number of master clients', group = 'layout' }
   ),
+
   awful.key(
     { mod.super, 'Control' },
     'h',
     function() awful.tag.incncol(1, nil, true) end,
     { description = 'increase the number of columns', group = 'layout' }
   ),
+
   awful.key(
     { mod.super, 'Control' },
     'l',
     function() awful.tag.incncol(-1, nil, true) end,
     { description = 'decrease the number of columns', group = 'layout' }
   ),
+
   awful.key(
     { mod.super },
     'space',
     function() awful.layout.inc(1) end,
     { description = 'select next', group = 'layout' }
   ),
+
   awful.key(
     { mod.super, 'Shift' },
     'space',

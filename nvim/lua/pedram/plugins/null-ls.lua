@@ -9,9 +9,6 @@ return {
     null_ls.setup {
       sources = {
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.diagnostics.vale.with {
-          filetypes = { 'markdown', 'mdx', 'rst', 'tex' },
-        },
 
         require('none-ls.formatting.ruff').with {
           command = vim.fn.expand '$HOME/.pyenv/shims/ruff',

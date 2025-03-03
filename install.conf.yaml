@@ -27,4 +27,5 @@
     ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.zshrc: zshrc
     ~/bin/tmux_session:  bin/tmux_session
-    ~/.config/hypr/hyprland.conf: hyprland.conf
+    ~/.config/hypr: hypr
+    ~/.config/waybar: waybar

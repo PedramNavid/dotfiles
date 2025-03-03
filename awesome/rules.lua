@@ -48,7 +48,9 @@ ruled.client.connect_signal('request::rules', function()
   ruled.client.append_rule {
     id = 'titlebars',
     rule_any = { type = { 'normal', 'dialog' } },
-    properties = { titlebars_enabled = function(c) return not c.requests_no_titlebar end },
+    properties = {
+      titlebars_enabled = function(c) return not c.requests_no_titlebar end,
+    },
   }
   ruled.client.append_rule {
     rule = { class = '1Password' },
