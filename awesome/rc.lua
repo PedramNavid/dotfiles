@@ -19,6 +19,8 @@ local menubar = require 'menubar'
 local hotkeys_popup = require 'awful.hotkeys_popup'
 -- For DPI-related scaling
 local dpi = require('beautiful.xresources').apply_dpi
+-- Lain layout library
+local lain = require 'lain'
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require 'awful.hotkeys_popup.keys'
@@ -40,20 +42,14 @@ naughty.connect_signal(
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init '/home/pedram/.config/awesome/pedburn/theme.lua'
+beautiful.init(gears.filesystem.get_configuration_dir() .. 'pedburn/theme.lua')
 
--- This is used later as the default terminal and editor to run.
-terminal = 'alacritty'
-browser = 'firefox'
-editor = os.getenv 'EDITOR' or 'nano'
-editor_cmd = terminal .. ' -e ' .. editor
-
--- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = 'Mod4'
+-- Application and key configuration
+local terminal = 'alacritty'
+local browser = 'firefox'
+local editor = os.getenv 'EDITOR' or 'nano'
+local editor_cmd = terminal .. ' -e ' .. editor
+local modkey = 'Mod4'
 -- }}}
 
 -- {{{ Menu
@@ -86,6 +82,9 @@ tag.connect_signal('request::default_layouts', function()
   awful.layout.append_default_layouts {
     awful.layout.suit.tile.left, -- Make tile.left the first/default
     awful.layout.suit.fair,
+    lain.layout.termfair,
+    lain.layout.termfair.center,
+    lain.layout.centerwork,
   }
 end)
 -- }}}
@@ -115,46 +114,23 @@ screen.connect_signal(
 
 -- {{{ Wibar
 
--- Keyboard map indicator and switcher (disabled)
--- mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- Create a more attractive textclock widget
 local mytextclock = wibox.widget.textclock(
   "<span color='#a1dfa5'> %a %b %d</span> <span color='#ffffff'>|</span> <span color='#f9c359'>%H:%M</span> ",
   60
 )
--- Add calendar on hover
-local calendar_widget = require 'awesome-wm-widgets.calendar-widget.calendar'
-local cw = calendar_widget {
-  theme = 'dark',
-  placement = 'top_right',
-  radius = 8,
-}
-
--- Volume widget
-local volume_widget = require 'awesome-wm-widgets.volume-widget.volume'
-local volumewidget = volume_widget {
-  widget_type = 'arc',
-  thickness = 2,
-  size = 18,
-  main_color = '#ffffff',
-  mute_color = '#ff0000',
-}
-
--- CPU widget
-local cpu_widget = require 'awesome-wm-widgets.cpu-widget.cpu-widget'
-local cpuwidget = cpu_widget {
-  width = 50,
-  step_width = 2,
-  step_spacing = 1,
-  color = '#74aeab',
-}
 
 screen.connect_signal('request::desktop_decoration', function(s)
   -- Each screen has its own tag table.
   -- Use tiled.left layout (index 1) as default
   -- Reduced to only 4 tags
   awful.tag({ '1', '2', '3', '4' }, s, awful.layout.layouts[1])
+
+  -- Set nmaster=1 and ncol=2 for all tags
+  for _, tag in pairs(s.tags) do
+    tag.master_count = 1
+    tag.column_count = 2
+  end
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -219,8 +195,6 @@ screen.connect_signal('request::desktop_decoration', function(s)
       { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
         wibox.widget.systray(),
-        cpuwidget,
-        volumewidget,
         mytextclock,
         s.mylayoutbox,
       },
@@ -242,25 +216,6 @@ awful.mouse.append_global_mousebindings {
 
 -- General Awesome keys
 awful.keyboard.append_global_keybindings {
-  -- Volume control keys
-  awful.key(
-    {},
-    'XF86AudioRaiseVolume',
-    function() volume_widget:inc(5) end,
-    { description = 'increase volume', group = 'audio' }
-  ),
-  awful.key(
-    {},
-    'XF86AudioLowerVolume',
-    function() volume_widget:dec(5) end,
-    { description = 'decrease volume', group = 'audio' }
-  ),
-  awful.key(
-    {},
-    'XF86AudioMute',
-    function() volume_widget:toggle() end,
-    { description = 'toggle mute', group = 'audio' }
-  ),
 
   awful.key({ modkey }, 's', hotkeys_popup.show_help, { description = 'show help', group = 'awesome' }),
   awful.key({ modkey }, 'w', function() mymainmenu:show() end, { description = 'show main menu', group = 'awesome' }),
@@ -570,12 +525,6 @@ ruled.client.connect_signal('request::rules', function()
     rule_any = { type = { 'normal', 'dialog' } },
     properties = { titlebars_enabled = false },
   }
-
-  -- Set Firefox to always map on the tag named "2" on screen 1.
-  -- ruled.client.append_rule {
-  --     rule       = { class = "Firefox"     },
-  --     properties = { screen = 1, tag = "2" }
-  -- }
 end)
 -- }}}
 

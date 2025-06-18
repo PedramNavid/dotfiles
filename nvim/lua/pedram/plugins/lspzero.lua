@@ -21,31 +21,8 @@ return {
       local lsp_zero = require 'lsp-zero'
 
       require('mason-lspconfig').setup {
-        ensure_installed = {
-          'tsserver',
-          'rust_analyzer',
-          'pyright',
-          'lua_ls',
-          'ruff_lsp',
-        },
         handlers = {
           lsp_zero.default_setup,
-          tsserver = function()
-            require('lspconfig').tsserver.setup {
-              single_file_support = false,
-              ---@diagnostic disable-next-line: missing-fields
-              settings = {},
-            }
-          end,
-          ruff_lsp = function()
-            require('lspconfig').ruff_lsp.setup {
-              init_options = {
-                settings = {
-                  path = { vim.fn.expand '~/.pyenv/shims/ruff' },
-                },
-              },
-            }
-          end,
           pyright = function()
             require('lspconfig').pyright.setup {
               settings = {
@@ -67,8 +44,6 @@ return {
       local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
       lsp_zero.on_attach(function(client, bufnr)
-        if client.name == 'ruff_lsp' then client.server_capabilities.hoverProvider = false end
-
         if client.supports_method 'textDocument/formatting' then
           vim.api.nvim_clear_autocmds {
             group = augroup,
