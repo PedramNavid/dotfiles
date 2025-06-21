@@ -1,1 +1,1 @@
-chatgpt-4o-latest
+anthropic/claude-3-7
