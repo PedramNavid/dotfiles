@@ -5,6 +5,6 @@
 [submodule "tokyonight.nvim"]
 	path = tokyonight.nvim
 	url = https://github.com/folke/tokyonight.nvim.git
-[submodule "/home/pedram/dotfiles/awesome/lain"]
-	path = /home/pedram/dotfiles/awesome/lain
+[submodule "awesome/lain"]
+	path = awesome/lain
 	url = https://github.com/lcpz/lain.git
