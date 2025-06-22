@@ -1,0 +1,20 @@
+---
+description:  Rules for working on Typescript and JSX Projects
+globs:
+alwaysApply: false
+globs: *.ts?(x)
+---
+
+## Stylistic rules
+
+Avoid unnecessary comments, for example, do not do this:
+
+```typescript
+// This checks if the user is an admin
+if (path.startsWith('/admin') || path.startsWith('/api/admin')) {
+          return token?.role === 'admin'
+        }
+```
+
+Only add comments to sections that are not self-evident, or that help with
+identifying the structure of a large piece of code.
