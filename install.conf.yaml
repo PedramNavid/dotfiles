@@ -9,14 +9,8 @@
     - ~/bin
 
 - link:
-    ~/.Xresources: Xresources
     ~/.alacritty.toml: alacritty.toml
     ~/.alias: alias
-    ~/.config/awesome: awesome
-    ~/.config/compfy.conf: compfy.conf
-    ~/.config/kitty:
-      force: true
-      path: kitty
     ~/.config/nvim: nvim
     ~/.exports: exports
     ~/.fzf.zsh: fzf.zsh
