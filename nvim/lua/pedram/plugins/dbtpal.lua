@@ -1,7 +1,7 @@
 return {
     'PedramNavid/dbtpal',
     dependencies = 'nvim-lua/plenary.nvim',
-    dev = true,
+    dev = false,
     enable = true,
     ft = { 'sql', 'yaml', 'markdown' },
     config = function()

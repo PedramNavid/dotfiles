@@ -20,3 +20,6 @@
     ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.zshrc: zshrc
     ~/bin/tmux_session:  bin/tmux_session
+    ~/.config/ghostty/config: 
+      create: true
+      path: ghostty/config
