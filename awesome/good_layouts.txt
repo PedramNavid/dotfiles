@@ -1,0 +1,4 @@
+centerfair
+tileleft
+
+nmaster = 2

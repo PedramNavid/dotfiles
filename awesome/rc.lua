@@ -45,7 +45,7 @@ naughty.connect_signal(
 beautiful.init(gears.filesystem.get_configuration_dir() .. 'pedburn/theme.lua')
 
 -- Application and key configuration
-local terminal = 'alacritty'
+local terminal = 'ghostty'
 local browser = 'firefox'
 local editor = os.getenv 'EDITOR' or 'nano'
 local editor_cmd = terminal .. ' -e ' .. editor
@@ -56,7 +56,7 @@ local modkey = 'Mod4'
 -- Create a launcher widget and a main menu
 myawesomemenu = {
   { 'hotkeys', function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-  { 'manual', terminal .. ' -e man awesome' },
+  { 'manual', terminal .. ' man awesome' },
   { 'edit config', editor_cmd .. ' ' .. awesome.conffile },
   { 'restart', awesome.restart },
   { 'quit', function() awesome.quit() end },
@@ -81,7 +81,22 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 tag.connect_signal('request::default_layouts', function()
   awful.layout.append_default_layouts {
     awful.layout.suit.tile.left, -- Make tile.left the first/default
+    awful.layout.suit.tile,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
     awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.spiral,
+    awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.max,
+    awful.layout.suit.max.fullscreen,
+    awful.layout.suit.magnifier,
+    awful.layout.suit.floating,
+    awful.layout.suit.corner.nw,
+    awful.layout.suit.corner.ne,
+    awful.layout.suit.corner.sw,
+    awful.layout.suit.corner.se,
+    lain.layout.cascade,
     lain.layout.termfair,
     lain.layout.termfair.center,
     lain.layout.centerwork,
