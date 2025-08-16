@@ -1,0 +1,40 @@
+# HYPRLAND WINDOW MANAGEMENT SHORTCUTS
+======================================================
+
+## WINDOW ACTIONS
+Super + Shift + W      Close active window
+Super + Shift + C      Close active window
+Super + Shift + V      Toggle floating mode
+Super + P              Toggle pseudo tiling
+Super + J              Toggle split orientation
+Super + S              Toggle scratchpad visibility
+Super + Shift + S      Move window to scratchpad
+
+## FOCUS MOVEMENT
+Super + ←              Focus window to the left
+Super + →              Focus window to the right
+Super + ↑              Focus window above
+Super + ↓              Focus window below
+
+## WINDOW MOVEMENT
+Super + Shift + ←      Swap with window to the left
+Super + Shift + →      Swap with window to the right
+Super + Shift + ↑      Swap with window above
+Super + Shift + ↓      Swap with window below
+Super + Shift + 1-0    Move window to workspace 1-10
+Super + mouse drag     Move window
+
+## WINDOW RESIZING
+Super + Ctrl + →       Resize window wider
+Super + Ctrl + ←       Resize window narrower
+Super + Ctrl + ↑       Resize window shorter
+Super + Ctrl + ↓       Resize window taller
+Super + right-click    Resize window with mouse
+
+## WORKSPACE MANAGEMENT
+Super + 1-9            Switch to workspace 1-9
+Super + 0              Switch to workspace 10
+Super + mouse wheel    Scroll through workspaces
+
+## OTHER WINDOW CONTROLS
+Super + F1             Show window management shortcuts

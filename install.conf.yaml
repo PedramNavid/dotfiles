@@ -20,6 +20,17 @@
     ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.zshrc: zshrc
     ~/bin/tmux_session:  bin/tmux_session
-    ~/.config/ghostty/config: 
+    ~/.config/ghostty/config:
       create: true
       path: ghostty/config
+    ~/.config/hypr:
+      create: true
+      path: hypr
+    ~/.config/waybar:
+      create: true
+      path: waybar
+    ~/.local/bin/show-keybindings:
+      path: bin/show-keybindings.sh
+    ~/.config/wofi:
+      create: true
+      path: wofi
