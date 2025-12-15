@@ -2,7 +2,7 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - create:
     - ~/.zsh
@@ -19,7 +19,8 @@
     ~/.tmux.conf: tmux.conf
     ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.zshrc: zshrc
-    ~/bin/tmux_session:  bin/tmux_session
+    ~/bin/tmux_session: bin/tmux_session
+    ~/bin/menu-keybindings: bin/menu-keybindings
     ~/.config/ghostty/config:
       create: true
       path: ghostty/config
@@ -34,3 +35,9 @@
     ~/.config/wofi:
       create: true
       path: wofi
+    ~/.config/walker:
+      create: true
+      path: walker
+    ~/.claude/agents:
+      create: true
+      path: claude/agents

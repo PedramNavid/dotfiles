@@ -6,7 +6,7 @@ Super + Shift + W      Close active window
 Super + Shift + C      Close active window
 Super + Shift + V      Toggle floating mode
 Super + P              Toggle pseudo tiling
-Super + J              Toggle split orientation
+Super + Shift + O      Toggle split orientation
 Super + S              Toggle scratchpad visibility
 Super + Shift + S      Move window to scratchpad
 
@@ -15,6 +15,10 @@ Super + ←              Focus window to the left
 Super + →              Focus window to the right
 Super + ↑              Focus window above
 Super + ↓              Focus window below
+Super + H              Focus window to the left
+Super + L              Focus window to the right
+Super + K              Focus window above
+Super + J              Focus window below
 
 ## WINDOW MOVEMENT
 Super + Shift + ←      Swap with window to the left
@@ -23,6 +27,10 @@ Super + Shift + ↑      Swap with window above
 Super + Shift + ↓      Swap with window below
 Super + Shift + 1-0    Move window to workspace 1-10
 Super + mouse drag     Move window
+Super + Shift + H      Swap with window to the left
+Super + Shift + L      Swap with window to the right
+Super + Shift + K      Swap with window above
+Super + Shift + J      Swap with window below
 
 ## WINDOW RESIZING
 Super + Ctrl + →       Resize window wider
@@ -30,6 +38,10 @@ Super + Ctrl + ←       Resize window narrower
 Super + Ctrl + ↑       Resize window shorter
 Super + Ctrl + ↓       Resize window taller
 Super + right-click    Resize window with mouse
+Super + Ctrl + L       Resize window wider
+Super + Ctrl + H       Resize window narrower
+Super + Ctrl + K       Resize window shorter
+Super + Ctrl + J       Resize window taller
 
 ## WORKSPACE MANAGEMENT
 Super + 1-9            Switch to workspace 1-9

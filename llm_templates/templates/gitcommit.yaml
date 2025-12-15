@@ -1,4 +1,4 @@
-model: claude-3.7-sonnet
+model: claude-haiku-4.5
 prompt: >
   You will receive a git diff. Write a commit message as if you are a senior software engineering.
   Keep the commit messages brief, but informative. Use new lines to break apart long sentences.

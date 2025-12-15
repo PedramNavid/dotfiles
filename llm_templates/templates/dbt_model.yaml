@@ -1,4 +1,4 @@
-model: claude-3-opus
+model: claude-haiku-4.5
 prompt: |
   Write dbt model configurations for me.  You will use no more than 80
   characters per line.

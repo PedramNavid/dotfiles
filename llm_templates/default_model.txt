@@ -1,1 +1,1 @@
-anthropic/claude-3-7-sonnet-latest
+anthropic/claude-haiku-4-5-20251001

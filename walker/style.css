@@ -1,0 +1,51 @@
+/* Walker global stylesheet
+   Solid, non-transparent background and readable defaults. */
+
+/* Window background (try multiple selectors for compatibility) */
+window, .window, #window, :root {
+  background-color: rgba(26, 27, 38, 0.96); /* tokyonight base */
+  color: #c0caf5;
+  border-radius: 10px;
+}
+
+/* Main container */
+.box, #box {
+  background: transparent;
+  color: inherit;
+}
+
+/* Search input */
+input, .entry, #entry, .search input, #search input {
+  background-color: #1f2335;
+  color: #c0caf5;
+  border: 1px solid #3b4261;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+/* List and items */
+.list, #list, .scroll, #scroll {
+  background: transparent;
+}
+
+.item, #item, .row, row {
+  background: transparent;
+  color: inherit;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* Hover/selected styles */
+.item:hover, .item.selected, #item:hover, #item.selected, row:selected {
+  background-color: #2a2f45;
+}
+
+/* Placeholder text */
+.placeholder, #placeholder {
+  color: #929db3;
+}
+
+/* Subtle borders for structure */
+.section, #section {
+  border-top: 1px solid #2f334d;
+}
