@@ -1,0 +1,36 @@
+@theme "nord.rasi"
+
+configuration {
+  modi: "drun,run,ssh,filebrowser";
+  show-icons: true;
+  icon-theme: "Papirus";
+  application-fallback-icon: "run-build";
+
+  terminal: "kitty";
+  drun-display-format: " {name} ";
+  sidebar-mode: true;
+  matching: "fuzzy";
+  scroll-method: 0;
+  disable-history: false;
+
+  display-drun: "󱓞 Apps";
+  display-run: " Run";
+  display-ssh: "󰀂 SSH";
+  display-filebrowser: " Files";
+  display-powermenu: " Power";
+
+  combi-modi: "drun,run";
+  sort: true;
+  sorting-method: "fzf";
+
+  timeout {
+    action: "kb-cancel";
+    delay: 30;
+  }
+
+  filebrowser {
+    directories-first: true;
+    sorting-method: "name";
+  }
+
+}

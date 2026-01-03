@@ -1,0 +1,65 @@
+plugins {
+    tab-bar location="zellij:tab-bar"
+    status-bar location="zellij:status-bar"
+    strider location="zellij:strider"
+    compact-bar location="zellij:compact-bar"
+    session-manager location="zellij:session-manager"
+    welcome-screen location="zellij:session-manager" {
+        welcome_screen true
+    }
+    filepicker location="zellij:strider" {
+        cwd "/"
+    }
+    configuration location="zellij:configuration"
+    plugin-manager location="zellij:plugin-manager"
+    about location="zellij:about"
+}
+
+load_plugins {
+}
+
+pane_frames true
+scrollback_lines_to_serialize 10000
+
+themes {
+    tokyonight_moon {
+        fg 200 211 245       // #c8d3f5
+        bg 34 36 54          // #222436
+        black 27 29 43       // #1b1d2b
+        red 255 117 127      // #ff757f
+        green 195 232 141    // #c3e88d
+        yellow 255 199 119   // #ffc777
+        blue 130 170 255     // #82aaff
+        magenta 192 153 255  // #c099ff
+        cyan 134 225 252     // #86e1fc
+        orange 255 150 108   // #ff966c
+        white 200 211 245    // #c8d3f5
+    }
+}
+
+theme "tokyonight_moon"
+
+//default_layout "compact"
+
+default_mode "normal"
+
+// copy_command "xclip -selection clipboard" // x11
+// copy_command "wl-copy"                    // wayland
+// copy_command "pbcopy"                     // osx
+
+// Choose the destination for copied text
+// Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
+// Does not apply when using copy_command.
+// Options:
+//   - system (default)
+//   - primary
+//
+copy_clipboard "primary"
+support_kitty_keyboard_protocol true
+
+// stacked_resize false
+// show_release_notes false
+
+web_client {
+    font "monospace"
+}

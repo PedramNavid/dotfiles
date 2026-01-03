@@ -27,17 +27,23 @@
     ~/.config/hypr:
       create: true
       path: hypr
+    ~/.config/sway:
+      create: true
+      path: sway
     ~/.config/waybar:
       create: true
       path: waybar
     ~/.local/bin/show-keybindings:
       path: bin/show-keybindings.sh
-    ~/.config/wofi:
+    ~/.config/rofi:
       create: true
-      path: wofi
+      path: rofi
     ~/.config/walker:
       create: true
       path: walker
     ~/.claude/agents:
       create: true
       path: claude/agents
+    ~/.config/zellij:
+      create: true
+      path: zellij

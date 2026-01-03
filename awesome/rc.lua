@@ -46,7 +46,7 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. 'pedburn/theme.lua')
 
 -- Application and key configuration
 local terminal = 'ghostty'
-local browser = 'firefox'
+local browser = 'google-chrome-stable'
 local editor = os.getenv 'EDITOR' or 'nano'
 local editor_cmd = terminal .. ' -e ' .. editor
 local modkey = 'Mod4'
